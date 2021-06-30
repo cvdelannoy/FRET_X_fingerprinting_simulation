@@ -1,0 +1,68 @@
+__location__ = "{{ __location__ }}"
+in_dir = "{{ in_dir }}"
+out_dir= "{{ out_dir }}"
+pdb_id_list = "{{ pdb_id_list }}"
+
+max_nb_models = {{ max_nb_models }}
+processes = {{ processes }}
+temp_min, temp_max = {{ temp_min }}, {{ temp_max }}
+iters_per_tempswap = {{ iters_per_tempswap }}
+mc_iters = {{ mc_iters }}
+nb_steps = {{ nb_steps }}
+lattice_type = "{{ lattice_type }}"
+nb_snapshots, snapshot_dist = {{ nb_snapshots }}, {{ snapshot_dist }}
+tagged_resn = "{{ tagged_resn }}"
+store_energies = {{ store_energies }}
+no_regularization = {{ no_regularization }}
+accomodate_tags = {{ accomodate_tags }}
+finetune_structure = {{ finetune_structure }}
+cm_pdb_str = "{{ cm_pdb_str }}"
+experimental_mode = {{ experimental_mode }}
+save_intermediate_structures = {{ save_intermediate_structures }}
+labeling_model = "{{ labeling_model }}"
+free_sampling = {{ free_sampling }}
+
+pdb_id_list = pdb_id_list.split(',')
+
+arg_string = (f"--temp-range {temp_min} {temp_max} "
+              f"--iters-per-tempswap {iters_per_tempswap} "
+              f"--mc-iters {mc_iters}  "
+              f"--nb-models 1 "
+              f"--out-dir {out_dir}  "
+              f"--nb-steps {nb_steps} "
+              f"--lattice-type {lattice_type} "
+              f"--snapshots {nb_snapshots} {snapshot_dist} "
+              f"--experimental-mode {experimental_mode} "
+              f"--labeling-model {labeling_model} "
+              )
+
+if len(tagged_resn):
+    arg_string += f'--tagged-resn {tagged_resn} '
+if store_energies:
+    arg_string += '--store-energies '
+if save_intermediate_structures:
+    arg_string += '--save-intermediate-structures '
+if finetune_structure:
+    arg_string += f'--finetune-structure --cm-pdb-dir  {cm_pdb_str} '
+if no_regularization:
+    arg_string += '--no-regularization '
+if accomodate_tags:
+    arg_string += '--accomodate-tags '
+if free_sampling:
+    arg_string += '--free-sampling '
+
+
+rule target:
+    input:
+        model = expand(f'{out_dir}{{ "{{pdb_id}}" }}/{{ "{{pdb_id}}" }}_{{ "{{mod_idx}}" }}.pdb', pdb_id=pdb_id_list, mod_idx=range(max_nb_models))
+
+rule generate_models:
+    input:
+        in_npz=f'{in_dir}{{ "{{pdb_id}}" }}.npz'
+    output:
+        out_pdb=f'{out_dir}{{ "{{pdb_id}}" }}/{{ "{{pdb_id}}" }}_{{ "{{mod_idx,[^_]+}}" }}.pdb'
+    threads: {{ processes }}
+    shell:
+        """
+        python {__location__}/generate_lattice_models.py --in-dir {input.in_npz} --start-idx {wildcards.mod_idx} --nb-processes {threads} {arg_string} >> {out_dir}/{wildcards.pdb_id}_{wildcards.mod_idx}.log
+        """

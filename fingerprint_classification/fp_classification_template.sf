@@ -1,0 +1,74 @@
+import numpy as np
+
+__location__ = "{{ __location__ }}"
+res_csv_list = {{ res_csv_list }}
+res_csv_list_best_resolution = {{ res_csv_list_best_resolution }}
+resolutions = {{ resolutions }}
+indir_base = "{{ indir_base }}"
+original_dir = "{{ original_dir }}"
+out_dir = "{{ out_dir }}"
+
+fp_dir = "{{ fp_dir }}"
+res_dir = "{{ res_dir }}"
+cls_dir = "{{ cls_dir }}"
+define_good = {{ define_good }}
+
+rule target:
+    input:
+        nbtags_svg=f'{out_dir}acc_vs_nbtags.svg',
+        res_svg=f'{out_dir}acc_vs_resolution.svg'
+
+rule plot_acc_vs_nbtags:
+    input:
+         res_csv=res_csv_list_best_resolution
+    output:
+          out_svg=f'{out_dir}acc_vs_nbtags.svg'
+    shell:
+         """
+python {__location__}/plot_classification_rf.py --result-csv {input.res_csv} --out-svg {output.out_svg} --define-good {define_good}
+         """
+
+rule plot_acc_vs_res:
+    input:
+        res_csv=res_csv_list
+    output:
+        out_svg=f'{out_dir}acc_vs_resolution.svg'
+    shell:
+        """
+python {__location__}/plot_classification_rf_res.py --result-csv {res_dir}* --out-svg {output.out_svg}
+        """
+
+rule classify_fingerprints_rf:
+    input:
+        rf_pkl=f'{cls_dir}tag{{ "{{resn}}" }}_labmodPerfect_res{{ "{{resolution}}" }}_{{ "{{fold}}" }}.pkl',
+        fp_pkl=f'{fp_dir}tag{{ "{{resn}}" }}_labmod{{ "{{labmod}}" }}_res{{ "{{resolution}}" }}.pkl'
+    output:
+        res_csv=f'{res_dir}tag{{ "{{resn}}" }}_labmod{{ "{{labmod}}" }}_res{{ "{{resolution}}" }}_{{ "{{fold}}" }}.csv'
+    shell:
+        """
+python {__location__}/{{ classify_cmd }} --leave-out-fold {wildcards.fold} --tagged-resn {wildcards.resn} --fp-pkl {input.fp_pkl} --rf-pkl {input.rf_pkl} --out-csv {output.res_csv} 
+        """
+
+
+rule get_rf_classifier:
+    input:
+        fp_pkl=f'{fp_dir}tag{{ "{{resn}}" }}_labmodPerfect_res{{ "{{resolution}}" }}.pkl'
+    output:
+        rf_pkl=f'{cls_dir}tag{{ "{{resn}}" }}_labmodPerfect_res{{ "{{resolution}}" }}_{{ "{{fold}}" }}.pkl',
+    shell:
+        """
+python {__location__}/{{ train_cmd }} --leave-out-fold {wildcards.fold} --tagged-resn {wildcards.resn} --fp-pkl {input.fp_pkl} --out-pkl {output.rf_pkl}
+        """
+
+
+
+rule parse_fingerprints:
+    input:
+         in_dir=f'{indir_base}/tag{{ "{{resn}}" }}_labmod{{ "{{labmod}}" }}/',
+         original_dir=original_dir
+    output:
+          fp_pkl=f'{fp_dir}tag{{ "{{resn}}" }}_labmod{{ "{{labmod}}" }}_res{{ "{{resolution}}" }}.pkl'
+    shell:
+         """
+python {__location__}/parse_fingerprints.py --in-dir {input.in_dir} --efret-resolution {wildcards.resolution} --original-dir {input.original_dir} --tagged-resn {wildcards.resn} --out-pkl {output.fp_pkl}
+         """

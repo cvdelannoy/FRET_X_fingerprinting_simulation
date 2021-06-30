@@ -1,0 +1,11 @@
+# labeling rates for each amino acid-specific labeling chemistry
+K:
+  K: 1.00
+C:
+  C: 1.00
+M:
+  M: 1.00
+Y:
+  Y: 1.00
+T:
+  T: 1.00

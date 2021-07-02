@@ -60,6 +60,7 @@ def get_rotated_poses(coords):
         out_list.append(coords_rot.copy())
     return out_list
 
+
 def get_mirror_poses(coords):
     """
     Counts on mirroring in axes!
@@ -98,39 +99,6 @@ def put_sheet_on_lattice(sheet_df):
     coord_array = np.vstack(coord_list)
     return idx_list, coord_array
 
-# helix_type_mod_dict = {
-#     1: [np.array([[1, 1, 0],
-#                   [0, 1, 1],
-#                   [-1, 0, 0],
-#                   [0, 0, -1]]),
-#         np.array([[1, 1, 0],
-#                   [0, 0, 1],
-#                   [-1, 1, 0],
-#                   [0, 0, -1]]),
-#         np.array([[1, 1, 0],
-#                   [0, 0, 1],
-#                   [-1, 0, 0],
-#                   [0, 1, -1]]),
-#         np.array([[1, 0, 0],
-#                   [0, 1, 1],
-#                   [-1, 0, 0],
-#                   [0, 1, -1]]),
-#         np.array([[1, 0, 0],
-#                   [0, 0, 1],
-#                   [-1, 1, 0],
-#                   [0, 1, -1]]),
-#         ],
-#     5: [np.array([[1, 0, 0],
-#                  [-1, 0, 1],
-#                  [0, 1, -1]]),
-#         np.array([[1, 0, 1],
-#                   [-1, 0, 0],
-#                   [0, 1, -1]]),
-#         np.array([[1, 0, 1],
-#                   [-1, 1, 0],
-#                   [0, 0, -1]]),
-#         ]
-# }
 
 helix_type_mod_dict = {
     1: [np.array([[1, 1, 1],
@@ -169,29 +137,6 @@ helix_type_mod_dict = {
         ]
 }
 
-
-
-# helix_type_mod_dict = {
-#     1: [np.array([[1, 1, 1],
-#                  [1, -1, 1],
-#                  [-1, -1, 1],
-#                  [-1, 1, 1]])],
-#     5: [np.array([[1, 1, 1],
-#                  [1, -1, 1],
-#                  [-1, -1, 1],
-#                  [-1, 1, 1]])],
-    # 5: [np.array([[1, 0, 0],
-    #              [-1, 0, 1],
-    #              [0, 1, -1]]),
-    #     np.array([[1, 0, 1],
-    #               [-1, 0, 0],
-    #               [0, 1, -1]]),
-    #     np.array([[1, 0, 1],
-    #               [-1, 1, 0],
-    #               [0, 0, -1]]),
-    #     ]
-# }
-
 bcc_neighbor_mods = np.array([[1, 1, 1],
                               [-1, 1, 1],
                               [1, -1, 1],
@@ -203,7 +148,6 @@ bcc_neighbor_mods = np.array([[1, 1, 1],
                               ])
 
 def put_helix_on_lattice(tup):
-    # todo: arteficially shortening helix REMOVE AFTERWARDS
     tup.resi_start = tup.resi_start + 1
     tup.resi_end = tup.resi_end - 1
     tup.length = tup.length - 2
@@ -215,10 +159,10 @@ def put_helix_on_lattice(tup):
         coords = np.zeros((tup.length, 3))
         for i in range(tup.length - 1):
             coords[i + 1, :3] = coords[i, :3] + mod[i % nb_steps, :]
-        # coords_mirrored = get_rotated_poses(coords)
         coords_mirrored = get_mirror_poses(coords)
         coord_list.extend(coords_mirrored)
     return np.arange(tup.resi_start, tup.resi_end + 1), coord_list
+
 
 def pick_best_pose(poses, first_lat_coord, ss_real_coords):
     best_pose = (None, np.inf)
@@ -230,22 +174,11 @@ def pick_best_pose(poses, first_lat_coord, ss_real_coords):
             best_pose = (pose, sum_norm_diff)
     return best_pose[0]
 
+
 def get_all_neighbors(c):
     neighbors_out = bcc_neighbor_mods.copy()
     neighbors_out[:, :3] += c[:3]
     return neighbors_out
-
-# def get_all_neighbors(c):
-#     """
-#     Gather diagonal and non-diagonal neighbors and concatenate for convenience
-#     :param c:
-#     :return:
-#     """
-#     neighbors = get_neighbors(c).astype(int)
-#     diag_neighbors = get_diagonal_neighbors(c).astype(int)
-#     neighbors = np.vstack((neighbors, diag_neighbors))
-#     return neighbors
-
 
 
 atm_names_bb = ['N', 'H', 'CA', 'HA', 'C', 'O']
@@ -271,7 +204,6 @@ pdb_lat_dir = parse_output_dir(out_dir + 'pdb_lat')
 for pdb_fn in pdb_list:
     try:
         pdb_id = os.path.splitext(os.path.basename(pdb_fn))[0]
-        # out_dir_cur = parse_output_dir(f'{out_dir}{pdb_id}')
 
         # 1. load structure
         p = PDBParser()
@@ -306,9 +238,6 @@ for pdb_fn in pdb_list:
             if 'CA' not in atm_names_cur: continue  # ensure that at least the CA is present
             for atm_name, atm in zip(atm_names_cur, atm_list):
                 if atm_name in atm_names_bb: atms_bb.append(atm)
-                    # ca_array[ri, :3] = atm.get_coord()
-                # elif np.any(np.in1d(list(atm.get_name()), atm_names_res)) \
-                #         or res.resname == 'GLY' and atm.get_name() == '2HA': atms_res.append(atm)  # basically a placeholder
                 if ri == 0 and atm.get_name() == 'N':
                     n_coord = atm.get_coord()
             ca_array[cidx] = get_cm(atms_bb)
@@ -367,36 +296,6 @@ for pdb_fn in pdb_list:
                 ca_array_lat[res_idx_list, :] = best_pose
                 preset_idx.extend(res_idx_list)
 
-        # # perform several passes over sheet structures to maximize number of contacts
-        # for _ in range(20):
-        #     for sheet_id, sdf in sheet_df.groupby('sheet_id'):
-        #         strand_indices = [mi[0] for mi in sdf.index]
-        #         lower_indices, higher_indices = strand_indices[:len(strand_indices) // 2][::-1], strand_indices[len(strand_indices) // 2:]
-        #         all_indices = [(ind, 1) for ind in lower_indices] + [(ind, -1) for ind in higher_indices]
-        #         for ind, lh in all_indices:
-        #             cur_idx_list = np.arange(resi2idx_dict[sdf.loc[(ind, sheet_id)].resi_start],
-        #                                      resi2idx_dict[sdf.loc[(ind, sheet_id)].resi_end])
-        #             cur_tup = sdf.loc[(ind, sheet_id)]
-        #             adjacent_tup = sdf.loc[(ind+lh, sheet_id)]
-        #             adjacent_idx_list = np.arange(resi2idx_dict[adjacent_tup.resi_start],
-        #                                           resi2idx_dict[adjacent_tup.resi_end])
-        #             adjacent_strand_coords = ca_array_lat[adjacent_idx_list, :]
-        #
-        #             # gather neighbor coords of adjacent strand
-        #             adj_neighbors = np.vstack([get_all_neighbors(ca_array_lat[c, :]) for c in adjacent_idx_list])
-        #             adj_neighbors = adj_neighbors[np.invert(inNd(adj_neighbors[:, :3], ca_array_lat[:, :3])), :]
-        #             for idx in cur_idx_list:
-        #                 # Get all candidates adjacent to adjacent residues
-        #                 prev_adj = get_all_neighbors(ca_array_lat[idx - 1, :])
-        #                 next_adj = get_all_neighbors(ca_array_lat[idx + 1, :])
-        #                 candidate_coords = prev_adj[inNd(prev_adj[:, :3], next_adj[:,:3]), :]
-        #
-        #                 # eliminate occupied coords and pick closest to adjacent strand
-        #                 candidate_coords = candidate_coords[np.invert(inNd(candidate_coords[:, :3], ca_array_lat[:, :3])), :]
-        #                 candidate_coords = np.vstack((candidate_coords, ca_array_lat[[idx], :]))
-        #                 candidate_dists = [np.min(np.linalg.norm(adjacent_strand_coords - cc, axis=1)) for cc in candidate_coords]
-        #                 ca_array_lat[idx, :] = candidate_coords[np.argmin(candidate_dists), :]
-
         # Attempt to correct any overlapping coordinates
         unique_rows, counts = np.unique(ca_array_lat, return_counts=True, axis=0)
         for ri, cnt in enumerate(counts):
@@ -438,9 +337,6 @@ for pdb_fn in pdb_list:
                  secondary_structure=ss_df,
                  )
 
-        # iterate over CB coords, connect to CA
-        # put_cb_on_lattice(cb_array, cb_mod_array, ca_array, ca_array_lat, resname_list, n_coord, n1_dist_unit)
-
         # put first N on lattice
         neighbors_unit = get_neighbors(ca_array_lat[0, :]).astype(int)
         neighbors = neighbors_unit * n1_dist_unit
@@ -458,9 +354,7 @@ for pdb_fn in pdb_list:
                                first_n=n_coord_lat)
 
         # Save
-        # np.savez(f'{out_dir}{pdb_id}.npz', coords=ca_array_lat, aa_sequence=np.array([aa_dict_31[aa] for aa in resname_list]))
         with open(f'{pdb_lat_dir}{pdb_id}_lat.pdb', 'w') as fh:
             fh.write(pdb_txt)
     except Exception as e:
         print(f'Conversion failed for {pdb_id}: {e}')
-        # raise

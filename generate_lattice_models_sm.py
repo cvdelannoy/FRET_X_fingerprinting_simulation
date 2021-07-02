@@ -24,7 +24,7 @@ parser = argparse.ArgumentParser(description='Generate cubic lattice models for 
 parser.add_argument('--in-dir', type=str, nargs='+',
                     help='entity/fasta file or directory containing entity/fasta files of which to generate models')
 # --- model parameters ---
-parser.add_argument('--temp-range', type=float, nargs=2, default=[0.001, 0.1],
+parser.add_argument('--temp-range', type=float, nargs=2, default=[0.01, 0.001],
                     help='Use a range of equally spaced temperatures between given values in a parallel tempering search.')
 parser.add_argument('--tagged-resn', type=str, default=['None'], nargs='+',
                     help='Define residue(s) with 1-letter-code that should be replaced with a very hydrophillic tag.'
@@ -35,28 +35,21 @@ parser.add_argument('--cm-pdb-dir', type=str, default=[], nargs='+',
                     help='center-of-mass pdbs directory, for finetuning of starting structures. Necessary if --finetune-structure is on')
 parser.add_argument('--finetune-structure', action='store_true',
                     help='Minimize lattice model RMSD w.r.t. center-of-mass structure provided through cm-pdb-dir by the same ID')
-# parser.add_argument('--pairs-mat', type=str, default=f'{__location__}/potential_matrices/aa_water2_abeln2011.txt',
-#                     help='Matrix with pair potentials for interactions between residues and residues vs solvents.')
 parser.add_argument('--labeling-model', type=str, default='perfect',
                     help='Yaml file containing labeling probability for each residue, for each labeling chemistry '
                          '(no value == no labeling). Supply "standard" for regular model or "perfect" for '
                          'no mislabeling or path to yaml [default: perfect].')
-#
-# # --- lattice properties ---
-parser.add_argument('--lattice-type', type=str, default='cubic', choices=['cubic', 'bcc', 'bcc_rmsd', 'bcc_onlySS', 'bcc_old'],
-                    help='Set type of lattice to use. Choices: cubic, bcc [ default: cubic]')
-# parser.add_argument('--starting-structure', type=str,
-#                     choices=['free_random', 'anchored_random', 'stretched', 'serrated'], default='stretched',
-#                     help='Choose how to initialize structure [default: stretched]')
-#
-# # --- model iterations parameters ---
+# --- lattice properties ---
+parser.add_argument('--lattice-type', type=str, default='bcc', choices=['cubic', 'bcc'],
+                    help='Set type of lattice to use. Choices: cubic, bcc [ default: bcc]')
+# --- model iterations parameters ---
 parser.add_argument('--nb-steps', type=int, default=1,
                     help='number of mutations to perform at each MC iteration.')
-parser.add_argument('--iters-per-tempswap', default=1000, type=int,
+parser.add_argument('--iters-per-tempswap', default=100, type=int,
                     help='If using parallel tempering, define per how many rounds a temperature swap should be performed')
-parser.add_argument('--mc-iters', type=int, default=1000,
+parser.add_argument('--mc-iters', type=int, default=500,
                     help='number Monte Carlo iterations to perform for each model.')
-parser.add_argument('--nb-models', type=int, default=5,
+parser.add_argument('--nb-models', type=int, default=10,
                     help='number of models to create per AA sequence.')
 parser.add_argument('--nb-processes', type=int, default=4,
                     help='Define how many processes to engage at once in parallel tempering.')
@@ -68,18 +61,9 @@ parser.add_argument('--max-accomodate-rounds', type=int, default=5,
                     help='If accomodating tags, number of rounds to run before re-initiating.')
 parser.add_argument('--free-sampling', action='store_true',
                     help='Do not optimize structure during snapshot generation, accept all')
-# parser.add_argument('--early-stopping-rounds', type=int, default=100,
-#                     help='Number of consecutive temperature swap rounds without improvement in energy'
-#                          'before training is stopped. Supply -1 to disable early stopping.')
-# parser.add_argument('--restart', action='store_true',
-#                     help='Restart previous run; if folder with structures carrying same id exists, start with'
-#                          'next model index. If not, start with 0.')
-
 # --- Result saving options ---
 parser.add_argument('--out-dir', type=str, required=True,
                     help='Location where model pdb files are stored.')
-# parser.add_argument('--store-rg', type=str, choices=['off', 'tswap', 'full'], default='tswap', required=False,
-#                     help='Store the estimated radius of gyration at each training step in the produced pdb.')
 parser.add_argument('--snapshots', nargs=2, type=int, default=[0,0],
                     help='If given [n,s], saves n snapshots with s steps in between after convergence/end of run.')
 parser.add_argument('--save-intermediate-structures', action='store_true',
@@ -88,10 +72,6 @@ parser.add_argument('--store-energies', action='store_true',
                     help='Store base energy and individual contributions to energy in tsv file')
 parser.add_argument('--max-cores', type=int, default=4)
 parser.add_argument('--dry-run', action='store_true')
-
-# --- Temporary debugging options ---
-# parser.add_argument('--equidist-temps', action='store_true',
-#                     help='Temperatures equidistance spaced in T range (i.o. beta range).')
 
 args = parser.parse_args()
 

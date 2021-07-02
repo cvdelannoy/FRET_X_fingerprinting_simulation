@@ -27,11 +27,11 @@ parser.add_argument('--in-dirs', required=True, nargs='+',
                     help='Input directories. Must be named as tagXX_labmodY (e.g. tagC_labmodPerfect,'
                          'or tagCK_labmodRegular)')
 parser.add_argument('--cores', type=int, default=4)
-parser.add_argument('--classifier', type=str, choices=['random_forest', 'boosted_tree', 'cross_correlation', 'cctree', 'cccombo', 'knn', 'svm'], default='random_forest',
-                   help='Define type of classifier, may choose from random_forest, boosted_tree, cross_correlation, cctree, cccombo [default: random_forest]')
+parser.add_argument('--classifier', type=str, choices=['random_forest', 'boosted_tree', 'cross_correlation', 'cctree', 'cccombo', 'knn', 'svm'], default='svm',
+                   help='Define type of classifier, may choose from random_forest, boosted_tree, cross_correlation, cctree, cccombo [default: svm]')
 parser.add_argument('--original-dir', required=True,
                     help='dir containing original npz files used in constructing lattice models')
-parser.add_argument('--max-folds', type=int, default=5)
+parser.add_argument('--max-folds', type=int, default=10)
 parser.add_argument(' --define-good', type=float, default=0.5)
 parser.add_argument('--out-dir', required=True, type=str,
                     help='output directory')

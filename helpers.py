@@ -325,8 +325,7 @@ aa_mass_dict = {  # todo: where did I get these?? Does not quite match other sou
     'Y': 163.17326
 }
 
-cm_dist_df = pd.read_pickle(f'{__location__}/data/aa_pairwise_dist_df.pkl')
-
+# cm_dist_df = pd.read_pickle(f'{__location__}/data/aa_pairwise_dist_df.pkl')
 
 rotmat_dict = {
     1: np.array([[1,0,0],[0,0,-1],[0,1,0]]),

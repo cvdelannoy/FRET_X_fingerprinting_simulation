@@ -8,13 +8,13 @@ Protein Fingerprinting"](https://www.biorxiv.org/content/10.1101/2021.06.30.4505
 Commands assume you start in the root directory of this repository.
 
 Code has been run on Ubuntu 18.04/20.04, with miniconda3. First install the conda environment:
-```
+```shell
 conda env create -f env.yaml
 ```
 
 1. The simulation routine reads out lattice starting structures from customary `npz` files. To convert fully-atomistic 
 structures in pdb-format to `npz` files, run:
-```
+```shell
 python tools/pdb2lattice.py --in-dir dir/containing/pdb_files  \  # <-- change directory
                             --out-dir npz/output/directory \     # <-- change directory
                             --cm-type ca
@@ -22,7 +22,7 @@ python tools/pdb2lattice.py --in-dir dir/containing/pdb_files  \  # <-- change d
 
 2. To label the N-terminus and any given combination of residue types - for example, cysteine (C), lysine (K) and 
 both (CK) - we need to attach DNA-tags and optimize the altered lattice model: 
-```
+```shell
 python generate_lattice_models_sm.py --in-dir npz/output/directory  \     # <-- change directory
                                      --out-dir models/output/directory  \ # <-- change directory
                                      --tagged-resn C K CK  \
@@ -42,13 +42,13 @@ all DNA-tags.
 for error rates as used in our paper.
 
 3. Collect pdb-files of completed models:
-```
+```shell
 python tools/collect_completed_runs.py \
             --in-dirs models/output/directory/tagC \     # <-- change directory
                       models/output/directory/tagK \
                       models/output/directory/tagCK \
-            --out-dir collected_models/output/directory  # <-- change directory
-            --success-txt success_models.txt             
+            --out-dir collected_models/output/directory \  # <-- change directory
+            --success-txt success_models.txt \             
             --max-fold 10
 ```
 As it is possible that models sometimes fail to optimize far enough to include all DNA-tags, this step ensures 
@@ -59,7 +59,7 @@ that only proteins for which a certain minimum number of models (controlled by `
 on them in a cross-validation scheme. To use the fingerprint classification routine, manually rename the directories
 of collected models to include the labeling model, as follows: `tagXXX_labmodX`, 
 for example: `tagCK_labmodPerfect`. Then run the classification and evaluation pipeline as follows:
-```
+```shell
 python fingerprint_classification/run_fp_classification_pipeline.py \
                 --in-dirs tagX_labmodX tagY_labmodX tagZ_labmodX \   # <-- change directories
                 --cores 24 \                                         # <-- adapt to your machine
@@ -69,10 +69,48 @@ python fingerprint_classification/run_fp_classification_pipeline.py \
 Figures illustrating the performance of the SVM classifier on your fingerprints can now be found in the specified 
 directory.
 
+After classification fingerprints may also be graphed:
+```shell
+python fingerprint_classification/graph_fingerprints.py
+                --
+
+```
+
 ### Recreating paper figures
 To recreate fingerprints of 40-residue model peptides, BCL-like 2 isoforms and PTGS1 isoforms, follow the above 
-procedure using the respective `npz` files in `data/`. Note that for these fingerprints ~200 molecules were 
-simulated (which is easy since structures were generally small).
+procedure using the respective `npz` files in `data/`. E.g. to reproduce the PTGS1 fingerprints, from the repo's root 
+directory, first construct lattice models and collect the produced PDB files:
+
+```shell
+python generate_lattice_models_sm.py --in-dir data/PTGS1_isoforms_npz/  \    
+                                     --out-dir data/PTGS1_isoforms_lat/  \ 
+                                     --tagged-resn C CK \
+                                     --labeling-model perfect \
+                                     --nb-processes 2 \
+                                     --max-cores 24                       # <-- adapt to your machine
+
+python tools/collect_completed_runs.py \
+            --in-dirs data/PTGS1_isoforms_lat/tagC \
+                      data/PTGS1_isoforms_lat/tagCK \
+            --out-dir data/PTGS1_isoforms_fps \
+            --success-txt data/PTGS1_isoforms_success_models.txt \             
+            --max-fold 10
+
+```
+
+Then parse the fingerprints from the PDB files and graph them:
+```
+python fingerprint_classification/parse_fingerprints.py \
+            --in-dir \
+            --original-dir \
+            --tagged-resn C K \
+            --efret-resolution 1 \
+            --out-pkl data/PTGS1_isoforms_fps_res1.pkl
+
+python fingerprint_classification/graph_mass_fingerprints.py \
+            --fp-pkl data/PTGS1_isoforms_fps_res1.pkl \
+            --out-svg data/PTGGS1_fingerprints.svg
+```
 
 To recreate the figures on >300 UniProt proteins in our paper, first download the additional data (~6GB):
 ```

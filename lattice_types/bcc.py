@@ -697,30 +697,30 @@ class Lattice(LatticeModel):
             return 0.0
         return sqrt(rg2)
 
-    @property
-    def rg_old(self):
-        coord_mods = ((self.coords[1:, :3] - self.coords[:-1, :3]) / 2).astype(int)
-        cm_list = np.split(coord_mods, axis=0, indices_or_sections=coord_mods.shape[0])
-        cm_coords = np.zeros_like(self.coords, dtype=float)
-        cm_coords[0] = self.coords[0]
-        for cmi, cm in enumerate(cm_list):
-            aa1 = nhp.aa_dict.get(self.aa_sequence[cmi], self.aa_sequence[cmi])
-            aa2 = nhp.aa_dict.get(self.aa_sequence[cmi + 1], self.aa_sequence[cmi + 1])
-            if aa1 == 'TAG' or aa2 == 'TAG':
-                d = self.ca_dist
-            else:
-                d = nhp.cm_dist_df.loc[aa1, aa2]
-            cm_coords[cmi + 1, :] = cm_coords[cmi, :] + cm * sqrt((0.5 * d) ** 2 / 3)
-        # cm_coords = self.coords[:, :3] * self.cm_dist  # note: commented, because unit coords are multiplied by modifiers above!
-        res_mass = np.expand_dims([nhp.aa_mass_dict.get(rn, 0) for rn in self.aa_sequence], -1)
-        cm = cm_coords * res_mass
-        tmass = np.sum(res_mass)
-        rr = np.sum(cm * cm_coords)
-        mm = np.sum(np.power(np.sum(cm, axis=0) / tmass, 2))
-        rg2 = rr / tmass - mm
-        if rg2 < 0:
-            return 0.0
-        return sqrt(rg2)
+    # @property
+    # def rg_old(self):
+    #     coord_mods = ((self.coords[1:, :3] - self.coords[:-1, :3]) / 2).astype(int)
+    #     cm_list = np.split(coord_mods, axis=0, indices_or_sections=coord_mods.shape[0])
+    #     cm_coords = np.zeros_like(self.coords, dtype=float)
+    #     cm_coords[0] = self.coords[0]
+    #     for cmi, cm in enumerate(cm_list):
+    #         aa1 = nhp.aa_dict.get(self.aa_sequence[cmi], self.aa_sequence[cmi])
+    #         aa2 = nhp.aa_dict.get(self.aa_sequence[cmi + 1], self.aa_sequence[cmi + 1])
+    #         if aa1 == 'TAG' or aa2 == 'TAG':
+    #             d = self.ca_dist
+    #         else:
+    #             d = nhp.cm_dist_df.loc[aa1, aa2]
+    #         cm_coords[cmi + 1, :] = cm_coords[cmi, :] + cm * sqrt((0.5 * d) ** 2 / 3)
+    #     # cm_coords = self.coords[:, :3] * self.cm_dist  # note: commented, because unit coords are multiplied by modifiers above!
+    #     res_mass = np.expand_dims([nhp.aa_mass_dict.get(rn, 0) for rn in self.aa_sequence], -1)
+    #     cm = cm_coords * res_mass
+    #     tmass = np.sum(res_mass)
+    #     rr = np.sum(cm * cm_coords)
+    #     mm = np.sum(np.power(np.sum(cm, axis=0) / tmass, 2))
+    #     rg2 = rr / tmass - mm
+    #     if rg2 < 0:
+    #         return 0.0
+    #     return sqrt(rg2)
 
     @property
     def coords(self):

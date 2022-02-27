@@ -100,7 +100,7 @@ class Lattice(LatticeModel):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.pdb_id = kwargs.get('pdb_id', 'unknown')
-        self.experimental_mode = kwargs['experimental_mode']
+        self.experimental_mode = kwargs.get('experimental_mode', 0)
         self.no_regularization = kwargs.get('no_regularization', False)
         self.ca_dist = 3.8  # actual CA distance
         self.lat_dist = sqrt((0.5 * self.ca_dist) ** 2 / 3)  # distance of lattice edge
@@ -669,7 +669,7 @@ class Lattice(LatticeModel):
                                   e_ss_array,
                                   np.zeros(self.seq_length)
                                   ))
-            return e_out, 0, 0, e_tag
+            return e_out, 0, 0, e_tag, 0
 
         e_out = np.row_stack((e_aa_array, e_ss_array, tag_array))
 

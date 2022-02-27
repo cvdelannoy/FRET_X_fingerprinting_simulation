@@ -1,5 +1,5 @@
 import numpy as np
-import os, sys, argparse
+import os, sys, argparse, traceback
 from Bio.PDB import PDBParser
 import pandas as pd
 import itertools
@@ -166,15 +166,15 @@ parser = argparse.ArgumentParser(description='Translate fully atomistic pdb stru
                                              'CB and N1 represented.')
 parser.add_argument('--in-dir', type=str, required=True)
 parser.add_argument('--out-dir', type=str, required=True)
-parser.add_argument('--cm-type', choices=['ca', 'bb_cm'], default='bb_cm')
+parser.add_argument('--cm-type', choices=['ca', 'bb_cm'], default='ca')
 parser.add_argument('--ss3', type=str,
                     help='Use ss3.txt file for secondary structure instead of HELIX and SHEET cards in pdb.')
 parser.add_argument('--acc-tagged-resi', type=int, default=0,
                     help='Define index of residue to which acceptor docker strand should be attached, -1 for C-terminus [default: 0]')
 parser.add_argument('--refinement-rounds', type=int, nargs=2, default=[1000, 1000],
-                    help='Refine structure in two rounds of RMSD-minimization on lattice [default: 3000 3000]')
+                    help='Refine structure in two rounds of RMSD-minimization on lattice [default: 1000 1000]')
 parser.add_argument('--disordered-terminal', type=str, required=False,
-                    help='Introduce disorder from a given resi, model as random walk. Must be formatted as ' \
+                    help='Introduce disorder from a given resi, model as random walk. Must be formatted as '
                          '[0-9]+: or :[0-9]+ [default: None].')
 
 args = parser.parse_args()
@@ -187,6 +187,9 @@ out_dir = parse_output_dir(args.out_dir, clean=False)
 npz_dir = parse_output_dir(out_dir + 'npz')
 cm_dir = parse_output_dir(out_dir + 'cm')
 pdb_lat_dir = parse_output_dir(out_dir + 'pdb_lat')
+
+error_log = out_dir + 'errors.log'
+with open(error_log, 'w') as fh: fh.write('id\terror_message\n')
 
 for pdb_fn in pdb_list:
     try:
@@ -403,4 +406,6 @@ for pdb_fn in pdb_list:
         with open(f'{pdb_lat_dir}{pdb_id}_lat.pdb', 'w') as fh:
             fh.write(pdb_txt)
     except Exception as e:
-        print(f'Conversion failed for {pdb_id}: {e}')
+        print(f'Conversion failed for {pdb_id}: line {e.__traceback__.tb_lineno}, {e}')
+        traceback.print_exc()
+        with open(error_log, 'a') as fh: fh.write(f'{pdb_id}\t{e}\n')

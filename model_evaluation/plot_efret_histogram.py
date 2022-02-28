@@ -84,7 +84,6 @@ for pdb_fn in pdb_list:
     if args.event_duration == -1:
         nb_events, event_duration = 1, len(energy_fp)
     else:
-        print(len(energy_fp))
         nb_events, event_duration = min(args.max_events, len(energy_fp) // args.event_duration), args.event_duration
 
     summary_dict = {resn: [] for resn in args.tagged_resn}

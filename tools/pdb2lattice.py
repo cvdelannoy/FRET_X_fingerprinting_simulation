@@ -49,7 +49,7 @@ def parse_sheet_info(sheet_txt_list):
     """
     sheet_df = pd.DataFrame(
         columns=['resi_start', 'resi_end', 'orientation', 'resi_hb_cur', 'resi_hb_prev'],
-    index=pd.MultiIndex(levels=[[], []], codes=[[], []], names=['strand_id', 'sheet_id']))
+        index=pd.MultiIndex(levels=[[], []], codes=[[], []], names=['strand_id', 'sheet_id']))
     for line in sheet_txt_list:
         ll = line.split()
         if ll[1] == '1':
@@ -159,7 +159,23 @@ def parse_ss3_file(ss_fn):
             helix_indices = []
 
     ss_df = np.log(1 / ss_df - 1)
-    return ss_df
+
+    # construct helix_df
+    helix_list = []
+    helix_bool = False
+    helix_start = None
+    for si, s in enumerate(ss):
+        if s == 'H' and not helix_bool:
+            helix_start, helix_bool = si, True
+        if s != 'H' and helix_bool:
+            helix_length = si - helix_start
+            if helix_length >= 5:
+                helix_list.append(pd.Series({'resi_start': helix_start, 'resi_end': si - 1,
+                                             'type': 1, 'length': helix_length}))
+            helix_bool = False
+    helix_df = pd.concat(helix_list, axis=1).T
+
+    return ss_df, helix_df
 
 
 parser = argparse.ArgumentParser(description='Translate fully atomistic pdb structures into lattice models with only CA,'
@@ -254,15 +270,31 @@ for pdb_fn in pdb_list:
         ca_array = ca_array / ca_dist  # normalize to CA distance (lattice unit distances)
         n_coord = (n_coord - transl_zero) / ca_dist
 
-        # pre-arrange beta sheets on lattice
+        # Get secondary structure data
         sheet_df = parse_sheet_info(sheet_txt_list)
+        helix_df = parse_helix_info(helix_txt_list)
+        if args.ss3:
+            ss_df, helix_df = parse_ss3_file(args.ss3)
+
+        else:
+            ss_df = pd.DataFrame(np.tile([0.05, 0.05, 0.90], (nb_res, 1)), columns=['H', 'S', 'L'],
+                                 index=np.arange(nb_res))
+            for _, tup in helix_df.iterrows():
+                if tup.resi_end - tup.resi_start < 4: continue
+                ah_idx = np.arange(resi2idx_dict[tup.resi_start], resi2idx_dict[tup.resi_end] - 3)
+                ss_df.loc[ah_idx, :] = [0.90, 0.05, 0.05]
+            for _, tup in sheet_df.iterrows():
+                sh_idx = np.arange(resi2idx_dict[tup.resi_start], resi2idx_dict[tup.resi_end] + 1)
+                ss_df.loc[sh_idx, :] = [0.05, 0.90, 0.05]
+            ss_df = np.log(1 / ss_df - 1)
+
+        # pre-arrange beta sheets on lattice
         sheet_dict = {}
         for sheet_id, sdf in sheet_df.groupby('sheet_id'):
             res_idx_list, sheet_coords = put_sheet_on_lattice(sdf)
             sheet_dict[np.min(res_idx_list)] = (res_idx_list, sheet_coords)
 
         # pre-arrange alpha helices on lattice
-        helix_df = parse_helix_info(helix_txt_list)
         helix_dict = {}
         for helix_id, tup in helix_df.iterrows():
             res_idx_list, helix_coords = put_helix_on_lattice(tup)
@@ -317,19 +349,7 @@ for pdb_fn in pdb_list:
 
         ca_array_lat = ca_array_lat * 2  # double, as only even coords are valid
 
-        # Get secondary structure df
-        if args.ss3:
-            ss_df = parse_ss3_file(args.ss3)
-        else:
-            ss_df = pd.DataFrame(np.tile([0.05, 0.05, 0.90], (nb_res, 1)), columns=['H', 'S', 'L'], index=np.arange(nb_res))
-            for _, tup in helix_df.iterrows():
-                if tup.resi_end - tup.resi_start < 4: continue
-                ah_idx = np.arange(resi2idx_dict[tup.resi_start], resi2idx_dict[tup.resi_end] - 3)
-                ss_df.loc[ah_idx, :] = [0.90, 0.05, 0.05]
-            for _, tup in sheet_df.iterrows():
-                sh_idx = np.arange(resi2idx_dict[tup.resi_start], resi2idx_dict[tup.resi_end] + 1)
-                ss_df.loc[sh_idx, :] = [0.05, 0.90, 0.05]
-            ss_df = np.log(1 / ss_df - 1)
+
 
         # Refine structure
         aa_seq = np.array([aa_dict_31[aa] for aa in resname_list])

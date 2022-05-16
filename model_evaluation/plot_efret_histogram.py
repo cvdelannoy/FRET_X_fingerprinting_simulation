@@ -22,11 +22,13 @@ def str2list(line, id_str):
     return np.array(ast.literal_eval(line.replace(id_str, '')))
 
 def plot_histogram(summary_dict, fn):
+    out_list = []
     bins = np.arange(0, 1.01, 0.01)
     nb_tagged_resn = len(summary_dict)
     fig, ax = plt.subplots(nb_tagged_resn, 1, figsize=[8.25, 2.91 * nb_tagged_resn])
     if not type(ax) == np.ndarray: ax = [ax]
     for ri, resn in enumerate(summary_dict):
+        out_list.append(summary_dict[resn])
         ax[ri].hist(summary_dict[resn], bins=bins, color=color_dict[resn])
         ax[ri].set_xticks([0.25,0.5,0.75,1.0])
         ax[ri].set_xlim([0, 1])
@@ -35,6 +37,7 @@ def plot_histogram(summary_dict, fn):
     fig.savefig(fn)
     plt.close(fig)
     plt.clf()
+    return np.concatenate(out_list)
 
 
 parser = argparse.ArgumentParser(description='Takes pdb files and produces histogram of FRET values')
@@ -60,10 +63,10 @@ args = parser.parse_args()
 
 pdb_list = nhp.parse_input_dir(args.pdb_dir, '*.pdb')
 wd = nhp.parse_output_dir(args.wd, clean=True)
-fp_vs_time_dir = nhp.parse_output_dir(wd+'fp_vs_time')
+svg_dir = nhp.parse_output_dir(wd+'svg')
+txt_dir = nhp.parse_output_dir(wd+'txt')
 
 all_dict = {}
-
 fp_dict = {}
 fp_dist_dict = {}
 e_dict = {}
@@ -99,9 +102,11 @@ for pdb_fn in pdb_list:
             else:
                 cur_efret_values = [x.get(resn, []) for x in cfpo_efret]
                 if not len(cur_efret_values): continue
+                if not len(np.unique([len(ce) for ce in cur_efret_values])) == 1: continue
                 summary_dict[resn].extend(np.array(cur_efret_values).mean(axis=0))
     all_dict[pdb_id] = summary_dict
-    plot_histogram(summary_dict, f'{wd}{pdb_id}.svg')
+    hist_vec = plot_histogram(summary_dict, f'{svg_dir}{pdb_id}.svg')
+    np.savetxt(f'{txt_dir}{pdb_id}.txt', hist_vec)
 
 pdb_id_dict = {}
 for pdb_id in all_dict:
@@ -116,5 +121,5 @@ for meta_id in pdb_id_dict:
             fused_dict[meta_id][resn].extend(cd[resn])
 
 for meta_id in fused_dict:
-    plot_histogram(fused_dict[meta_id], f'{wd}{meta_id}.svg')
-
+    hist_vec = plot_histogram(fused_dict[meta_id], f'{svg_dir}{meta_id}.svg')
+    np.savetxt(f'{txt_dir}{meta_id}.txt', hist_vec)

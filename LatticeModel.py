@@ -55,10 +55,11 @@ class LatticeModel(ABC):
         inv_dict = dict(ChainMap(*inv_list))
         self.tagged_resi_dict = inv_dict
         self._tagged_resi = list(chain.from_iterable(tagged_dict.values()))
-        if 0 not in self._tagged_resi:
-            self._tagged_resi.insert(0,0)
+        if tagged_dict['acc_tagged_resi'] not in self._tagged_resi:
+            self._tagged_resi.append(tagged_dict['acc_tagged_resi'])
+            self._tagged_resi.sort()
+        self.acc_tagged_resi = tagged_dict['acc_tagged_resi'][0]
         self.aa_sequence[self._tagged_resi] = 'TAG'
-
 
     @abstractmethod
     def apply_n_steps(self, n):

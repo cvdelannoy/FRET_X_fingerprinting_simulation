@@ -19,11 +19,13 @@ parser = argparse.ArgumentParser(description='Generate cubic lattice models for 
 parser.add_argument('--in-dir', type=str,
                     help='entity/fasta file or directory containing entity/fasta files of which to generate models')
 parser.add_argument('--cm-pdb-dir', type=str, default=None,
-                    help='center-of-mass pdbs directory, for finetuning of starting structures. Necessary if --finetune-structure is on')
+                    help='center-of-mass pdbs directory, for finetuning of starting structures. '
+                         'Necessary if --finetune-structure is on')
 parser.add_argument('--finetune-structure', action='store_true',
-                    help='Minimize lattice model RMSD w.r.t. center-of-mass structure provided through cm-pdb-dir by the same ID')
+                    help='Minimize lattice model RMSD w.r.t. center-of-mass structure provided through cm-pdb-dir by '
+                         'the same ID')
 # --- model parameters ---
-parser.add_argument('--temp-range', type=float, nargs=2,
+parser.add_argument('--temp-range', type=float, nargs=2, default=[0.01, 0.001],
                     help='Use a range of equally spaced temperatures between given values in a parallel tempering search.')
 parser.add_argument('--tagged-resn', type=str, default='',
                     help='Define residue(s) with 1-letter-code that should be replaced with a very hydrophillic tag.')
@@ -36,11 +38,11 @@ parser.add_argument('--labeling-model', type=str, default='perfect',
 parser.add_argument('--experimental-mode', type=int, default=0,
                     help='Several experimental settings under 1 switch, numeric.')
 # --- lattice properties ---
-parser.add_argument('--lattice-type', type=str, default='cubic', choices=['cubic', 'bcc', 'bcc_old'],
-                    help='Set type of lattice to use. Choices: cubic, bcc [ default: cubic]')
+parser.add_argument('--lattice-type', type=str, default='bcc', choices=['cubic', 'bcc', 'bcc_old'],
+                    help='Set type of lattice to use. Choices: cubic, bcc [ default: bcc]')
 parser.add_argument('--starting-structure', type=str,
                     choices=['free_random', 'anchored_random', 'stretched', 'serrated'], default='stretched',
-                    help='Choose how to initialize structure [default: stretched]')
+                    help='If no starting structure is provided, choose how to initialize structure [default: stretched]')
 
 
 # --- model iterations parameters ---
@@ -150,6 +152,10 @@ for ent in ent_list:
         aa_seq = fh['sequence']
         coords = fh['coords'].astype(int)
         ss_df = pd.DataFrame(fh['secondary_structure'], columns=['H', 'S', 'L'])
+        if 'acc_tagged_resi' in fh:
+            acc_tagged_resi = fh['acc_tagged_resi'][()]
+        else:
+            acc_tagged_resi = 0
 
     if args.accomodate_tags and os.path.exists(f'{out_dir_pdb}{pdb_id}_{args.start_idx}_unoptimizedTags.npz'):
         is_retry = True
@@ -192,7 +198,7 @@ for ent in ent_list:
 
         # Determine which residues are labeled. Here labeling model is applied (i.e. incomplete/mis-labeling takes place)
         if not is_retry:
-            tagged_resi = nhp.get_tagged_resi(labeling_model, tagged_resn, aa_seq)
+            tagged_resi = nhp.get_tagged_resi(labeling_model, tagged_resn, aa_seq, acc_tagged_resi)
 
         if args.nb_processes > 1:  # Run parallel tempering with [args.nb_processes] chains
             pt = ParallelTempering(

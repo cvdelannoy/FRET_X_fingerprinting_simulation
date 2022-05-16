@@ -97,6 +97,7 @@ def get_abs_dihedral(ca1, ca2, cb1, cb2):
     y = np.dot(np.cross(b1, v), w)
     return np.abs(np.degrees(np.arctan2(y, x)))
 
+
 def get_compound_properties(pdb_id, pdb_fn, target_residue_list):
     """
     Retrieve selected properties from first chain (alphabetically) in a pdb file, in order:
@@ -117,9 +118,9 @@ def get_compound_properties(pdb_id, pdb_fn, target_residue_list):
     return header['molecule'], header['synonym'], len(chain), res_occurances
 
 
-def get_tagged_resi(mm, tagged_resn, aa_sequence):
+def get_tagged_resi(mm, tagged_resn, aa_sequence, acc_resi):
     tagged_resi = {}
-    tagged_resi_list = [0]  # N-terminus is always labeled
+    tagged_resi_list = [acc_resi]  # acceptor-labeled resi
     for target_resn in tagged_resn:
         resi_list = []
         cur_mm = mm.get(target_resn, {target_resn: 1.0})
@@ -128,6 +129,7 @@ def get_tagged_resi(mm, tagged_resn, aa_sequence):
                 resi_list.append(resi)
         tagged_resi[target_resn] = resi_list
         tagged_resi_list.extend(resi_list)
+    tagged_resi['acc_tagged_resi'] = [acc_resi]
     return tagged_resi
 
 # --- additional higher-dim numpy functions ---

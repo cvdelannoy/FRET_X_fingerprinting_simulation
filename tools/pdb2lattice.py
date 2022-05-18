@@ -1,5 +1,5 @@
 import numpy as np
-import os, sys, argparse, traceback
+import os, sys, argparse, traceback, re
 from Bio.PDB import PDBParser
 import pandas as pd
 import itertools
@@ -9,7 +9,7 @@ from time import sleep
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 sys.path.append(f'{__location__}/..')
-from helpers import get_neighbors, inNd, parse_input_dir, parse_output_dir, aa_dict_31, generate_pdb, get_cm, rotmats, get_pairs_mat
+from helpers import get_neighbors, inNd, parse_input_dir, parse_output_dir, aa_dict, aa_dict_31, generate_pdb, get_cm, rotmats, get_pairs_mat
 from LatticeModelComparison import LatticeModelComparison
 
 # --- Relevant lattice distances ---
@@ -140,9 +140,20 @@ def get_all_neighbors(c):
     return neighbors_out
 
 
-def parse_ss3_file(ss_fn):
+def parse_ss3_file(ss_fn, breakup_helices):
     ss_df = pd.read_csv(ss_fn, skiprows=2, names=['idx', 'resn', 'ss', 'H', 'S', 'L'], sep='\s+')
     ss = ss_df.ss.to_numpy()
+    if breakup_helices:
+        breakup_counter = 0
+        ssc = ss.copy()
+        for cur_ssi, cur_ss in enumerate(ssc):
+            if cur_ss == 'H':
+                breakup_counter += 1
+                if breakup_counter > 5:
+                    ss[cur_ssi] = 'L'
+                    breakup_counter = 0
+            else:
+                breakup_counter = 0
     seqlen = len(ss)
     # Fix bonus at ~highest point, do not scale
     ss_df = pd.DataFrame(np.tile([0.05, 0.05, 0.90], (seqlen, 1)), columns=['H', 'S', 'L'], index=np.arange(seqlen))
@@ -192,6 +203,8 @@ parser.add_argument('--refinement-rounds', type=int, nargs=2, default=[1000, 100
 parser.add_argument('--disordered-terminal', type=str, required=False,
                     help='Introduce disorder from a given resi, model as random walk. Must be formatted as '
                          '[0-9]+: or :[0-9]+ [default: None].')
+parser.add_argument('--breakup-helices', action='store_true')
+parser.add_argument('--mutate', nargs='+')
 
 args = parser.parse_args()
 
@@ -274,14 +287,17 @@ for pdb_fn in pdb_list:
         sheet_df = parse_sheet_info(sheet_txt_list)
         helix_df = parse_helix_info(helix_txt_list)
         if args.ss3:
-            ss_df, helix_df = parse_ss3_file(args.ss3)
-
+            ss_df, helix_df = parse_ss3_file(args.ss3, args.breakup_helices)
         else:
             ss_df = pd.DataFrame(np.tile([0.05, 0.05, 0.90], (nb_res, 1)), columns=['H', 'S', 'L'],
                                  index=np.arange(nb_res))
             for _, tup in helix_df.iterrows():
                 if tup.resi_end - tup.resi_start < 4: continue
                 ah_idx = np.arange(resi2idx_dict[tup.resi_start], resi2idx_dict[tup.resi_end] - 3)
+                if args.breakup_helices:
+                    msk = np.ones(len(ah_idx), dtype=bool)[1:]
+                    msk[np.arange(0,len(ah_idx), 5)] = False
+                    ah_idx = ah_idx[msk]
                 ss_df.loc[ah_idx, :] = [0.90, 0.05, 0.05]
             for _, tup in sheet_df.iterrows():
                 sh_idx = np.arange(resi2idx_dict[tup.resi_start], resi2idx_dict[tup.resi_end] + 1)
@@ -318,11 +334,14 @@ for pdb_fn in pdb_list:
             neighbors = neighbors[np.invert(inNd(neighbors[:, :3], ca_array_lat[:, :3])), :]
             ca_array_lat[ri, :] = neighbors[np.argmin(np.linalg.norm(neighbors[:, :3] - ca_array[ri, :3], axis=1)), :]
             if ri in helix_dict:
-                res_idx_list, poses = helix_dict[ri]
-                helix_coords_original = ca_array[res_idx_list, :3]
-                best_pose = pick_best_pose(poses, ca_array_lat[ri, :], helix_coords_original)
-                ca_array_lat[res_idx_list, :] = best_pose
-                preset_idx.extend(res_idx_list)
+                try:
+                    res_idx_list, poses = helix_dict[ri]
+                    helix_coords_original = ca_array[res_idx_list, :3]
+                    best_pose = pick_best_pose(poses, ca_array_lat[ri, :], helix_coords_original)
+                    ca_array_lat[res_idx_list, :] = best_pose
+                    preset_idx.extend(res_idx_list)
+                except:
+                    pass
 
         # Attempt to correct any overlapping coordinates
         unique_rows, counts = np.unique(ca_array_lat, return_counts=True, axis=0)
@@ -396,6 +415,11 @@ for pdb_fn in pdb_list:
                 last_coord = ca_array_lat[di]
             ss_df.loc[disorder_idx, :] = 0
 
+        # Mutate residue type if required
+        if args.mutate:
+            for mutation in args.mutate:
+                mut_idx, new_resn = int(mutation[:-1]), mutation[-1]
+                resname_list[mut_idx] = aa_dict[new_resn]
 
         # Save
         atr = args.acc_tagged_resi if args.acc_tagged_resi != -1 else len(ca_array_lat) - 1

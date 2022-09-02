@@ -98,6 +98,7 @@ for pdb_fn in pdb_list:
             #     break
             elif '1 DIST_FINGERPRINT' in line:
                 fingerprint = dist_str2fp(line, 'REMARK   1 DIST_FINGERPRINT ', res_bins, args.tagged_resn)
+                break
     if not np.sum([np.sum(fingerprint[resn]) for resn in fingerprint]):  # no tags visible means molecule was not observed
         continue
 

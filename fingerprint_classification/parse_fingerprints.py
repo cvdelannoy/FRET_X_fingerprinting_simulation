@@ -8,7 +8,7 @@ from collections import ChainMap
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 sys.path.append(os.path.split(__location__)[0])
-from helpers import parse_input_dir, parse_output_dir
+from helpers import parse_input_dir, parse_output_dir, get_FRET_efficiency
 
 
 def str2fp(line, id_str, res_bins, tagged_resn):
@@ -21,6 +21,27 @@ def str2fp(line, id_str, res_bins, tagged_resn):
         fp_resn = np.sum([fp.get(resn, np.zeros(nb_bins, dtype=float)) for fp in fp_list], axis=0) / nb_snapshots
         fp_out[resn] = fp_resn
     return fp_out
+
+def dist_str2fp(line, id_str, res_bins, tagged_resn):
+    nb_bins = len(res_bins) - 1
+    dist_fp_arr = ast.literal_eval(line.replace(id_str, ''))
+    if type(dist_fp_arr[0]) == list: return {resn: np.zeros(nb_bins) for resn in tagged_resn}
+    dist_fp_arr = [{resn: fp.get(resn, []) for resn in tagged_resn} for fp in dist_fp_arr]
+
+    # probably not necessary for current implementation, but only keep fp's that are of correct length
+    for resn in tagged_resn:
+        fp_lens = [len(fp[resn]) for fp in dist_fp_arr]
+        corr_len = max(set(fp_lens), key=fp_lens.count)
+        dist_fp_arr = [fp for fp in dist_fp_arr if len(fp[resn]) == corr_len]
+
+    # average distances per tag
+    fp_arr = {}
+    for resn in tagged_resn:
+        fp_arr[resn] = [get_FRET_efficiency(d) for d in np.mean(np.vstack([fp[resn] for fp in dist_fp_arr]), axis=0)]
+
+    fp_hist = {resn: np.clip((np.histogram(fp_arr[resn], bins=res_bins)[0] > 0).astype(float), 0, 1) for resn in fp_arr}  # Clip so fp is binary
+    # fp_hist = {resn: (np.histogram(fp_arr[resn], bins=res_bins)[0] > 0).astype(float) for resn in fp_arr}
+    return fp_hist
 
 parser = argparse.ArgumentParser(description='Collect sort and store fingerprints from lattice model PDBs')
 in_arg = parser.add_mutually_exclusive_group(required=True)
@@ -72,9 +93,11 @@ for pdb_fn in pdb_list:
         for line in fh.readlines():
             if 'REMARK   1 RG ' in line:
                 rg = float(re.search('(?<=RG )[0-9\.]+', line).group(0))  # ensures you have the last Rg
-            if '1 FINGERPRINT' in line:
-                fingerprint = str2fp(line, 'REMARK   1 FINGERPRINT ', res_bins, args.tagged_resn)
-                break
+            # if '1 FINGERPRINT' in line:
+            #     fingerprint = str2fp(line, 'REMARK   1 FINGERPRINT ', res_bins, args.tagged_resn)
+            #     break
+            elif '1 DIST_FINGERPRINT' in line:
+                fingerprint = dist_str2fp(line, 'REMARK   1 DIST_FINGERPRINT ', res_bins, args.tagged_resn)
     if not np.sum([np.sum(fingerprint[resn]) for resn in fingerprint]):  # no tags visible means molecule was not observed
         continue
 

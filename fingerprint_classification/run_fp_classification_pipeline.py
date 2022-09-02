@@ -32,7 +32,7 @@ parser.add_argument('--classifier', type=str, choices=['random_forest', 'boosted
 parser.add_argument('--original-dir', required=True,
                     help='dir containing original npz files used in constructing lattice models')
 parser.add_argument('--max-folds', type=int, default=10)
-parser.add_argument(' --define-good', type=float, default=0.5)
+parser.add_argument('--define-good', type=float, default=0.5)
 parser.add_argument('--out-dir', required=True, type=str,
                     help='output directory')
 parser.add_argument('--res-range', type=int, nargs=3, default=[1, 21, 1],

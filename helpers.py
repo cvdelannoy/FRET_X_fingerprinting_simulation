@@ -726,7 +726,7 @@ def list_sheet_series(ss_seq):
     out_dict = dict(ChainMap(*dict_list))
     return out_dict
 
-
+#%%
 not_processed = open("not_processed.log", "w")
 def make_log(txt):
     """Returns PDB codes, that could not be processed"""
@@ -758,6 +758,14 @@ def get_drop_index(data, reg_expression=r'Couple.*'):
     result = np.where(regmatch(data[0].values) == True)
     return result[0][0]
 #%%
+"""parameters is a dictionary of default parameters that
+ will be used to mark reactivity of the residue.
+ Entry is defined as follows
+ residue name: [minimal_pKa, reactivity_threshold, maximal_pKa, maximal_burried_factor]
+ """
+residues_parameters = {'CYS': [0, 7.65, 99, 85],
+                       'LYS': [0, 9.75, 99, 85]}
+#%%
 def alphafold_procc_pka_file(pka_file):
     data = pd.read_fwf(pka_file, skiprows=52, widths=[
                     4,3,3, 7, 9, 7, 5, 7, 5, 7, 5, 3, 3, 7, 5, 3, 3, 7, 5, 3,3 ],
@@ -770,9 +778,6 @@ def alphafold_procc_pka_file(pka_file):
     data = data.drop(index=(range(start, stop)), axis=0)
     data = data.replace('NaN', np.nan)
     data = data.dropna(how = 'all')
-
-
-
     data.insert(4, 'coupled_residues', data[3].str.contains('\*'))
     data[3] = data[3].str.rstrip('*')
     data[4] = data[4].str.rstrip('%')
@@ -782,7 +787,7 @@ def alphafold_procc_pka_file(pka_file):
                     1:'residue_id',
                     2:'chain_id',
                     3:'pKa',
-                    4:'buried [%]',
+                    4:'buried',
                     5:'desolvation_regular_1',
                     6:'desolvation_regular_2',
                     7:'effects_re_1',
@@ -804,14 +809,22 @@ def alphafold_procc_pka_file(pka_file):
     #mark most reactive cysteine
 
     data=data.astype({'pKa' : float})
-    cysteines = data.loc[data['residue_name'] == 'CYS', 'pKa']
-    lysines = data.loc[data['residue_name'] == 'LYS', 'pKa']
-    arginines = data.loc[data['residue_name'] == 'ARG', 'pKa']
+    data=data.astype({'buried' : float})
+
+    # cysteines = data.loc[data['residue_name'] == 'CYS', 'pKa']
+    # lysines = data.loc[data['residue_name'] == 'LYS', 'pKa']
+    # arginines = data.loc[data['residue_name'] == 'ARG', 'pKa']
 
     data.insert(4, 'reactivity', np.nan)
-    
-    data['reactivity'] = np.where((data.residue_name == 'CYS') & (data.pKa <= 11), 'X', data.reactivity)
-
+    #%%
+    for residue_name, parameters in residues_parameters.items():
+        residues = data.loc[data['residue_name'] == residue_name]
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa <= parameters[1])  & (residues.buried <= parameters[3]), 'hiper-reactive', residues.reactivity)
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa >= parameters[1])  & (residues.buried <= parameters[3]), 'hiper-reactive', residues.reactivity)
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[2]) | (residues.buried > parameters[3]), 'non-reactive', residues.reactivity)
+        
+    #data['reactivity'] = np.where((data.residue_name == 'CYS') & (data.pKa <= 11), 'X', data.reactivity)
+    #%%
     # pKa of cysteines == 99.99 when in disulfide bond
     data['most_reactive'] =  pd.concat([ (cysteines == cysteines.min() )& (cysteines != 99.99) , lysines == lysines.min()])
     pd.concat([cysteines == cysteines.min(), lysines == lysines.min()])

@@ -15,6 +15,8 @@ from itertools import groupby, chain, combinations
 import operator
 from copy import deepcopy
 from collections import ChainMap
+import traceback
+import propka.run as pkrun
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 forster_radius = 54.0  # forster radius in Angstrom for Cy3-Cy5, according to Murphy et al. 2004
@@ -723,3 +725,141 @@ def list_sheet_series(ss_seq):
             cur_list = []
     out_dict = dict(ChainMap(*dict_list))
     return out_dict
+
+
+not_processed = open("not_processed.log", "w")
+def make_log(txt):
+    """Returns PDB codes, that could not be processed"""
+    with open('data/log.txt','a') as f:
+        f.write(txt+'\n')
+
+
+#%%
+def process_propka(pdb_file):
+    """Accepts PDB file and returns dictionary of residues of interest with pKa value
+    and if the residue can be labeled or is it is an reactive residue."""
+
+    try:
+        pkrun.single(pdb_file, optargs=[ "--log-level=ERROR",])
+        filename= pdb_file.partition('.')[0]
+        process_pka_file(filename +'.pka')
+    except Exception as e: not_processed.write(f"{pdb_file} {traceback.format_exc()}") #adds PDB ID to log
+
+#%%
+def func(**kwargs):
+    for arg, v in kwargs.items():
+        print(arg,v)
+
+func(**{'t':[1,2]})
+# %%
+def get_drop_index(data, reg_expression=r'Couple.*'):
+    r = re.compile(reg_expression)
+    regmatch = np.vectorize(lambda x: bool(r.match(x)))
+    result = np.where(regmatch(data[0].values) == True)
+    return result[0][0]
+#%%
+def alphafold_procc_pka_file(pka_file):
+    data = pd.read_fwf(pka_file, skiprows=52, widths=[
+                    4,3,3, 7, 9, 7, 5, 7, 5, 7, 5, 3, 3, 7, 5, 3, 3, 7, 5, 3,3 ],
+                    header=None, skip_blank_lines=False)
+
+    #pdb_id = pka_file.rstrip('.pka')
+    data = data.fillna('NaN')
+    start = get_drop_index(data, reg_expression=r'Co.*|-')
+    stop = len(data.index)
+    data = data.drop(index=(range(start, stop)), axis=0)
+    data = data.replace('NaN', np.nan)
+    data = data.dropna(how = 'all')
+
+
+
+    data.insert(4, 'coupled_residues', data[3].str.contains('\*'))
+    data[3] = data[3].str.rstrip('*')
+    data[4] = data[4].str.rstrip('%')
+
+    data = data.rename(
+        columns =  {0:'residue_name',
+                    1:'residue_id',
+                    2:'chain_id',
+                    3:'pKa',
+                    4:'buried [%]',
+                    5:'desolvation_regular_1',
+                    6:'desolvation_regular_2',
+                    7:'effects_re_1',
+                    8:'effects_re_2',
+                    9:'sidechain_h_bond_1',
+                    10:'sidechain_h_bond_2',
+                    11:'sidechain_h_bond_3',
+                    12:'sidechain_h_bond_4',
+                    13:'backbone_h_bond_1',
+                    14:'backbone_h_bond_2',
+                    15:'backbone_h_bond_3',
+                    16:'backbone_h_bond_4',
+                    17:'coulombic_interaction_1',
+                    18:'coulombic_interaction_2',
+                    19:'coulombic_interaction_3',
+                    20:'coulombic_interaction_4',
+                    })
+
+    #mark most reactive cysteine
+
+    data=data.astype({'pKa' : float})
+    cysteines = data.loc[data['residue_name'] == 'CYS', 'pKa']
+    lysines = data.loc[data['residue_name'] == 'LYS', 'pKa']
+    arginines = data.loc[data['residue_name'] == 'ARG', 'pKa']
+
+    data.insert(4, 'reactivity', np.nan)
+    
+    data['reactivity'] = np.where((data.residue_name == 'CYS') & (data.pKa <= 11), 'X', data.reactivity)
+
+    # pKa of cysteines == 99.99 when in disulfide bond
+    data['most_reactive'] =  pd.concat([ (cysteines == cysteines.min() )& (cysteines != 99.99) , lysines == lysines.min()])
+    pd.concat([cysteines == cysteines.min(), lysines == lysines.min()])
+    # get the genetic source of analyzed chain
+    data.insert(0, 'pdb_id', pdb_id)
+    data.insert(1, 'chain_source', 'AlphaFold')
+
+    #generates dictionary of auth_asym_id (chain) and pdb asym_id
+    #auth_asym_dict = check_polymer_auth_asym_id(pdb_id)
+
+
+    summary = pd.read_fwf(pka_file, skiprows=(57 + start),
+                          widths=[7,3,3, 8, 11, 20, ], header=None)
+
+    summary = summary.fillna('NaN')
+    start2 = get_drop_index(summary, reg_expression=r'---*')
+    stop2 = len(summary.index)
+    summary = summary.drop(index=(range(start2, stop2)), axis=0)
+
+
+    summary = summary.rename(columns = {0:'residue_name', 1:'residue_id', 2:'chain_id', 3:'pKa', 4:'model-pKa', 5:'ligand atom-type'})
+
+    free_energy = pd.read_fwf(pka_file, skiprows=(
+        60 + start + start2), widths=[8, 8], header=None)
+
+
+
+    free_energy = free_energy.fillna('NaN')
+    start3 = get_drop_index(free_energy, reg_expression=r'The')
+    stop3 = len(free_energy.index)
+    free_energy = free_energy.drop(index=(range(start3, stop3)), axis=0)
+
+    free_energy = free_energy.replace('NaN',np.nan)
+    free_energy = free_energy.dropna(how = 'all')
+    free_energy = free_energy.rename(columns = {0: 'pH', 1:'free_energy [kcal/mol]'})
+
+
+
+    p_charge = pd.read_fwf(pka_file, skiprows=(
+        66 + start + start2 + start3), widths=[8, 8, 8], header=None)
+    start4 = get_drop_index(p_charge, reg_expression=r'The')
+    stop4 = len(p_charge.index)
+    p_charge = p_charge.drop(index=(range(start4, stop4)), axis=0)
+
+    p_charge = p_charge.rename(columns ={     0:'pH',  1: 'unfolded' , 2:'folded'})
+
+
+    data.to_csv(f"data_{pka_file.rstrip('.pka')}.csv", index = False)
+    summary.to_csv(f"summary_{pka_file.rstrip('.pka')}.csv")
+    free_energy.to_csv(f"free_energy_{pka_file.rstrip('.pka')}.csv")
+    p_charge.to_csv(f"p_charge_{pka_file.rstrip('.pka')}.csv")

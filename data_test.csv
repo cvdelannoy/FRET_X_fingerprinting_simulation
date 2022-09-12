@@ -1,0 +1,91 @@
+pdb_id,chain_source,residue_name,residue_id,chain_id,pKa,most_reactive,coupled_residues,buried [%],desolvation_regular_1,desolvation_regular_2,effects_re_1,effects_re_2,sidechain_h_bond_1,sidechain_h_bond_2,sidechain_h_bond_3,sidechain_h_bond_4,backbone_h_bond_1,backbone_h_bond_2,backbone_h_bond_3,backbone_h_bond_4,coulombic_interaction_1,coulombic_interaction_2,coulombic_interaction_3,coulombic_interaction_4
+test,AlphaFold,ASP,29,A,3.98,,False,0 ,0.19,160,0.00,0,-0.02,SER,28,A,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,ASP,61,A,3.89,,False,0 ,0.09,50,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,ASP,76,A,3.95,,False,0 ,0.15,72,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,ASP,95,A,2.64,,False,31 ,1.31,367,0.32,0,-0.58,GLN,19,A,0.00,XXX,0,X,-0.03,ARG,91,A
+test,AlphaFold,ASP,95,A,,,,,,,,,-0.85,TYR,15,A,0.00,XXX,0,X,-0.61,LYS,16,A
+test,AlphaFold,ASP,95,A,,,,,,,,,-0.72,LYS,16,A,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,ASP,107,A,4.09,,False,0 ,0.31,253,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,-0.02,ARG,103,A
+test,AlphaFold,ASP,156,A,3.5,,False,10 ,0.58,310,0.10,0,-0.85,TYR,22,A,0.00,XXX,0,X,-0.11,LYS,20,A
+test,AlphaFold,ASP,156,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.01,LYS,157,A
+test,AlphaFold,ASP,176,A,3.89,,False,0 ,0.35,258,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,-0.07,N+,1,A
+test,AlphaFold,ASP,176,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.18,HIS,177,A
+test,AlphaFold,ASP,224,A,3.92,,False,0 ,0.12,108,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,ASP,226,A,3.86,,False,0 ,0.09,93,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,-0.03,HIS,113,A
+test,AlphaFold,GLU,7,A,3.6,,False,0 ,0.34,261,0.00,0,-0.85,LYS,87,A,0.00,XXX,0,X,-0.38,LYS,87,A
+test,AlphaFold,GLU,31,A,4.72,,False,15 ,0.41,322,0.06,0,0.00,XXX,0,X,0.00,XXX,0,X,-0.23,ARG,6,A
+test,AlphaFold,GLU,31,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.03,ARG,165,A
+test,AlphaFold,GLU,31,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.01,GLU,32,A
+test,AlphaFold,GLU,32,A,4.57,,False,0 ,0.07,106,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,36,A,4.56,,False,0 ,0.06,78,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,39,A,4.56,,False,0 ,0.06,49,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,42,A,4.57,,False,0 ,0.07,58,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,44,A,4.56,,False,0 ,0.06,55,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,46,A,4.56,,False,0 ,0.06,52,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,79,A,4.67,,False,0 ,0.17,160,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,92,A,4.05,,False,2 ,0.30,287,0.01,0,-0.82,GLN,88,A,0.00,XXX,0,X,0.06,ASP,95,A
+test,AlphaFold,GLU,96,A,4.63,,False,6 ,0.58,298,0.03,0,-0.11,ARG,100,A,0.00,XXX,0,X,0.02,GLU,92,A
+test,AlphaFold,GLU,96,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.40,ARG,100,A
+test,AlphaFold,GLU,98,A,5.25,,False,68 ,1.90,471,0.44,0,-0.85,LYS,16,A,0.00,XXX,0,X,-0.12,LYS,20,A
+test,AlphaFold,GLU,98,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.04,ARG,102,A
+test,AlphaFold,GLU,98,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.25,ASP,95,A
+test,AlphaFold,GLU,98,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.84,LYS,16,A
+test,AlphaFold,GLU,124,A,4.76,,False,0 ,0.30,265,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,-0.05,HIS,177,A
+test,AlphaFold,GLU,129,A,5.03,,False,8 ,0.98,305,0.05,0,-0.08,ARG,132,A,0.00,XXX,0,X,-0.38,ARG,132,A
+test,AlphaFold,GLU,129,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.03,ARG,139,A
+test,AlphaFold,GLU,153,A,4.8,,False,26 ,0.77,353,0.12,0,-0.39,LYS,157,A,0.00,XXX,0,X,-0.00,LYS,20,A
+test,AlphaFold,GLU,153,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.19,ASP,156,A
+test,AlphaFold,GLU,153,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.38,LYS,157,A
+test,AlphaFold,GLU,158,A,4.59,,False,0 ,0.09,132,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,179,A,4.04,,False,31 ,1.11,368,0.05,0,-0.81,ASN,5,A,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,179,A,,,,,,,,,-0.80,GLN,183,A,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,GLU,184,A,4.64,,False,0 ,0.14,156,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,HIS,58,A,6.33,,False,0 ,-0.17,62,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,HIS,71,A,6.41,,False,0 ,-0.09,48,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,HIS,113,A,6.22,,False,0 ,-0.19,259,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,-0.12,LYS,157,A
+test,AlphaFold,HIS,113,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.03,ASP,226,A
+test,AlphaFold,HIS,177,A,6.11,,False,17 ,-0.61,329,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.05,GLU,124,A
+test,AlphaFold,HIS,177,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.18,ASP,176,A
+test,AlphaFold,CYS,151,A,12.74,False,False,100 ,3.74,593,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,CYS,196,A,10.14,True,False,26 ,0.97,353,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.17,GLU,92,A
+test,AlphaFold,CYS,218,A,11.2,False,False,63 ,2.17,457,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.03,GLU,129,A
+test,AlphaFold,TYR,15,A,12.4,,False,21 ,1.03,341,0.00,0,-0.13,GLN,19,A,0.00,XXX,0,X,0.04,GLU,92,A
+test,AlphaFold,TYR,15,A,,,,,,,,,0.85,ASP,95,A,0.00,XXX,0,X,0.12,GLU,98,A
+test,AlphaFold,TYR,15,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.49,ASP,95,A
+test,AlphaFold,TYR,22,A,11.68,,False,0 ,0.42,257,0.00,0,0.85,ASP,156,A,0.00,XXX,0,X,0.02,GLU,153,A
+test,AlphaFold,TYR,22,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.00,GLU,158,A
+test,AlphaFold,TYR,22,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.39,ASP,156,A
+test,AlphaFold,TYR,101,A,11.33,,False,28 ,1.46,361,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.03,GLU,96,A
+test,AlphaFold,TYR,101,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.16,ARG,100,A
+test,AlphaFold,TYR,120,A,10.66,,False,0 ,0.27,273,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.36,GLU,124,A
+test,AlphaFold,TYR,120,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.03,ASP,176,A
+test,AlphaFold,TYR,173,A,12.15,,False,50 ,2.11,422,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.04,GLU,124,A
+test,AlphaFold,LYS,16,A,10.72,False,False,65 ,-2.79,464,0.00,0,0.72,ASP,95,A,0.00,XXX,0,X,0.61,ASP,95,A
+test,AlphaFold,LYS,16,A,,False,,,,,,,0.85,GLU,98,A,0.00,XXX,0,X,0.84,GLU,98,A
+test,AlphaFold,LYS,20,A,10.3,True,False,9 ,-0.25,306,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.12,GLU,98,A
+test,AlphaFold,LYS,20,A,,False,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.16,ARG,102,A
+test,AlphaFold,LYS,20,A,,False,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.00,GLU,153,A
+test,AlphaFold,LYS,20,A,,False,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.11,ASP,156,A
+test,AlphaFold,LYS,20,A,,False,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.03,LYS,16,A
+test,AlphaFold,LYS,87,A,11.08,False,False,4 ,-0.65,293,0.00,0,0.85,GLU,7,A,0.00,XXX,0,X,0.38,GLU,7,A
+test,AlphaFold,LYS,157,A,10.75,False,False,8 ,-0.54,304,0.00,0,0.39,GLU,153,A,0.00,XXX,0,X,0.01,ASP,156,A
+test,AlphaFold,LYS,157,A,,False,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.38,GLU,153,A
+test,AlphaFold,LYS,192,A,10.35,False,False,0 ,-0.06,103,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,-0.08,ARG,190,A
+test,AlphaFold,ARG,6,A,12.35,,False,15 ,-0.38,323,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.23,GLU,31,A
+test,AlphaFold,ARG,34,A,12.41,,False,0 ,-0.09,165,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,ARG,78,A,12.45,,False,0 ,-0.05,98,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,ARG,91,A,11.66,,False,18 ,-0.87,333,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.03,ASP,95,A
+test,AlphaFold,ARG,100,A,12.64,,False,2 ,-0.52,286,0.00,0,0.11,GLU,96,A,0.00,XXX,0,X,0.16,TYR,101,A
+test,AlphaFold,ARG,100,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.40,GLU,96,A
+test,AlphaFold,ARG,102,A,12.42,,False,0 ,-0.11,210,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.04,GLU,98,A
+test,AlphaFold,ARG,102,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.01,ARG,103,A
+test,AlphaFold,ARG,103,A,12.46,,False,0 ,-0.06,121,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.02,ASP,107,A
+test,AlphaFold,ARG,132,A,11.95,,False,0 ,-1.01,238,0.00,0,0.08,GLU,129,A,0.00,XXX,0,X,0.38,GLU,129,A
+test,AlphaFold,ARG,139,A,11.19,,False,24 ,-1.28,348,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.03,GLU,129,A
+test,AlphaFold,ARG,139,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.07,ARG,132,A
+test,AlphaFold,ARG,165,A,12.1,,False,2 ,-0.32,288,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.03,GLU,31,A
+test,AlphaFold,ARG,165,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,-0.12,ARG,34,A
+test,AlphaFold,ARG,190,A,12.26,,False,0 ,-0.24,253,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,ARG,205,A,12.44,,False,0 ,-0.06,105,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,0.00,XXX,0,X
+test,AlphaFold,N+,1,A,7.89,,False,0 ,-0.17,193,0.00,0,0.00,XXX,0,X,0.00,XXX,0,X,-0.01,ARG,6,A
+test,AlphaFold,N+,1,A,,,,,,,,,0.00,XXX,0,X,0.00,XXX,0,X,0.07,ASP,176,A

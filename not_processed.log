@@ -1,0 +1,12 @@
+name 'pkrun' is not defineda Traceback (most recent call last):
+  File "<ipython-input-10-93aa58064428>", line 7, in process_propka
+    pkrun.single(pdb_file, optargs=[ "--log-level=ERROR",])
+NameError: name 'pkrun' is not defined
+dupa a Traceback (most recent call last):
+  File "<ipython-input-14-03362a6f376f>", line 7, in process_propka
+    pkrun.single(pdb_file, optargs=[ "--log-level=ERROR",])
+NameError: name 'pkrun' is not defined
+dupa a Traceback (most recent call last):
+  File "<ipython-input-18-f925babeb7fc>", line 7, in process_propka
+    pkrun.single(pdb_file, optargs=[ "--log-level=ERROR",])
+NameError: name 'pkrun' is not defined

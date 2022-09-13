@@ -728,8 +728,8 @@ def list_sheet_series(ss_seq):
 
 
 def find_df_start(data, reg_expression=r'Couple.*'):
-    """Based on given regular expression finds the place where to start a dataframe.
-    """
+    """Based on given regular expression finds the place where to start a dataframe."""
+
     r = re.compile(reg_expression)
     regmatch = np.vectorize(lambda x: bool(r.match(x)))
     result = np.where(regmatch(data[0].values) == True)
@@ -737,8 +737,8 @@ def find_df_start(data, reg_expression=r'Couple.*'):
 
 def process_pka_file(pka_file, **kwargs):
     """Processes the output from propka. Outputs dataframe containing
-    filtered residues based on given kwargs.
-    """
+    filtered residues based on given kwargs."""
+    
     data = pd.read_fwf(pka_file, skiprows=52, widths=[
                     4, 3, 3, 7, 9, 7, 5, 7, 5, 7, 5,
                     3, 3, 7, 5, 3, 3, 7, 5, 3, 3 ], # propka output is a file with fixed width
@@ -805,13 +805,14 @@ def get_reactive_aa(pdb_file, residues_parameters=
                        'LYS': [0, 9.75, 99, 85]},
                        rm_temp_files = True,
                        save=True):
+
     """Accepts PDB file and returns dictionary of residues of interest with pKa value
     and if the residue can be labeled or is it is an reactive residue.
     Parameters in  residues_parameters are default parameters
     that will be used to mark reactivity of the residue.
     Entry is defined as follows:
-    residue name: [minimal_pKa, reactivity_threshold, maximal_pKa, maximal_burried_factor].
-    """
+    residue name: [minimal_pKa, reactivity_threshold, maximal_pKa, maximal_burried_factor]."""
+    
 
 
     try:

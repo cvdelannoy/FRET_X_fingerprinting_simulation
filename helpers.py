@@ -726,54 +726,33 @@ def list_sheet_series(ss_seq):
     out_dict = dict(ChainMap(*dict_list))
     return out_dict
 
-#%%
-not_processed = open("not_processed.log", "w")
+# makes a log of not processed files
+not_processed = open("not_processed.log", "a")
 def make_log(txt):
     """Returns PDB codes, that could not be processed"""
     with open('data/log.txt','a') as f:
         f.write(txt+'\n')
 
 
-#%%
-def process_propka(pdb_file):
-    """Accepts PDB file and returns dictionary of residues of interest with pKa value
-    and if the residue can be labeled or is it is an reactive residue."""
-
-    try:
-        pkrun.single(pdb_file, optargs=[ "--log-level=ERROR",])
-        filename= pdb_file.partition('.')[0]
-        process_pka_file(filename +'.pka')
-    except Exception as e: not_processed.write(f"{pdb_file} {traceback.format_exc()}") #adds PDB ID to log
-
-#%%
-def func(**kwargs):
-    for arg, v in kwargs.items():
-        print(arg,v)
-
-func(**{'t':[1,2]})
-# %%
-def get_drop_index(data, reg_expression=r'Couple.*'):
+def find_df_start(data, reg_expression=r'Couple.*'):
+    """Based on given regular expression finds the place where to start a dataframe.
+    """
     r = re.compile(reg_expression)
     regmatch = np.vectorize(lambda x: bool(r.match(x)))
     result = np.where(regmatch(data[0].values) == True)
     return result[0][0]
-#%%
-"""parameters is a dictionary of default parameters that
- will be used to mark reactivity of the residue.
- Entry is defined as follows
- residue name: [minimal_pKa, reactivity_threshold, maximal_pKa, maximal_burried_factor]
- """
-residues_parameters = {'CYS': [0, 7.65, 99, 85],
-                       'LYS': [0, 9.75, 99, 85]}
-#%%
-def alphafold_procc_pka_file(pka_file):
+
+def process_pka_file(pka_file, **kwargs):
+    """Processes the output from propka. Outputs dataframe containing
+    filtered residues based on given kwargs.
+    """
     data = pd.read_fwf(pka_file, skiprows=52, widths=[
-                    4,3,3, 7, 9, 7, 5, 7, 5, 7, 5, 3, 3, 7, 5, 3, 3, 7, 5, 3,3 ],
+                    4, 3, 3, 7, 9, 7, 5, 7, 5, 7, 5,
+                    3, 3, 7, 5, 3, 3, 7, 5, 3, 3 ], # propka output is a file with fixed width
                     header=None, skip_blank_lines=False)
 
-    #pdb_id = pka_file.rstrip('.pka')
     data = data.fillna('NaN')
-    start = get_drop_index(data, reg_expression=r'Co.*|-')
+    start = find_df_start(data, reg_expression=r'Co.*|-')
     stop = len(data.index)
     data = data.drop(index=(range(start, stop)), axis=0)
     data = data.replace('NaN', np.nan)
@@ -806,73 +785,54 @@ def alphafold_procc_pka_file(pka_file):
                     20:'coulombic_interaction_4',
                     })
 
-    #mark most reactive cysteine
-
     data=data.astype({'pKa' : float})
     data=data.astype({'buried' : float})
-
-    # cysteines = data.loc[data['residue_name'] == 'CYS', 'pKa']
-    # lysines = data.loc[data['residue_name'] == 'LYS', 'pKa']
-    # arginines = data.loc[data['residue_name'] == 'ARG', 'pKa']
-
     data.insert(4, 'reactivity', np.nan)
-    #%%
-    for residue_name, parameters in residues_parameters.items():
+
+    filtered_residues = pd.DataFrame()
+    for residue_name, parameters in kwargs.items():
         residues = data.loc[data['residue_name'] == residue_name]
-        residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa <= parameters[1])  & (residues.buried <= parameters[3]), 'hiper-reactive', residues.reactivity)
-        residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa >= parameters[1])  & (residues.buried <= parameters[3]), 'hiper-reactive', residues.reactivity)
-        residues['reactivity']  = np.where( (residues.pKa >= parameters[2]) | (residues.buried > parameters[3]), 'non-reactive', residues.reactivity)
-        
-    #data['reactivity'] = np.where((data.residue_name == 'CYS') & (data.pKa <= 11), 'X', data.reactivity)
-    #%%
-    # pKa of cysteines == 99.99 when in disulfide bond
-    data['most_reactive'] =  pd.concat([ (cysteines == cysteines.min() )& (cysteines != 99.99) , lysines == lysines.min()])
-    pd.concat([cysteines == cysteines.min(), lysines == lysines.min()])
-    # get the genetic source of analyzed chain
-    data.insert(0, 'pdb_id', pdb_id)
-    data.insert(1, 'chain_source', 'AlphaFold')
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa <= parameters[1])
+                                         & (residues.buried <= parameters[3]), 'hiper-reactive', residues.reactivity)
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa >= parameters[1])
+                                         & (residues.buried <= parameters[3]), 'reactive', residues.reactivity)
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[2]) | (residues.buried > parameters[3]),
+                                             'non-reactive', residues.reactivity)
+        filtered_residues = pd.concat([filtered_residues, residues], axis=0)
 
-    #generates dictionary of auth_asym_id (chain) and pdb asym_id
-    #auth_asym_dict = check_polymer_auth_asym_id(pdb_id)
+    filtered_residues.dropna(inplace=True)
+    filtered_residues = filtered_residues[['residue_name', 'residue_id',
+                                            'reactivity', 'pKa',
+                                            'buried']]
+    return filtered_residues
 
 
-    summary = pd.read_fwf(pka_file, skiprows=(57 + start),
-                          widths=[7,3,3, 8, 11, 20, ], header=None)
-
-    summary = summary.fillna('NaN')
-    start2 = get_drop_index(summary, reg_expression=r'---*')
-    stop2 = len(summary.index)
-    summary = summary.drop(index=(range(start2, stop2)), axis=0)
-
-
-    summary = summary.rename(columns = {0:'residue_name', 1:'residue_id', 2:'chain_id', 3:'pKa', 4:'model-pKa', 5:'ligand atom-type'})
-
-    free_energy = pd.read_fwf(pka_file, skiprows=(
-        60 + start + start2), widths=[8, 8], header=None)
-
+def get_reactive_aa(pdb_file, residues_parameters=
+                        {'CYS': [0, 7.65, 99, 85],
+                       'LYS': [0, 9.75, 99, 85]},
+                       rm_temp_files = True,
+                       save=True):
+    """Accepts PDB file and returns dictionary of residues of interest with pKa value
+    and if the residue can be labeled or is it is an reactive residue.
+    Parameters in  residues_parameters are default parameters
+    that will be used to mark reactivity of the residue.
+    Entry is defined as follows:
+    residue name: [minimal_pKa, reactivity_threshold, maximal_pKa, maximal_burried_factor].
+    """
 
 
-    free_energy = free_energy.fillna('NaN')
-    start3 = get_drop_index(free_energy, reg_expression=r'The')
-    stop3 = len(free_energy.index)
-    free_energy = free_energy.drop(index=(range(start3, stop3)), axis=0)
-
-    free_energy = free_energy.replace('NaN',np.nan)
-    free_energy = free_energy.dropna(how = 'all')
-    free_energy = free_energy.rename(columns = {0: 'pH', 1:'free_energy [kcal/mol]'})
-
-
-
-    p_charge = pd.read_fwf(pka_file, skiprows=(
-        66 + start + start2 + start3), widths=[8, 8, 8], header=None)
-    start4 = get_drop_index(p_charge, reg_expression=r'The')
-    stop4 = len(p_charge.index)
-    p_charge = p_charge.drop(index=(range(start4, stop4)), axis=0)
-
-    p_charge = p_charge.rename(columns ={     0:'pH',  1: 'unfolded' , 2:'folded'})
-
-
-    data.to_csv(f"data_{pka_file.rstrip('.pka')}.csv", index = False)
-    summary.to_csv(f"summary_{pka_file.rstrip('.pka')}.csv")
-    free_energy.to_csv(f"free_energy_{pka_file.rstrip('.pka')}.csv")
-    p_charge.to_csv(f"p_charge_{pka_file.rstrip('.pka')}.csv")
+    try:
+        pkrun.single(pdb_file, optargs=[ "--log-level=ERROR",])
+        filename = pdb_file.partition('.')[0]
+        reactive_aa = process_pka_file(filename +'.pka', **residues_parameters)
+        if rm_temp_files == True:
+            for f in glob(filename+ '.pka'):
+                os.remove(f)
+        if save == True:
+            reactive_aa.to_csv(filename+'.csv', index=False)
+        else:
+            return reactive_aa
+    except Exception as e:
+        not_processed = open("not_processed.log", "a")
+        not_processed.write(f"{pdb_file} {traceback.format_exc()}") #adds ID to log
+        not_processed.close()

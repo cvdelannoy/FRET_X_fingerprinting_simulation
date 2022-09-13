@@ -786,7 +786,7 @@ def process_pka_file(pka_file, **kwargs):
     for residue_name, parameters in kwargs.items():
         residues = data.loc[data['residue_name'] == residue_name]
         residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa <= parameters[1])
-                                         & (residues.buried <= parameters[3]), 'hiper-reactive', residues.reactivity)
+                                         & (residues.buried <= parameters[3]), 'hyper-reactive', residues.reactivity)
         residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa >= parameters[1])
                                          & (residues.buried <= parameters[3]), 'reactive', residues.reactivity)
         residues['reactivity']  = np.where( (residues.pKa >= parameters[2]) | (residues.buried > parameters[3]),

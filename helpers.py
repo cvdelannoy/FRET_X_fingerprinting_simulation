@@ -726,13 +726,6 @@ def list_sheet_series(ss_seq):
     out_dict = dict(ChainMap(*dict_list))
     return out_dict
 
-# makes a log of not processed files
-not_processed = open("not_processed.log", "a")
-def make_log(txt):
-    """Returns PDB codes, that could not be processed"""
-    with open('data/log.txt','a') as f:
-        f.write(txt+'\n')
-
 
 def find_df_start(data, reg_expression=r'Couple.*'):
     """Based on given regular expression finds the place where to start a dataframe.

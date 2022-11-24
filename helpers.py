@@ -15,6 +15,8 @@ from itertools import groupby, chain, combinations
 import operator
 from copy import deepcopy
 from collections import ChainMap
+import traceback
+import propka.run as pkrun
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 forster_radius = 54.0  # forster radius in Angstrom for Cy3-Cy5, according to Murphy et al. 2004
@@ -723,3 +725,108 @@ def list_sheet_series(ss_seq):
             cur_list = []
     out_dict = dict(ChainMap(*dict_list))
     return out_dict
+
+
+def find_df_start(data, reg_expression=r'Couple.*'):
+    """Based on given regular expression finds the place where to start a dataframe."""
+
+    r = re.compile(reg_expression)
+    regmatch = np.vectorize(lambda x: bool(r.match(x)))
+    result = np.where(regmatch(data[0].values) == True)
+    return result[0][0]
+
+def process_pka_file(pka_file, **kwargs):
+    """Processes the output from propka. Outputs dataframe containing
+    filtered residues based on given kwargs."""
+    
+    data = pd.read_fwf(pka_file, skiprows=52, widths=[
+                    4, 3, 3, 7, 9, 7, 5, 7, 5, 7, 5,
+                    3, 3, 7, 5, 3, 3, 7, 5, 3, 3 ], # propka output is a file with fixed width
+                    header=None, skip_blank_lines=False)
+
+    data = data.fillna('NaN')
+    start = find_df_start(data, reg_expression=r'Co.*|-')
+    stop = len(data.index)
+    data = data.drop(index=(range(start, stop)), axis=0)
+    data = data.replace('NaN', np.nan)
+    data = data.dropna(how = 'all')
+    data.insert(4, 'coupled_residues', data[3].str.contains('\*'))
+    data[3] = data[3].str.rstrip('*')
+    data[4] = data[4].str.rstrip('%')
+
+    data = data.rename(
+        columns =  {0:'residue_name',
+                    1:'residue_id',
+                    2:'chain_id',
+                    3:'pKa',
+                    4:'buried',
+                    5:'desolvation_regular_1',
+                    6:'desolvation_regular_2',
+                    7:'effects_re_1',
+                    8:'effects_re_2',
+                    9:'sidechain_h_bond_1',
+                    10:'sidechain_h_bond_2',
+                    11:'sidechain_h_bond_3',
+                    12:'sidechain_h_bond_4',
+                    13:'backbone_h_bond_1',
+                    14:'backbone_h_bond_2',
+                    15:'backbone_h_bond_3',
+                    16:'backbone_h_bond_4',
+                    17:'coulombic_interaction_1',
+                    18:'coulombic_interaction_2',
+                    19:'coulombic_interaction_3',
+                    20:'coulombic_interaction_4',
+                    })
+
+    data=data.astype({'pKa' : float})
+    data=data.astype({'buried' : float})
+    data.insert(4, 'reactivity', np.nan)
+
+    filtered_residues = pd.DataFrame()
+    for residue_name, parameters in kwargs.items():
+        residues = data.loc[data['residue_name'] == residue_name]
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa <= parameters[1])
+                                         & (residues.buried <= parameters[3]), 'hyper-reactive', residues.reactivity)
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa >= parameters[1])
+                                         & (residues.buried <= parameters[3]), 'reactive', residues.reactivity)
+        residues['reactivity']  = np.where( (residues.pKa >= parameters[2]) | (residues.buried > parameters[3]),
+                                             'non-reactive', residues.reactivity)
+        filtered_residues = pd.concat([filtered_residues, residues], axis=0)
+
+    filtered_residues.dropna(inplace=True)
+    filtered_residues = filtered_residues[['residue_name', 'residue_id',
+                                            'reactivity', 'pKa',
+                                            'buried']]
+    return filtered_residues
+
+
+def get_reactive_aa(pdb_file, residues_parameters=
+                        {'CYS': [0, 7.65, 99, 85],
+                       'LYS': [0, 9.75, 99, 85]},
+                       rm_temp_files = True,
+                       save=True):
+
+    """Accepts PDB file and returns dictionary of residues of interest with pKa value
+    and if the residue can be labeled or is it is an reactive residue.
+    Parameters in  residues_parameters are default parameters
+    that will be used to mark reactivity of the residue.
+    Entry is defined as follows:
+    residue name: [minimal_pKa, reactivity_threshold, maximal_pKa, maximal_burried_factor]."""
+    
+
+
+    try:
+        pkrun.single(pdb_file, optargs=[ "--log-level=ERROR",])
+        filename = pdb_file.partition('.')[0]
+        reactive_aa = process_pka_file(filename +'.pka', **residues_parameters)
+        if rm_temp_files == True:
+            for f in glob(filename+ '.pka'):
+                os.remove(f)
+        if save == True:
+            reactive_aa.to_csv(filename+'.csv', index=False)
+        else:
+            return reactive_aa
+    except Exception as e:
+        not_processed = open("not_processed.log", "a")
+        not_processed.write(f"{pdb_file} {traceback.format_exc()}") #adds ID to log
+        not_processed.close()

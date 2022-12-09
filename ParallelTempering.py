@@ -12,11 +12,20 @@ from helpers import print_timestamp
 
 class ParallelTempering(object):
     def __init__(self,  **kwargs):
+        # --- identifiers ---
+        self.pdb_id = kwargs['pdb_id']
+        self.reactive_idx = kwargs['reactive_idx']
+        self.model_nb = str(kwargs.get('model_nb', 'backup'))
+
+        # --- IO ---
+
+        # --- run params ---
         self.beta_list = kwargs['beta_list']
         self.lattice_type = kwargs['lattice_type']
-        self.nb_temps = len(self.beta_list)
         self.experimental_mode = kwargs['experimental_mode']
         self.accomodate_tags = kwargs.get('accomodate_tags', False)
+
+        self.nb_temps = len(self.beta_list)
 
         # Initialize with same seed for all betas
         LMC_list = []
@@ -43,8 +52,6 @@ class ParallelTempering(object):
         self.nb_tempswaps = self.nb_iters // self.iters_per_tempswap
         self.nb_processes = kwargs['nb_processes']
         self.save_dir = kwargs.get('save_dir', None)
-        self.pdb_id = kwargs['pdb_id']
-        self.model_nb = str(kwargs.get('model_nb', 'backup'))
         self.early_stopping_rounds = kwargs.get('early_stopping_rounds', 10)
         self.store_rg = kwargs['store_rg']
         self.rg_list = []
@@ -60,7 +67,7 @@ class ParallelTempering(object):
 
         self.store_energies = kwargs.get('store_energies', False)
         if self.store_energies:
-            self.store_energies = f'{self.save_dir}{self.pdb_id}_{self.model_nb}_energies.tsv'
+            self.store_energies = f'{self.save_dir}{self.pdb_id}_ri{self.reactive_idx}_{self.model_nb}_energies.tsv'
             with open(self.store_energies, 'w') as fh:
                 fh.write('step\te_aa\te_ss\te_sol\te_dsb\te_tag\trg\n')
                 en_list = [str(en.__round__(3)) for en in self.LMC_list[0].best_model.individual_energies]
@@ -81,7 +88,7 @@ class ParallelTempering(object):
     @save_intermediate_structures.setter
     def save_intermediate_structures(self, save_bool):
         if save_bool:
-            fn = f'{self.save_dir}{self.pdb_id}_{self.model_nb}_intermediates.pdb'
+            fn = f'{self.save_dir}{self.pdb_id}_ri{self.reactive_idx}_{self.model_nb}_intermediates.pdb'
             with open(fn, 'w') as fh:
                 fh.write(f'NUMMDL    {str(self.nb_tempswaps).ljust(4)}\n')
             self.intermediate_structures_fn = fn
@@ -212,7 +219,7 @@ class ParallelTempering(object):
 
         if self.accomodate_tags:
             if self.get_best_model()[1].individual_energies[4] != 0:
-                np.savez(f'{self.save_dir}{self.pdb_id}_{self.model_nb}_unoptimizedTags.npz',
+                np.savez(f'{self.save_dir}{self.pdb_id}_ri{self.reactive_idx}_{self.model_nb}_unoptimizedTags.npz',
                          sequence=lmc.best_model.aa_sequence, coords=lmc.best_model.coords,
                          secondary_structure=lmc.best_model.ss_df.to_numpy(),
                          tagged_resi=self.tagged_resi)
@@ -227,16 +234,16 @@ class ParallelTempering(object):
 
         # --- Save temperature stats ---
         self.temp_df.reset_index(inplace=True)
-        self.temp_df.to_csv(f'{self.save_dir}{self.pdb_id}_{self.model_nb}_tempstats.tsv',
+        self.temp_df.to_csv(f'{self.save_dir}{self.pdb_id}_ri{self.reactive_idx}_{self.model_nb}_tempstats.tsv',
                             sep='\t', header=True, index=False)
 
         # --- Save e-matrices ---
         e_mat_dict['sequence'] = self.LMC_list[0].best_model.aa_sequence
         e_mat_dict['new_best'] = np.array(new_best_list)
-        np.savez(f'{self.save_dir}{self.pdb_id}_{self.model_nb}_e_mat.npz', **e_mat_dict)
+        np.savez(f'{self.save_dir}{self.pdb_id}_ri{self.reactive_idx}_{self.model_nb}_e_mat.npz', **e_mat_dict)
 
         # --- Save coordinates as npz ---
-        np.savez(f'{self.save_dir}{self.pdb_id}_{self.model_nb}.npz',
+        np.savez(f'{self.save_dir}{self.pdb_id}_ri{self.reactive_idx}_{self.model_nb}.npz',
                  sequence=lmc.best_model.aa_sequence, coords=lmc.best_model.coords,
                  secondary_structure=lmc.best_model.ss_df.to_numpy())
 
@@ -244,7 +251,7 @@ class ParallelTempering(object):
         # if self.snapshots[0] < 1: return
         print(f'Optimization done! Making {self.snapshots[0]} snapshots...')
         lmc.make_snapshots(self.snapshots[0], self.snapshots[1], self.rg_list,
-                           f'{self.save_dir}{self.pdb_id}_{self.model_nb}.pdb',
+                           f'{self.save_dir}{self.pdb_id}_ri{self.reactive_idx}_{self.model_nb}.pdb',
                            free_sampling=self.free_sampling)
 
     def get_p_acc(self, idx):

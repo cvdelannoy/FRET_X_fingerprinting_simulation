@@ -35,6 +35,8 @@ parser.add_argument('--labeling-model', type=str, default='perfect',
                     help='Yaml file containing labeling probability for each residue, for each labeling chemistry '
                          '(no value == no labeling). Supply "standard" for regular model or "perfect" for '
                          'no mislabeling or path to yaml [default: perfect].')
+parser.add_argument('--fretxy', action='store_true',
+                    help='Run a FRET XY simulation instead.')
 parser.add_argument('--experimental-mode', type=int, default=0,
                     help='Several experimental settings under 1 switch, numeric.')
 # --- lattice properties ---
@@ -152,6 +154,7 @@ for ent in ent_list:
         aa_seq = fh['sequence']
         coords = fh['coords'].astype(int)
         ss_df = pd.DataFrame(fh['secondary_structure'], columns=['H', 'S', 'L'])
+        propka_df = pd.DataFrame(fh['propka'], columns=['residue_id', 'reactivity', 'pKa', 'buried'])
         if 'acc_tagged_resi' in fh:
             acc_tagged_resi = fh['acc_tagged_resi'][()]
         else:
@@ -198,76 +201,77 @@ for ent in ent_list:
 
         # Determine which residues are labeled. Here labeling model is applied (i.e. incomplete/mis-labeling takes place)
         if not is_retry:
-            tagged_resi = nhp.get_tagged_resi(labeling_model, tagged_resn, aa_seq, acc_tagged_resi)
+            tagged_resi = nhp.get_tagged_resi(labeling_model, tagged_resn, aa_seq, acc_tagged_resi, propka_df, args.fretxy)
+        for tri in tagged_resi:
+            if args.nb_processes > 1:  # Run parallel tempering with [args.nb_processes] chains
+                pt = ParallelTempering(
+                    # --- model ID args ---
+                    pdb_id=pdb_id,  # unique id for model
+                    reactive_idx=tri,
+                    model_nb=ns,    # Idx of this model run
+                    # --- model run params ---
+                    aa_sequence=aa_seq,                                # Amino acid sequence in 1-letter array
+                    tagged_resn=tagged_resn,
+                    beta_list=beta_list,                               # beta values at which to run parallel tempering chains (i.e. 0.01/T)
+                    nb_processes=args.nb_processes,                    # Number of processes/cores to engage at once (== number of parallel tempering chains)
 
-        if args.nb_processes > 1:  # Run parallel tempering with [args.nb_processes] chains
-            pt = ParallelTempering(
-                # --- model ID args ---
-                pdb_id=pdb_id,  # unique id for model
-                model_nb=ns,    # Idx of this model run
-                # --- model run params ---
-                aa_sequence=aa_seq,                                # Amino acid sequence in 1-letter array
-                tagged_resn=tagged_resn,
-                beta_list=beta_list,                               # beta values at which to run parallel tempering chains (i.e. 0.01/T)
-                nb_processes=args.nb_processes,                    # Number of processes/cores to engage at once (== number of parallel tempering chains)
+                    lattice_type=args.lattice_type,                    # Type of lattice to adhere to (e.g. cubic or bcc)
+                    coords=coords,                                     # lattice CA starting coordinates, [L x 3] int np array, or None if starting coordinates should be generated
+                    starting_structure=args.starting_structure,        # If no starting coords are provided, indicate how starting coords should be generated (e.g. 'stretched' or 'random')
 
-                lattice_type=args.lattice_type,                    # Type of lattice to adhere to (e.g. cubic or bcc)
-                coords=coords,                                     # lattice CA starting coordinates, [L x 3] int np array, or None if starting coordinates should be generated
-                starting_structure=args.starting_structure,        # If no starting coords are provided, indicate how starting coords should be generated (e.g. 'stretched' or 'random')
+                    nb_steps=args.nb_steps,                            # Number of mutations to apply at each MC iteration
+                    nb_iters=args.mc_iters,                            # Total number of MC iterations
+                    iters_per_tempswap=args.iters_per_tempswap,        # Number of MC iterations to perform before swapping models between parallel tempering chains
 
-                nb_steps=args.nb_steps,                            # Number of mutations to apply at each MC iteration
-                nb_iters=args.mc_iters,                            # Total number of MC iterations
-                iters_per_tempswap=args.iters_per_tempswap,        # Number of MC iterations to perform before swapping models between parallel tempering chains
+                    early_stopping_rounds=args.early_stopping_rounds,  # number of rounds in which no better model is accepted before stopping early, -1 to disable
 
-                early_stopping_rounds=args.early_stopping_rounds,  # number of rounds in which no better model is accepted before stopping early, -1 to disable
+                    experimental_mode=args.experimental_mode,
+                    cm_coords=cm_dict.get(pdb_id.split('_')[0], None),
+                    finetune_structure=args.finetune_structure,
+                    # -- E modifiers ---
+                    pairs_mat=pairs_mat,        # pandas df containing energy modifier for each combination of residue types + water interactions
+                    secondary_structure=ss_df,  # secondary structure energy modifiers, [L x 3] pandas df with E modifier for H(elix)/S(trand)/L(oop) resp. in columns
+                    tagged_resi=tagged_resi[tri],    # tagged residue indices
+                    # --- output args ---
+                    save_dir=out_dir_pdb,                                           # directory to save results to
+                    store_rg=args.store_rg,                                         # Store radius of gyration at each temp swap ('tswap'), each MC iteration ('full') or not at all ('off')
+                    snapshots=args.snapshots,                                       # Tuple [N, T] denoting to make N snapshots of final structure spaced by T MC iterations
+                    save_intermediate_structures=args.save_intermediate_structures, # if True, save structure for each temp swap in separate file
+                    store_energies=args.store_energies,                              # if True, store energy for each temp swap in separate file
+                    no_regularization=args.no_regularization,
 
-                experimental_mode=args.experimental_mode,
-                cm_coords=cm_dict.get(pdb_id.split('_')[0], None),
-                finetune_structure=args.finetune_structure,
-                # -- E modifiers ---
-                pairs_mat=pairs_mat,        # pandas df containing energy modifier for each combination of residue types + water interactions
-                secondary_structure=ss_df,  # secondary structure energy modifiers, [L x 3] pandas df with E modifier for H(elix)/S(trand)/L(oop) resp. in columns
-                tagged_resi=tagged_resi,    # tagged residue indices
-                # --- output args ---
-                save_dir=out_dir_pdb,                                           # directory to save results to
-                store_rg=args.store_rg,                                         # Store radius of gyration at each temp swap ('tswap'), each MC iteration ('full') or not at all ('off')
-                snapshots=args.snapshots,                                       # Tuple [N, T] denoting to make N snapshots of final structure spaced by T MC iterations
-                save_intermediate_structures=args.save_intermediate_structures, # if True, save structure for each temp swap in separate file
-                store_energies=args.store_energies,                              # if True, store energy for each temp swap in separate file
-                no_regularization=args.no_regularization,
+                    accomodate_tags=args.accomodate_tags,
+                    free_sampling=args.free_sampling
+                )
+                pt.do_mc_parallel()
+            else:  # If one process available, run single chain at lowest temperature
+                beta = 0.01 / args.temp_range[0]
+                intermediate_fn = None
+                if args.save_intermediate_structures:
+                    intermediate_fn = f'{out_dir_pdb}{pdb_id}_{ns}_intermediates.pdb'
+                lmc = LatticeModelComparison(
+                    pdb_id=pdb_id,
+                    # --- model ID args ---
+                    mod_id=ns,  # Idx for this model run
+                    # --- model run params ---
+                    aa_sequence=aa_seq,  # Amino acid sequence in 1-letter array
+                    beta=beta,           # Beta value at which to run chain (i.e. 0.01/T)
 
-                accomodate_tags=args.accomodate_tags,
-                free_sampling=args.free_sampling
-            )
-            pt.do_mc_parallel()
-        else:  # If one process available, run single chain at lowest temperature
-            beta = 0.01 / args.temp_range[0]
-            intermediate_fn = None
-            if args.save_intermediate_structures:
-                intermediate_fn = f'{out_dir_pdb}{pdb_id}_{ns}_intermediates.pdb'
-            lmc = LatticeModelComparison(
-                pdb_id=pdb_id,
-                # --- model ID args ---
-                mod_id=ns, # Idx for this model run
-                # --- model run params ---
-                aa_sequence=aa_seq,  # Amino acid sequence in 1-letter array
-                beta=beta,           # Beta value at which to run chain (i.e. 0.01/T)
+                    lattice_type=args.lattice_type,             # Type of lattice to adhere to (e.g. cubic or bcc)
+                    coords=coords,                              # Lattice CA starting coordinates, [L x 3] int np array, or None if starting coordinates should be generated
+                    starting_structure=args.starting_structure, # If no starting coords are provided, indicate how starting coords should be generated (e.g. 'stretched' or 'random')
 
-                lattice_type=args.lattice_type,             # Type of lattice to adhere to (e.g. cubic or bcc)
-                coords=coords,                              # Lattice CA starting coordinates, [L x 3] int np array, or None if starting coordinates should be generated
-                starting_structure=args.starting_structure, # If no starting coords are provided, indicate how starting coords should be generated (e.g. 'stretched' or 'random')
-
-                nb_steps=args.nb_steps,  # Number of mutations to apply at each MC iteration
-                experimental_mode=args.experimental_mode,
-                # --- E modifiers ---
-                pairs_mat=pairs_mat,        # pandas df containing energy modifier for each combination of residue types + water interactions
-                secondary_structure=ss_df,  # secondary structure energy modifiers, [L x 3] pandas df with E modifier for H(elix)/S(trand)/L(oop) resp. in columns
-                tagged_resi=tagged_resi,    # tagged residue indices
-                # --- output args ---
-                store_rg=args.store_rg,  # Store radius of gyration at each temp swap ('tswap'), each MC iteration ('full') or not at all ('off')
-                stepwise_intermediates=intermediate_fn,
-                no_regularization=args.no_regularization
-            )
-            lmc.do_mc(args.mc_iters)
-            lmc.make_snapshots(args.snapshots[0], args.snapshots[1], [lmc.best_model.rg],
-                               f'{out_dir_pdb}{pdb_id}_{ns}.pdb', free_sampling=args.free_sampling)
+                    nb_steps=args.nb_steps,  # Number of mutations to apply at each MC iteration
+                    experimental_mode=args.experimental_mode,
+                    # --- E modifiers ---
+                    pairs_mat=pairs_mat,        # pandas df containing energy modifier for each combination of residue types + water interactions
+                    secondary_structure=ss_df,  # secondary structure energy modifiers, [L x 3] pandas df with E modifier for H(elix)/S(trand)/L(oop) resp. in columns
+                    tagged_resi=tagged_resi,    # tagged residue indices
+                    # --- output args ---
+                    store_rg=args.store_rg,  # Store radius of gyration at each temp swap ('tswap'), each MC iteration ('full') or not at all ('off')
+                    stepwise_intermediates=intermediate_fn,
+                    no_regularization=args.no_regularization
+                )
+                lmc.do_mc(args.mc_iters)
+                lmc.make_snapshots(args.snapshots[0], args.snapshots[1], [lmc.best_model.rg],
+                                   f'{out_dir_pdb}{pdb_id}_{ns}.pdb', free_sampling=args.free_sampling)

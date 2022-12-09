@@ -167,18 +167,18 @@ class Lattice(LatticeModel):
 
     def apply_n_steps(self, n):
         global_fun_list = [
-            # self.apply_crankshaft_move,
+            self.apply_crankshaft_move,
             self.apply_branch_rotation,
             self.apply_corner_flip,
-            # self.apply_pull_move  # screws up helices, can't get it right
+            self.apply_pull_move  # screws up helices, can't get it right
         ]
 
         for _ in range(n):
             random.shuffle(global_fun_list)
             if global_fun_list[0](): pass
             elif global_fun_list[1](): pass
-            # elif global_fun_list[2](): pass
-            # elif global_fun_list[3](): pass
+            elif global_fun_list[2](): pass
+            elif global_fun_list[3](): pass
             else: return False
             self.set_hash_list()
             self.__dict__.pop('e_matrix', None)

@@ -12,6 +12,10 @@ color_dict = {'C':'#66c2a5',
               'K': '#fc8d62',
               'R': '#8da0cb'}
 
+color_dict = { 'K': ['#756bb1', '#bcbddc'],
+              'C': ['#e34a33', '#fdbb84']}
+
+
 parser = argparse.ArgumentParser(description='Graph fingerprints from a pickled set of pdbs')
 parser.add_argument('--fp-pkl', required=True, type=str,
                     help='pickled fingerprints as produced by parse_fingerprints.py')
@@ -34,25 +38,30 @@ for pdb_id in struct_dict:
         segments = []
         colors = []
         lens = []
-        for ri, resn in enumerate(fp_dict):
-            segments = [[(it+ri*0.3, fpi), (it+ri*0.3, fpi+fs*0.5)] for it, fs in enumerate(fp_dict[resn]) if fs != 0]
-            fp_cur = np.argwhere(fp_dict[resn] != 0).reshape(-1)
-            colors.extend(len(fp_cur) * [color_dict[resn]])
-            lens.extend(fp_dict[resn])
-            fp.append(fp_cur)
-            ls_list.append(LineCollection(segments, colors=len(segments) * [color_dict[resn]], linewidths=2))
+        for rei in fp_dict:
+            for ri, resn in enumerate(fp_dict[rei]):
+                if rei == 1 and resn == 'C':
+                    cp=1
+                segments = [[(it+ri*0.3, fpi), (it+ri*0.3, fpi+fs*0.5)] for it, fs in enumerate(fp_dict[rei][resn]) if fs != 0]
+                fp_cur = np.argwhere(fp_dict[rei][resn] != 0).reshape(-1)
+                colors.extend(len(fp_cur) * [color_dict[resn][rei]])
+                lens.extend(fp_dict[rei][resn])
+                fp.append(fp_cur)
+                ls_list.append(LineCollection(segments, colors=len(segments) * [color_dict[resn][rei]], linewidths=2))
         fp = np.concatenate(fp)
         array_list.append(fp)
         color_list.append(colors)
         lens_list.append(lens)
     # plt.figure(figsize=(10, 5))
-    fig,ax = pl.subplots(figsize=(15,10))
+    fig,ax = pl.subplots(figsize=(10,5))
     for ls in ls_list: ax.add_collection(ls)
     ax.autoscale()
     # plt.eventplot(array_list, colors=color_list, linelengths=lens_list)
     id_list = list(struct_dict[pdb_id]['fingerprints'])
+    plt.xlim([0, 100])
     plt.yticks(list(range(len(id_list))), id_list)
     plt.xlabel('FRET (E)'); plt.ylabel('fingerprint #')
+    plt.tight_layout()
     plt.savefig(f'{out_dir}{pdb_id}.svg')
     np.savetxt(f'{out_dir}{pdb_id}.tsv', np.array(lens_list), delimiter='\t')
     plt.close(fig=plt.gcf())

@@ -17,6 +17,7 @@ from copy import deepcopy
 from collections import ChainMap
 import traceback
 import propka.run as pkrun
+from tempfile import NamedTemporaryFile
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 forster_radius = 54.0  # forster radius in Angstrom for Cy3-Cy5, according to Murphy et al. 2004
@@ -120,7 +121,24 @@ def get_compound_properties(pdb_id, pdb_fn, target_residue_list):
     return header['molecule'], header['synonym'], len(chain), res_occurances
 
 
-def get_tagged_resi(mm, tagged_resn, aa_sequence, acc_resi):
+def get_tagged_resi(mm, tagged_resn, aa_sequence, acc_resi, propka_df, fretxy):
+    if fretxy:
+        tr_dict = {}
+        r_levels = np.array(propka_df.reactivity.unique())
+        r_levels.sort()
+        for r in r_levels:
+            if r == -1: continue
+            pdf = propka_df.query(f'reactivity <= {r} and reactivity >= 0')
+            tr = gtr_fun(mm, tagged_resn, aa_sequence, acc_resi)
+            for t in tagged_resn:
+                tr_sub = [x for x in tr[t] if x in np.array(pdf.residue_id)]
+                tr[t] = tr_sub
+            tr_dict[r] = tr
+        return tr_dict
+    else:
+        return {0: gtr_fun(mm, tagged_resn, aa_sequence, acc_resi)}
+
+def gtr_fun(mm, tagged_resn, aa_sequence, acc_resi):
     tagged_resi = {}
     tagged_resi_list = [acc_resi]  # acceptor-labeled resi
     for target_resn in tagged_resn:
@@ -784,27 +802,29 @@ def process_pka_file(pka_file, **kwargs):
 
     filtered_residues = pd.DataFrame()
     for residue_name, parameters in kwargs.items():
-        residues = data.loc[data['residue_name'] == residue_name]
+        residues = data.loc[data['residue_name'] == residue_name].copy()
+        # Encode reactivity: 0 = hyperreactive, 1 = reactive, -1 = non-reactive
+        # CL went for numeric encoding, as text in pandas dfs cannot be loaded in an npz
         residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa <= parameters[1])
-                                         & (residues.buried <= parameters[3]), 'hyper-reactive', residues.reactivity)
+                                         & (residues.buried <= parameters[3]), 0, residues.reactivity)
         residues['reactivity']  = np.where( (residues.pKa >= parameters[0]) & (residues.pKa >= parameters[1])
-                                         & (residues.buried <= parameters[3]), 'reactive', residues.reactivity)
+                                         & (residues.buried <= parameters[3]), 1, residues.reactivity)
         residues['reactivity']  = np.where( (residues.pKa >= parameters[2]) | (residues.buried > parameters[3]),
-                                             'non-reactive', residues.reactivity)
+                                             -1, residues.reactivity)
         filtered_residues = pd.concat([filtered_residues, residues], axis=0)
 
     filtered_residues.dropna(inplace=True)
     filtered_residues = filtered_residues[['residue_name', 'residue_id',
                                             'reactivity', 'pKa',
                                             'buried']]
+    filtered_residues.residue_id = filtered_residues.residue_id.astype(int)
+    filtered_residues.reactivity = filtered_residues.reactivity.astype(int)
+    filtered_residues.reset_index(drop=True, inplace=True)
     return filtered_residues
 
 
-def get_reactive_aa(pdb_file, residues_parameters=
-                        {'CYS': [0, 7.65, 99, 85],
-                       'LYS': [0, 9.75, 99, 85]},
-                       rm_temp_files = True,
-                       save=True):
+def get_reactive_aa(pdb_file, residues_parameters={'CYS': [0, 7.65, 99, 85], 'LYS': [0, 9.75, 99, 85]},
+                    save=True):
 
     """Accepts PDB file and returns dictionary of residues of interest with pKa value
     and if the residue can be labeled or is it is an reactive residue.
@@ -812,21 +832,11 @@ def get_reactive_aa(pdb_file, residues_parameters=
     that will be used to mark reactivity of the residue.
     Entry is defined as follows:
     residue name: [minimal_pKa, reactivity_threshold, maximal_pKa, maximal_burried_factor]."""
-    
-
-
-    try:
-        pkrun.single(pdb_file, optargs=[ "--log-level=ERROR",])
-        filename = pdb_file.partition('.')[0]
-        reactive_aa = process_pka_file(filename +'.pka', **residues_parameters)
-        if rm_temp_files == True:
-            for f in glob(filename+ '.pka'):
-                os.remove(f)
-        if save == True:
-            reactive_aa.to_csv(filename+'.csv', index=False)
-        else:
-            return reactive_aa
-    except Exception as e:
-        not_processed = open("not_processed.log", "a")
-        not_processed.write(f"{pdb_file} {traceback.format_exc()}") #adds ID to log
-        not_processed.close()
+    pkf = pkrun.single(pdb_file, optargs=("--log-level=ERROR",), write_pka=False)
+    with NamedTemporaryFile(suffix='.pka') as pka_fn:
+        pkf.write_pka(pka_fn.name)
+        reactive_aa = process_pka_file(pka_fn.name, **residues_parameters)
+    if save:
+        reactive_aa.to_csv(pdb_file.partition('.')[0] + '.csv', index=False)
+    else:
+        return reactive_aa

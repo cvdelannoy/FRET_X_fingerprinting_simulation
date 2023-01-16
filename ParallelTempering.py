@@ -5,6 +5,7 @@ from math import ceil
 from time import sleep
 import pandas as pd
 from copy import deepcopy
+from pathlib import Path
 
 from LatticeModelComparison import LatticeModelComparison
 from helpers import print_timestamp

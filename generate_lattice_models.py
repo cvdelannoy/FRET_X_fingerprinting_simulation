@@ -1,4 +1,3 @@
-import pathlib
 import re
 import argparse
 import yaml
@@ -8,6 +7,8 @@ import os
 import numpy as np
 import pandas as pd
 import helpers as nhp
+from pathlib import Path
+
 from LatticeModelComparison import LatticeModelComparison
 from ParallelTempering import ParallelTempering
 
@@ -127,7 +128,7 @@ elif args.finetune_structure:
 for ent in ent_list:
     pdb_id, ext = os.path.splitext(os.path.basename(ent))
     out_dir_pdb = f'{args.out_dir}{pdb_id}/'
-    pathlib.Path(out_dir_pdb).mkdir(parents=True, exist_ok=True)
+    Path(out_dir_pdb).mkdir(parents=True, exist_ok=True)
     model_idx_start = 0
     nb_models = args.nb_models  # For each protein [nb_models] model runs are performed
 
@@ -253,7 +254,7 @@ for ent in ent_list:
                     pdb_id=pdb_id,
                     # --- model ID args ---
                     mod_id=ns,  # Idx for this model run
-                    # --- model run params ---
+                    # --- model run params ---`
                     aa_sequence=aa_seq,  # Amino acid sequence in 1-letter array
                     beta=beta,           # Beta value at which to run chain (i.e. 0.01/T)
 
@@ -275,3 +276,4 @@ for ent in ent_list:
                 lmc.do_mc(args.mc_iters)
                 lmc.make_snapshots(args.snapshots[0], args.snapshots[1], [lmc.best_model.rg],
                                    f'{out_dir_pdb}{pdb_id}_{ns}.pdb', free_sampling=args.free_sampling)
+        Path(f'{out_dir_pdb}{pdb_id}_{ns}_done').touch()  # make file to signal snakemake run is completed (clunky!)

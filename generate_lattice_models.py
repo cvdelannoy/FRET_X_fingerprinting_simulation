@@ -155,7 +155,10 @@ for ent in ent_list:
         aa_seq = fh['sequence']
         coords = fh['coords'].astype(int)
         ss_df = pd.DataFrame(fh['secondary_structure'], columns=['H', 'S', 'L'])
-        propka_df = pd.DataFrame(fh['propka'], columns=['residue_id', 'reactivity', 'pKa', 'buried'])
+        if 'propka' in fh:
+            propka_df = pd.DataFrame(fh['propka'], columns=['residue_id', 'reactivity', 'pKa', 'buried'])
+        else:
+            propka_df = pd.DataFrame(columns=['residue_id', 'reactivity', 'pKa', 'buried'])
         if 'acc_tagged_resi' in fh:
             acc_tagged_resi = fh['acc_tagged_resi'][()]
         else:

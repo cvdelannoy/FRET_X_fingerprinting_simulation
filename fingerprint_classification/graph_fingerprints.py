@@ -10,10 +10,14 @@ from helpers import parse_output_dir
 
 color_dict = {'C':'#66c2a5',
               'K': '#fc8d62',
+              'M': '#7fc97f',
+               'Y': '#386cb0',
               'R': '#8da0cb'}
 
 color_dict = { 'K': ['#756bb1', '#bcbddc'],
-              'C': ['#e34a33', '#fdbb84']}
+              'C': ['#e34a33', '#fdbb84'],
+               'Y': ['#386cb0', '#bdc9e1'],
+               'M': ['#7fc97f', '#31b031']}
 
 
 parser = argparse.ArgumentParser(description='Graph fingerprints from a pickled set of pdbs')

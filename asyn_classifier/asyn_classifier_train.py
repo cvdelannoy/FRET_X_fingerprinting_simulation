@@ -4,6 +4,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import pomegranate as pg
+from sklearn.svm import SVC
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 from helpers import parse_input_dir
@@ -20,11 +24,31 @@ def dir2df(dir_fn, regex):
 def main(train_dir, test_dir, pred_csv, regex):
     train_df = dir2df(train_dir, regex)
     test_df = dir2df(test_dir, regex)
-    class_list = list(set(train_df.cl_id))
-    dist_dict = {cli: pg.distributions.NormalDistribution.from_samples(train_df.query(f'cl_id == "{cli}"').efret) for cli in class_list}
-    for dn in dist_dict: dist_dict[dn].name = dn
-    mod = pg.NaiveBayes(list(dist_dict.values()))
-    test_df.loc[:, 'pred'] = [class_list[pi] for pi in mod.predict(test_df.efret.to_numpy().reshape(-1,1))]
+
+    # # balance dataset
+    # nb_ex = min([len(sdf) for _, sdf in train_df.groupby('cl_id')])
+    # train_df = pd.concat([sdf.sample(nb_ex) for _, sdf in train_df.groupby('cl_id')]).reset_index(drop=True)
+
+    # # RFC
+    # mod = RandomForestClassifier()
+    # mod.fit(train_df.efret.to_numpy().reshape(-1, 1), train_df.cl_id)
+    # test_df.loc[:, 'pred'] = mod.predict(test_df.efret.to_numpy().reshape(-1, 1))
+
+    # SVM
+    mod = make_pipeline(StandardScaler(), SVC(gamma='auto'))
+    mod.fit(train_df.efret.to_numpy().reshape(-1,1), train_df.cl_id)
+    test_df.loc[:, 'pred'] = mod.predict(test_df.efret.to_numpy().reshape(-1,1))
+
+    # # Naive bayes
+    # class_list = list(set(train_df.cl_id))
+    # dist_dict = {cli: pg.distributions.NormalDistribution.from_samples(train_df.query(f'cl_id == "{cli}"').efret) for cli in class_list}
+    # for dn in dist_dict: dist_dict[dn].name = dn
+    # mod = pg.NaiveBayes(list(dist_dict.values()))
+    #
+    # test_df.loc[:, 'pred'] = [class_list[pi] for pi in mod.predict(test_df.efret.to_numpy().reshape(-1,1))]
+    # mod_fn = f'{str(Path(pred_csv).parent)}/{Path(pred_csv).stem}_mod.json'
+    # with open(mod_fn, 'w') as fh: fh.write(mod.to_json())
+
     test_df.to_csv(pred_csv, index=False)
 
 if __name__ == "__main__":

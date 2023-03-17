@@ -1,4 +1,4 @@
-import argparse, re, sys
+import argparse, re, sys, os
 
 import numpy as np
 import pandas as pd
@@ -67,11 +67,15 @@ overall_acc: {overall_acc}
         ''')
 
 
-def main(data_dict, nb_folds, out_dir, regex, cores):
+def sample_dict(in_dict, nb_iters):
+    return {cl_id: [in_dict[cl_id][np.random.randint(len(in_dict[cl_id]), size=len(in_dict[cl_id]))] for _ in range(nb_iters)]
+            for cl_id in in_dict}
 
-    for cl_id in data_dict:
-        np.random.shuffle(data_dict[cl_id])
-        data_dict[cl_id] = np.array_split(data_dict[cl_id], nb_folds)
+
+def main(train_dict, test_dict, nb_folds, out_dir, regex, cores, sort_asyn, order):
+
+    train_dict_bs = sample_dict(train_dict, nb_folds)
+    test_dict_bs = sample_dict(test_dict, nb_folds)
 
     # make directories, split data
     folds_dir = parse_output_dir(out_dir + 'folds')
@@ -79,10 +83,9 @@ def main(data_dict, nb_folds, out_dir, regex, cores):
         cur_out_dir = parse_output_dir(folds_dir + str(fi))
         tst_dir = parse_output_dir(cur_out_dir + 'test')
         train_dir = parse_output_dir(cur_out_dir + 'train')
-        for cl_id in data_dict:
-            cur_data = deepcopy(data_dict[cl_id])
-            np.savetxt(f'{tst_dir}{cl_id}.txt', cur_data.pop(fi))
-            np.savetxt(f'{train_dir}{cl_id}.txt', np.concatenate(cur_data))
+        for cl_id in train_dict:
+            np.savetxt(f'{tst_dir}{cl_id}.txt', test_dict_bs[cl_id][fi])
+            np.savetxt(f'{train_dir}{cl_id}.txt',train_dict_bs[cl_id][fi])
 
     with open(f'{__dirname__}/asyn_classifier_pipeline.sf', 'r') as fh: sm_template = fh.read()
     sm_txt = Template(sm_template).render(
@@ -96,7 +99,12 @@ def main(data_dict, nb_folds, out_dir, regex, cores):
     with open(sm_fn, 'w') as fh: fh.write(sm_txt)
     snakemake(sm_fn, cores=cores)
     pred_df = pd.read_csv(f'{out_dir}asyn_test_predicted_all.csv', index_col=0)
-    var_names = sorted(pred_df.cl_id.unique(), key=lambda x: int(re.search('(?<=[A-Z])[0-9]+(?=[A-Z])', x).group(0)))
+    if sort_asyn:
+        var_names = sorted(pred_df.cl_id.unique(), key=lambda x: int(re.search('(?<=[A-Z])[0-9]+(?=[A-Z])', x).group(0)))
+    elif order:
+        var_names = order
+    else:
+        var_names = sorted(pred_df.cl_id.unique())
     get_stats(pred_df, 'cl_id', 'pred', out_dir)
     plot_confusion_heatmap(pred_df, 'cl_id', 'pred', 'fold', var_names, out_dir)
     plot_precision_recall(pred_df, 'cl_id', 'pred', out_dir)
@@ -105,14 +113,17 @@ def main(data_dict, nb_folds, out_dir, regex, cores):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train & evaluate aSyn classification.')
-    parser.add_argument('--in-dir', type=str, nargs='+', required=True)
+    parser.add_argument('--train', type=str, nargs='+', required=True)
+    parser.add_argument('--test', type=str, nargs='+', required=True)
     parser.add_argument('--regex', type=str, default='[A-Z][0-9]+[A-Z](?=.txt)')
     parser.add_argument('--nb-folds',type=int, default=10)
     parser.add_argument('--out-dir', type=str, required=True)
     parser.add_argument('--nb-cores', type=int, default=4)
+    parser.add_argument('--sort-asyn', action='store_true')
+    parser.add_argument('--order', type=str, nargs='+')
     args = parser.parse_args()
     out_dir = parse_output_dir(args.out_dir)
-    fn_list = parse_input_dir(args.in_dir, pattern='*.txt')
-    data_dict = {re.search(args.regex, fn).group(0): np.loadtxt(fn) for fn in fn_list}
-    main(data_dict,args.nb_folds, out_dir, args.regex, args.nb_cores)
+    train_dict = {re.search(args.regex, fn).group(0): np.loadtxt(fn) for fn in parse_input_dir(args.train, pattern='*.txt')}
+    test_dict = {re.search(args.regex, fn).group(0): np.loadtxt(fn) for fn in parse_input_dir(args.test, pattern='*.txt')}
+    main(train_dict, test_dict, args.nb_folds, out_dir, args.regex, args.nb_cores, args.sort_asyn, args.order)
 

@@ -13,7 +13,7 @@ from helpers import parse_input_dir, parse_output_dir
 parser = argparse.ArgumentParser(description="""Filters *.cif AlphaFold files based on structuredness,
                                      N-terminal structuredness, and fit quality.""")
 parser.add_argument('--in-dir', type=str, required=True)
-parser.add_argument('--out-dir', type=str, required=True)``
+parser.add_argument('--out-dir', type=str, required=True)
 parser.add_argument('--copy_files', choices=[True, False], help="""If set to True, the filtered files
                                     will be copied to the output folder.""", type=bool, default=False)
 parser.add_argument('--length_tresh', help='Maximum protein length.', type=int, default=600)

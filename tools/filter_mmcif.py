@@ -92,7 +92,6 @@ for cif_file in cif_list:
         # save
         if all(conditionals):
             filename = os.path.split(cif_file)[-1]
-            print(args.copy_files, type(args.copy_files))
             if args.copy_files == True:
                 shutil.copy(cif_file, f'{out_dir}{filename}')
                 output_list.writelines(filename)

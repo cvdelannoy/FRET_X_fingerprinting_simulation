@@ -10,12 +10,24 @@ __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file
 sys.path.append(f'{__location__}/..')
 from helpers import parse_input_dir, parse_output_dir
 
+def str2bool(v):
+    """Converts string to bool."""
+    if isinstance(v, bool):
+        return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
+
 parser = argparse.ArgumentParser(description="""Filters *.cif AlphaFold files based on structuredness,
                                      N-terminal structuredness, and fit quality.""")
 parser.add_argument('--in-dir', type=str, required=True)
 parser.add_argument('--out-dir', type=str, required=True)
 parser.add_argument('--copy_files', choices=[True, False], help="""If set to True, the filtered files
-                                    will be copied to the output folder.""", type=bool, default=False)
+                                    will be copied to the output folder.""", type=str2bool, default=False)
 parser.add_argument('--length_tresh', help='Maximum protein length.', type=int, default=600)
 parser.add_argument('--fit-tresh',
                     help='Maximum AlphaFold fit quality defined in _ma_qa_metric_global.metric_value.',
@@ -80,6 +92,7 @@ for cif_file in cif_list:
         # save
         if all(conditionals):
             filename = os.path.split(cif_file)[-1]
+            print(args.copy_files, type(args.copy_files))
             if args.copy_files == True:
                 shutil.copy(cif_file, f'{out_dir}{filename}')
                 output_list.writelines(filename)
@@ -90,3 +103,5 @@ for cif_file in cif_list:
         traceback.print_exc()
         with open(error_log, 'a') as f:
             f.write(f'{cif_file}\t{e}\n')
+
+output_list.close()

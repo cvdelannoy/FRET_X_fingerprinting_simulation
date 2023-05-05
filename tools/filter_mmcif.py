@@ -5,12 +5,14 @@ import argparse
 import pandas as pd
 from Bio.PDB import MMCIF2Dict
 import shutil
+import requests
+import csv
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 sys.path.append(f'{__location__}/..')
 from helpers import parse_input_dir, parse_output_dir
 
-def str2bool(v):
+def str2bool(v) -> bool:
     """Converts string to bool."""
     if isinstance(v, bool):
         return v
@@ -28,6 +30,12 @@ parser.add_argument('--in-dir', type=str, required=True)
 parser.add_argument('--out-dir', type=str, required=True)
 parser.add_argument('--copy_files', choices=[True, False], help="""If set to True, the filtered files
                                     will be copied to the output folder.""", type=str2bool, default=False)
+
+parser.add_argument('--location', choices=[True, False],
+                    help="""If set to True, together with "copy_files", the filtered files
+                                    will be organized in the output folder, based on the subcellular
+                                    location.""", type=str2bool, default=False)
+
 parser.add_argument('--length_tresh', help='Maximum protein length.', type=int, default=600)
 parser.add_argument('--fit-tresh',
                     help='Maximum AlphaFold fit quality defined in _ma_qa_metric_global.metric_value.',
@@ -49,7 +57,6 @@ dssp_dict = {"H": "HELX_RH_AL_P",
              "O": "OTHER", }
 
 
-
 args = parser.parse_args()
 
 out_dir = parse_output_dir(args.out_dir, clean=False)
@@ -62,8 +69,51 @@ args.struc_types = list(args.struc_types)
 
 cif_list = parse_input_dir(args.in_dir, pattern='*.cif')
 
+header = ['accession', 'subcellularLocation']
+
+
+def copy_files(file: str, dir: str) -> None:
+    """Copies the given file to the given directory.
+    The same files won't be copied to the directory,
+    however, no exception will be printed."""
+
+    filename = os.path.split(file)[-1]
+    try:
+        shutil.copy(file, f'{dir}{filename}')
+    except shutil.SameFileError:
+        pass
+
+
+def get_subcellular_location(accession: str) -> list:
+    """Get's the subcellular location based on the Uniprot acession code."""
+    url = f'https://rest.uniprot.org/uniprotkb/search?query=accession:{accession}&fields=cc_subcellular_location'
+    headers = {"Accept": "application/json"}
+    response = requests.get(url, headers=headers)
+
+    try:
+        if response.status_code == 200:
+
+            data = response.json()
+            try:
+                locations_data = data['results'][0]['comments'][0]['subcellularLocations']
+                subcellular_locations = [x['location']['value'] for x in locations_data]
+                return subcellular_locations
+            except:
+                return ["None"]
+        else:
+            print(f"Error {response.status_code}: {response.reason}")
+    except Exception as e:
+        return e
+
+
+if args.location == True:
+    csv_file = open(f'{out_dir}subcellularLocation.csv', 'w', encoding='UTF8', newline='')
+    writer = csv.writer(csv_file)
+    writer.writerow(header)
+
 for cif_file in cif_list:
     try:
+
         mmcif_dict = MMCIF2Dict.MMCIF2Dict(cif_file)
 
         protein_len = len((mmcif_dict['_entity_poly.pdbx_seq_one_letter_code'][0]))
@@ -92,15 +142,34 @@ for cif_file in cif_list:
         # save
         if all(conditionals):
             filename = os.path.split(cif_file)[-1]
+            # write csv with sucbellular location
+            if args.location == True:
+                accession = filename.split('-')[1]
+                subcellular_locations = get_subcellular_location(accession)
+                for location in subcellular_locations:
+                    writer.writerow([accession, location])
             if args.copy_files == True:
-                shutil.copy(cif_file, f'{out_dir}{filename}')
-                output_list.writelines(filename)
+                # write to the corresponding location folder
+                if args.location == True:
+
+                    for location in subcellular_locations:
+                        location_out_dir = parse_output_dir(f'{args.out_dir}/location/{location}', clean=False)
+                        copy_files(cif_file, dir=location_out_dir)
+                        output_list.writelines(f'{filename}\n')
+
+                else:
+                    copy_files(cif_file, dir=out_dir)
+                    output_list.writelines(f'{filename}\n')
+
             else:
-                output_list.writelines(filename)
+                output_list.writelines(f'{filename}\n')
     except Exception as e:
         print(f'Something wrong with analysis of {cif_file}: line {e.__traceback__.tb_lineno}, {e}')
         traceback.print_exc()
         with open(error_log, 'a') as f:
             f.write(f'{cif_file}\t{e}\n')
 
+# close the output files
 output_list.close()
+if args.location == True:
+    csv_file.close()

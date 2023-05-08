@@ -38,9 +38,10 @@ parser.add_argument('--location', choices=[True, False],
 
 parser.add_argument('--length_tresh', help='Maximum protein length.', type=int, default=600)
 parser.add_argument('--fit-tresh',
-                    help='Maximum AlphaFold fit quality defined in _ma_qa_metric_global.metric_value.',
-                    type=float, default=0.8)
+                    help='Maximum AlphaFold pLDDT score defined in _ma_qa_metric_global.metric_value.',
+                    type=float, default=0.7)
 parser.add_argument('--N_struc_tresh', help='Structuredness of N-terminus in percent.', type=float, default=60)
+parser.add_argument('--overall_struc_tresh', help='Structuredness of the protein in percent.', type=float, default=60)
 parser.add_argument('--N_struc_len', help='Length of assesed N-terminus.', type=int, default=20)
 parser.add_argument('--struc_types', choices='HBEGIPTSO',
                     help='DSSP code for the secondary structure.', type=str, default='HBEGIPTS')
@@ -113,7 +114,10 @@ if args.location == True:
 
 for cif_file in cif_list:
     try:
+#%%
+# cif_file = r'C:\Users\makro\Desktop\fretx_tools\AF-Q32P42-F1-model_v4.cif'
 
+#%%
         mmcif_dict = MMCIF2Dict.MMCIF2Dict(cif_file)
 
         protein_len = len((mmcif_dict['_entity_poly.pdbx_seq_one_letter_code'][0]))
@@ -126,17 +130,20 @@ for cif_file in cif_list:
                                   columns=['start', 'end', 'structure'])
         scnd_struc = scnd_struc.astype({'start': 'int', 'end': 'int'})
         scnd_struc['length'] = scnd_struc['end']-scnd_struc['start']+1
-
+#%%
         struc_types = [dssp_dict.get(x) for x in args.struc_types]
 
-        structurized_len = scnd_struc.query(f'end < {args.N_struc_len} \
+        N_structurized_len = scnd_struc.query(f'end < {args.N_struc_len} \
                 and structure in @struc_types')['length'].sum()
-
-        N_struct_percent = structurized_len/args.N_struc_len * 100
-
+        N_struct_percent = N_structurized_len/args.N_struc_len * 100
+        
+        structurized_len = scnd_struc.query('structure in @struc_types')['length'].sum()
+        overall_struc_percent = structurized_len/protein_len*100
+        print(overall_struc_percent)
         conditionals = [protein_len <= args.length_tresh,
                         fit_quality >= args.fit_tresh,
-                        N_struct_percent >= args.N_struc_tresh
+                        N_struct_percent >= args.N_struc_tresh,
+                        overall_struc_percent >= args.overall_struc_tresh
                         ]
 
         # save

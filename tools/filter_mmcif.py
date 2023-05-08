@@ -1,4 +1,3 @@
-from helpers import parse_input_dir, parse_output_dir
 import os
 import sys
 import traceback
@@ -11,7 +10,7 @@ import csv
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 sys.path.append(f'{__location__}/..')
-
+from helpers import parse_input_dir, parse_output_dir
 
 def str2bool(v) -> bool:
     """Converts string to bool."""

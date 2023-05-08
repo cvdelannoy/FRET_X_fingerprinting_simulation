@@ -1,3 +1,4 @@
+from helpers import parse_input_dir, parse_output_dir
 import os
 import sys
 import traceback
@@ -10,7 +11,7 @@ import csv
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 sys.path.append(f'{__location__}/..')
-from helpers import parse_input_dir, parse_output_dir
+
 
 def str2bool(v) -> bool:
     """Converts string to bool."""
@@ -114,10 +115,10 @@ if args.location == True:
 
 for cif_file in cif_list:
     try:
-#%%
-# cif_file = r'C:\Users\makro\Desktop\fretx_tools\AF-Q32P42-F1-model_v4.cif'
+        # %%
+        # cif_file = r'C:\Users\makro\Desktop\fretx_tools\AF-Q32P42-F1-model_v4.cif'
 
-#%%
+        # %%
         mmcif_dict = MMCIF2Dict.MMCIF2Dict(cif_file)
 
         protein_len = len((mmcif_dict['_entity_poly.pdbx_seq_one_letter_code'][0]))
@@ -130,16 +131,16 @@ for cif_file in cif_list:
                                   columns=['start', 'end', 'structure'])
         scnd_struc = scnd_struc.astype({'start': 'int', 'end': 'int'})
         scnd_struc['length'] = scnd_struc['end']-scnd_struc['start']+1
-#%%
+# %%
         struc_types = [dssp_dict.get(x) for x in args.struc_types]
 
         N_structurized_len = scnd_struc.query(f'end < {args.N_struc_len} \
                 and structure in @struc_types')['length'].sum()
         N_struct_percent = N_structurized_len/args.N_struc_len * 100
-        
+
         structurized_len = scnd_struc.query('structure in @struc_types')['length'].sum()
         overall_struc_percent = structurized_len/protein_len*100
-        print(overall_struc_percent)
+
         conditionals = [protein_len <= args.length_tresh,
                         fit_quality >= args.fit_tresh,
                         N_struct_percent >= args.N_struc_tresh,

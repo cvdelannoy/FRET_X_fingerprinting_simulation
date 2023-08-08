@@ -1,4 +1,4 @@
-import argparse, os, sys, re
+import argparse, os, sys, re, pickle
 
 from pathlib import Path
 import numpy as np
@@ -8,6 +8,8 @@ from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 from helpers import parse_input_dir
@@ -49,7 +51,17 @@ def main(train_dir, test_dir, pred_csv, regex):
     # mod_fn = f'{str(Path(pred_csv).parent)}/{Path(pred_csv).stem}_mod.json'
     # with open(mod_fn, 'w') as fh: fh.write(mod.to_json())
 
+    with open(f'{Path(pred_csv).parent}/{Path(pred_csv).stem}_model.pkl', 'wb') as fh:
+        pickle.dump(mod, fh)
     test_df.to_csv(pred_csv, index=False)
+    test_summary_df = pd.DataFrame({'counts': test_df.groupby('pred').count().cl_id})
+    test_summary_df.loc[:, 'frac'] = test_summary_df.counts / test_summary_df.counts.sum()
+    test_summary_df.to_csv(os.path.splitext(pred_csv)[0] + '_summary.csv')
+    # plt.subplots(figsize=(10,5))
+    # sns.histplot(x='efret', hue='pred', bins=np.arange(0,1,0.01), data=test_df)
+    # plt.savefig(f'{Path(pred_csv).parent}/{Path(pred_csv).stem}_hist.svg')
+
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train classifier to detect asyn classes')

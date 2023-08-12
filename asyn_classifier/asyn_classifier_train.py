@@ -20,12 +20,18 @@ def dir2df(dir_fn, regex):
     data_dict = {re.search(regex, fn).group(0): np.loadtxt(fn) for fn in parse_input_dir(dir_fn, pattern='*.txt')}
 
     for fn in parse_input_dir(dir_fn, pattern='*.txt'):
-        df_list.append(pd.DataFrame({'efret': np.loadtxt(fn), 'cl_id': re.search(regex, fn).group(0)}))
+        efret_array = np.loadtxt(fn)
+        if efret_array.ndim == 1: efret_array = efret_array.reshape(-1,1)
+        nb_peaks = efret_array.shape[1]
+        df_dict = {f'efret{i}': efret_array[:, i] for i in range(nb_peaks)}
+        df_dict['cl_id'] = re.search(regex, fn).group(0)
+        df_list.append(pd.DataFrame(df_dict))
     return pd.concat(df_list)
 
 def main(train_dir, test_dir, pred_csv, regex):
     train_df = dir2df(train_dir, regex)
     test_df = dir2df(test_dir, regex)
+    feature_names = train_df.columns[:-1]
 
     # # balance dataset
     # nb_ex = min([len(sdf) for _, sdf in train_df.groupby('cl_id')])
@@ -38,8 +44,8 @@ def main(train_dir, test_dir, pred_csv, regex):
 
     # SVM
     mod = make_pipeline(StandardScaler(), SVC(gamma='auto'))
-    mod.fit(train_df.efret.to_numpy().reshape(-1,1), train_df.cl_id)
-    test_df.loc[:, 'pred'] = mod.predict(test_df.efret.to_numpy().reshape(-1,1))
+    mod.fit(train_df.loc[:, feature_names], train_df.cl_id)
+    test_df.loc[:, 'pred'] = mod.predict(test_df.loc[:, feature_names])
 
     # # Naive bayes
     # class_list = list(set(train_df.cl_id))

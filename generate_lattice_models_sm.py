@@ -31,6 +31,7 @@ parser.add_argument('--tagged-resn', type=str, default=['None'], nargs='+',
                          'May define multiple combinations. Set to None for no tagged resn [default: None]')
 parser.add_argument('--experimental-mode', type=int, default=0,
                     help='Several experimental settings under 1 switch, numeric.')
+parser.add_argument('--fretxy', action='store_true', help='Run a FRET XY simulation instead.')
 parser.add_argument('--cm-pdb-dir', type=str, default=[], nargs='+',
                     help='center-of-mass pdbs directory, for finetuning of starting structures. Necessary if --finetune-structure is on')
 parser.add_argument('--finetune-structure', action='store_true',
@@ -119,6 +120,7 @@ if args.accomodate_tags:
             store_energies=args.store_energies,
             save_intermediate_structures=args.save_intermediate_structures,
             experimental_mode=args.experimental_mode,
+            fretxy=args.fretxy,
             cm_pdb_str=str(cm_pdb_list).strip('[]').replace(',', ''),
             finetune_structure=args.finetune_structure,
             no_regularization=args.no_regularization,
@@ -155,6 +157,7 @@ else:
         store_energies=args.store_energies,
         save_intermediate_structures=args.save_intermediate_structures,
         experimental_mode=args.experimental_mode,
+        fretxy=args.fretxy,
         cm_pdb_str=str(cm_pdb_list).strip('[]').replace(',', ''),
         finetune_structure=args.finetune_structure,
         no_regularization=args.no_regularization,

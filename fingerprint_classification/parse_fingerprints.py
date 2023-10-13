@@ -86,7 +86,11 @@ res_bins = np.arange(res, 1+res, res)
 # Collect information on structures
 struct_dict = dict()
 for pdb_fn in pdb_list:
-    pdb_id, struct_id = basename(splitext(pdb_fn)[0]).rsplit('_', 1)
+    pdb_id, ri_id, struct_id = basename(splitext(pdb_fn)[0]).rsplit('_', 2)
+    try:
+        ri_id = int(float(re.search('(?<=ri)[0-9.]+', ri_id).group()))
+    except:
+        ri_id = 0
     struct_id = int(struct_id)
     fingerprint_raw = []
     with open(pdb_fn, 'r') as fh:
@@ -110,14 +114,19 @@ for pdb_fn in pdb_list:
     seq_len = len(resn_list)
     nb_tags = np.sum(np.in1d(resn_list[1:], list(args.tagged_resn)))
     if not pdb_id in struct_dict:
-        struct_dict[pdb_id] = {'fingerprints': dict(),
-                               'fingerprints_raw': dict(),
+        struct_dict[pdb_id] = {'fingerprints': {},
+                               'fingerprints_raw': {},
+                               'reactivity_ids': [],
                                'properties': {'number_of_tags': nb_tags,
                                               'rg_list': [],
                                               'sequence_length': seq_len}}
     struct_dict[pdb_id]['properties']['rg_list'].append(rg)
-    struct_dict[pdb_id]['fingerprints'][struct_id] = fingerprint
-    struct_dict[pdb_id]['fingerprints_raw'][struct_id] = fingerprint_raw
+    struct_dict[pdb_id]['reactivity_ids'].append(ri_id)
+    if struct_id not in struct_dict[pdb_id]['fingerprints']:
+        struct_dict[pdb_id]['fingerprints'][struct_id] = {}
+        struct_dict[pdb_id]['fingerprints_raw'][struct_id] = {}
+    struct_dict[pdb_id]['fingerprints'][struct_id][ri_id] = fingerprint
+    struct_dict[pdb_id]['fingerprints_raw'][struct_id][ri_id] = fingerprint_raw
 for pdb_id in struct_dict: struct_dict[pdb_id]['properties']['rg'] = np.mean(struct_dict[pdb_id]['properties']['rg_list'])
 
 with open(args.out_pkl, 'bw') as fh: pickle.dump(struct_dict, fh)

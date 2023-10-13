@@ -21,6 +21,7 @@ experimental_mode = {{ experimental_mode }}
 save_intermediate_structures = {{ save_intermediate_structures }}
 labeling_model = "{{ labeling_model }}"
 free_sampling = {{ free_sampling }}
+fretxy = {{ fretxy }}
 
 arg_string = (f"--temp-range {temp_min} {temp_max} "
               f"--iters-per-tempswap {iters_per_tempswap} "
@@ -34,6 +35,8 @@ arg_string = (f"--temp-range {temp_min} {temp_max} "
               )
 if store_energies:
     arg_string += '--store-energies '
+if fretxy:
+    arg_string += '--fretxy '
 if save_intermediate_structures:
     arg_string += '--save-intermediate-structures '
 if finetune_structure:
@@ -48,13 +51,13 @@ if free_sampling:
 
 rule target:
     input:
-        model = expand(f'{out_dir}tag{{ "{{mt[2]}}" }}/{{ "{{mt[0]}}" }}/{{ "{{mt[0]}}" }}_{{ "{{mt[1]}}" }}.pdb', mt=mod_tuples)
+        model = expand(f'{out_dir}tag{{ "{{mt[2]}}" }}/{{ "{{mt[0]}}" }}/{{ "{{mt[0]}}" }}_{{ "{{mt[1]}}" }}_done', mt=mod_tuples)
 
 rule generate_models:
     input:
         in_npz=f'{in_dir}{{ "{{pdb_id}}" }}.npz'
     output:
-        out_pdb=f'{out_dir}tag{{ "{{tagged_resn}}" }}/{{ "{{pdb_id}}" }}/{{ "{{pdb_id}}" }}_{{ "{{mod_idx,[^_]+}}" }}.pdb'
+        out_pdb=f'{out_dir}tag{{ "{{tagged_resn}}" }}/{{ "{{pdb_id}}" }}/{{ "{{pdb_id}}" }}_{{ "{{mod_idx,[^_]+}}" }}_done'
     threads: {{ processes }} + 1
     shell:
         """

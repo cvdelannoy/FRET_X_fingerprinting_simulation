@@ -1,0 +1,6091 @@
+<All molecules>
+Barcode 0:
+ position -0.014279972301317842
+ std 0.04161776568089619
+ sem 0.001571218347428889
+ weight 701.5916921596753
+ weight (normalized) 0.34922433656529384
+Barcode 1:
+ position 0.17238464428244565
+ std 0.06377464310815921
+ sem 0.002565613002059165
+ weight 617.8937155471566
+ weight (normalized) 0.3075628250608047
+Barcode 2:
+ position 0.4268266601689845
+ std 0.06831034592646636
+ sem 0.0035490282713922807
+ weight 370.47085819525915
+ weight (normalized) 0.18440560388016883
+Barcode 3:
+ position 0.7150533133854279
+ std 0.08405824301705499
+ sem 0.005605156532891496
+ weight 224.89775768659996
+ weight (normalized) 0.11194512577730212
+
+<Molecules 0>
+Barcode 0:
+ position 0.335000000004411
+ std 0.014141945525984396
+ sem 0.009528508677434967
+ weight 2.202766446201357
+ weight (normalized) 1.0
+
+<Molecules 1>
+Barcode 0:
+ position -0.020948310527767418
+ std 0.0025840387813047456
+ sem 0.0011556172742986236
+ weight 5.000000000000011
+ weight (normalized) 1.0000000000000022
+
+<Molecules 2>
+Barcode 0:
+ position 0.20499349107306655
+ std 0.03235826942459312
+ sem 0.011270920130551566
+ weight 8.242364741320163
+ weight (normalized) 1.0
+
+<Molecules 3>
+Barcode 0:
+ position -0.05270510116667482
+ std 0.0022141628031120226
+ sem 0.0011070814015560102
+ weight 4.000000000000007
+ weight (normalized) 0.5714285714285724
+Barcode 1:
+ position 0.3012131558839689
+ std 0.0019940024260604854
+ sem 0.0011512378374507874
+ weight 3.0000000000000044
+ weight (normalized) 0.4285714285714292
+
+<Molecules 4>
+No barcode found
+
+<Molecules 5>
+No barcode found
+
+<Molecules 6>
+No barcode found
+
+<Molecules 7>
+No barcode found
+
+<Molecules 8>
+No barcode found
+
+<Molecules 9>
+No barcode found
+
+<Molecules 10>
+Barcode 0:
+ position 0.7449962869909075
+ std 0.002108265378434754
+ sem 0.0020507011832016043
+ weight 1.0569289406076317
+ weight (normalized) 1.0
+
+<Molecules 11>
+No barcode found
+
+<Molecules 12>
+Barcode 0:
+ position 0.13497293502409902
+ std 0.008228394773473896
+ sem 0.004028802224284151
+ weight 4.1713664413117595
+ weight (normalized) 1.0
+
+<Molecules 13>
+No barcode found
+
+<Molecules 14>
+No barcode found
+
+<Molecules 15>
+No barcode found
+
+<Molecules 16>
+Barcode 0:
+ position -0.0984964784109586
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.0000000000000067
+ weight (normalized) 1.0000000000000022
+
+<Molecules 17>
+No barcode found
+
+<Molecules 18>
+No barcode found
+
+<Molecules 19>
+No barcode found
+
+<Molecules 20>
+No barcode found
+
+<Molecules 21>
+No barcode found
+
+<Molecules 22>
+No barcode found
+
+<Molecules 23>
+No barcode found
+
+<Molecules 24>
+No barcode found
+
+<Molecules 25>
+No barcode found
+
+<Molecules 26>
+No barcode found
+
+<Molecules 27>
+Barcode 0:
+ position -0.03017837669721281
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 28>
+No barcode found
+
+<Molecules 29>
+No barcode found
+
+<Molecules 30>
+No barcode found
+
+<Molecules 31>
+No barcode found
+
+<Molecules 32>
+Barcode 0:
+ position 0.7149999999994817
+ std 0.014142953019766029
+ sem 0.009528962938220613
+ weight 2.202870270604799
+ weight (normalized) 1.0
+
+<Molecules 33>
+Barcode 0:
+ position -0.14212518148928713
+ std 0.00751392745212143
+ sem 0.003756963726060713
+ weight 4.000000000000004
+ weight (normalized) 0.5000000000000006
+Barcode 1:
+ position 0.009618123216364386
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.12500000000000028
+Barcode 2:
+ position 0.5020038509707616
+ std 0.010480351273825742
+ sem 0.006050833629145125
+ weight 3.0000000000000044
+ weight (normalized) 0.37500000000000056
+
+<Molecules 34>
+No barcode found
+
+<Molecules 35>
+No barcode found
+
+<Molecules 36>
+Barcode 0:
+ position 0.3749998729825654
+ std 0.04242626296880307
+ sem 0.028585742878381237
+ weight 2.2027773031015943
+ weight (normalized) 0.4999863739076843
+Barcode 1:
+ position 0.6550000382965524
+ std 0.028286579417413277
+ sem 0.019058262357617425
+ weight 2.2028973673611394
+ weight (normalized) 0.5000136260923157
+
+<Molecules 37>
+Barcode 0:
+ position 0.8349999999257871
+ std 0.056568080317866164
+ sem 0.03811436700369101
+ weight 2.2027512621783703
+ weight (normalized) 1.0
+
+<Molecules 38>
+Barcode 0:
+ position 0.18886767699690296
+ std 0.0032104325761708958
+ sem 0.0014374781207400309
+ weight 4.987979049115465
+ weight (normalized) 1.0
+
+<Molecules 39>
+No barcode found
+
+<Molecules 40>
+No barcode found
+
+<Molecules 41>
+No barcode found
+
+<Molecules 42>
+Barcode 0:
+ position -0.043467291142605925
+ std 0.006223512779104914
+ sem 0.0018763798544450374
+ weight 11.000936256126904
+ weight (normalized) 0.9167446880105753
+
+<Molecules 43>
+No barcode found
+
+<Molecules 44>
+No barcode found
+
+<Molecules 45>
+No barcode found
+
+<Molecules 46>
+Barcode 0:
+ position -0.04969404256114091
+ std 0.026389733269734626
+ sem 0.007974162250646562
+ weight 10.952162156758042
+ weight (normalized) 0.7822972969112888
+Barcode 1:
+ position 0.09718792078586178
+ std 0.01867485176990369
+ sem 0.013049966029525555
+ weight 2.0478378432419677
+ weight (normalized) 0.14627413166014056
+
+<Molecules 47>
+No barcode found
+
+<Molecules 48>
+No barcode found
+
+<Molecules 49>
+No barcode found
+
+<Molecules 50>
+No barcode found
+
+<Molecules 51>
+No barcode found
+
+<Molecules 52>
+No barcode found
+
+<Molecules 53>
+No barcode found
+
+<Molecules 54>
+No barcode found
+
+<Molecules 55>
+No barcode found
+
+<Molecules 56>
+No barcode found
+
+<Molecules 57>
+Barcode 0:
+ position -0.030539585808938615
+ std 0.0018483450905285668
+ sem 0.0010671425355719898
+ weight 3.000000000000007
+ weight (normalized) 0.5000000000000012
+Barcode 1:
+ position 0.7982879770140248
+ std 0.0014150284614931376
+ sem 0.0008169670631540444
+ weight 3.0000000000000044
+ weight (normalized) 0.5000000000000008
+
+<Molecules 58>
+No barcode found
+
+<Molecules 59>
+No barcode found
+
+<Molecules 60>
+No barcode found
+
+<Molecules 61>
+No barcode found
+
+<Molecules 62>
+Barcode 0:
+ position -0.08181135975699319
+ std 0.005350502313441073
+ sem 0.0018916882342942458
+ weight 8.000000000000007
+ weight (normalized) 0.8000000000000007
+Barcode 1:
+ position 0.06505272943245599
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.10000000000000023
+Barcode 2:
+ position 0.2645758373597824
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.10000000000000023
+
+<Molecules 63>
+No barcode found
+
+<Molecules 64>
+No barcode found
+
+<Molecules 65>
+No barcode found
+
+<Molecules 66>
+Barcode 0:
+ position 0.21999999999999986
+ std 0.003474468206184719
+ sem 0.0022184706002174822
+ weight 2.452840613293635
+ weight (normalized) 1.0
+
+<Molecules 67>
+Barcode 0:
+ position -0.01762474373224111
+ std 0.002003997058625398
+ sem 0.0008962147299592033
+ weight 5.00000000000001
+ weight (normalized) 0.8333333333333349
+Barcode 1:
+ position 0.2305885981711381
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.16666666666666705
+
+<Molecules 68>
+No barcode found
+
+<Molecules 69>
+Barcode 0:
+ position 0.7192457724933189
+ std 0.003298673554951532
+ sem 0.001695289233423257
+ weight 3.7860911889233284
+ weight (normalized) 1.0
+
+<Molecules 70>
+No barcode found
+
+<Molecules 71>
+No barcode found
+
+<Molecules 72>
+No barcode found
+
+<Molecules 73>
+No barcode found
+
+<Molecules 74>
+No barcode found
+
+<Molecules 75>
+No barcode found
+
+<Molecules 76>
+No barcode found
+
+<Molecules 77>
+No barcode found
+
+<Molecules 78>
+Barcode 0:
+ position 0.01500000000158097
+ std 0.014141900950997622
+ sem 0.009528486147126845
+ weight 2.202762977038982
+ weight (normalized) 1.0
+
+<Molecules 79>
+No barcode found
+
+<Molecules 80>
+No barcode found
+
+<Molecules 81>
+Barcode 0:
+ position -0.05118753235332998
+ std 0.007886420306501258
+ sem 0.0029807866950760146
+ weight 7.000000000000009
+ weight (normalized) 0.7777777777777788
+Barcode 1:
+ position 0.1278834312160477
+ std 0.005116378548007422
+ sem 0.003617825966413428
+ weight 2.000000000000002
+ weight (normalized) 0.22222222222222246
+
+<Molecules 82>
+No barcode found
+
+<Molecules 83>
+No barcode found
+
+<Molecules 84>
+No barcode found
+
+<Molecules 85>
+No barcode found
+
+<Molecules 86>
+Barcode 0:
+ position 0.8219063107429433
+ std 0.026667457793030504
+ sem 0.011561839587657712
+ weight 5.319972087771501
+ weight (normalized) 1.0
+
+<Molecules 87>
+Barcode 0:
+ position -0.04761224579045498
+ std 0.003654291397795133
+ sem 0.0012109679967345981
+ weight 9.106280411838354
+ weight (normalized) 0.7588567009865295
+
+<Molecules 88>
+No barcode found
+
+<Molecules 89>
+No barcode found
+
+<Molecules 90>
+Barcode 0:
+ position 0.5899999999999984
+ std 0.003443718633154378
+ sem 0.002188234742437895
+ weight 2.4766663466603642
+ weight (normalized) 1.0
+
+<Molecules 91>
+No barcode found
+
+<Molecules 92>
+No barcode found
+
+<Molecules 93>
+No barcode found
+
+<Molecules 94>
+Barcode 0:
+ position 0.23999993764256447
+ std 0.02732909498783069
+ sem 0.012078104520699047
+ weight 5.11979925866384
+ weight (normalized) 0.6991685951906871
+Barcode 1:
+ position 0.4849999884105639
+ std 0.01414320633929088
+ sem 0.009529075794993621
+ weight 2.202897003555284
+ weight (normalized) 0.3008314048093129
+
+<Molecules 95>
+No barcode found
+
+<Molecules 96>
+No barcode found
+
+<Molecules 97>
+No barcode found
+
+<Molecules 98>
+No barcode found
+
+<Molecules 99>
+No barcode found
+
+<Molecules 100>
+No barcode found
+
+<Molecules 101>
+No barcode found
+
+<Molecules 102>
+No barcode found
+
+<Molecules 103>
+Barcode 0:
+ position 0.07246880607198353
+ std 0.020465116709179967
+ sem 0.008884986056377412
+ weight 5.305361118348189
+ weight (normalized) 0.9060617135368075
+Barcode 1:
+ position 0.22499999828692155
+ std 0.0021943693456828316
+ sem 0.002958760589658022
+ weight 0.5500470057173755
+ weight (normalized) 0.0939382864631925
+
+<Molecules 104>
+No barcode found
+
+<Molecules 105>
+Barcode 0:
+ position 0.21207888531299787
+ std 0.03317398315352495
+ sem 0.01525753359682998
+ weight 4.72744592305026
+ weight (normalized) 1.0
+
+<Molecules 106>
+Barcode 0:
+ position 0.5967014081037756
+ std 0.018133839219644947
+ sem 0.005876665944233688
+ weight 9.521766194948952
+ weight (normalized) 1.0
+
+<Molecules 107>
+Barcode 0:
+ position 0.15073326791058936
+ std 0.02719454249311526
+ sem 0.008884196614334518
+ weight 9.369732477905005
+ weight (normalized) 1.0
+
+<Molecules 108>
+No barcode found
+
+<Molecules 109>
+No barcode found
+
+<Molecules 110>
+No barcode found
+
+<Molecules 111>
+No barcode found
+
+<Molecules 112>
+No barcode found
+
+<Molecules 113>
+Barcode 0:
+ position -0.027176252069144195
+ std 0.013928564253265798
+ sem 0.004404593340173233
+ weight 10.000024599148706
+ weight (normalized) 0.7692326614729774
+
+<Molecules 114>
+No barcode found
+
+<Molecules 115>
+No barcode found
+
+<Molecules 116>
+No barcode found
+
+<Molecules 117>
+No barcode found
+
+<Molecules 118>
+No barcode found
+
+<Molecules 119>
+Barcode 0:
+ position -0.09080718728799939
+ std 0.00356755131033125
+ sem 0.0017837756551656234
+ weight 4.000000000000007
+ weight (normalized) 0.5000000000000009
+Barcode 1:
+ position 0.17936197106394977
+ std 0.0040316221754122875
+ sem 0.002015811087706143
+ weight 4.000000000000004
+ weight (normalized) 0.5000000000000006
+
+<Molecules 120>
+No barcode found
+
+<Molecules 121>
+No barcode found
+
+<Molecules 122>
+No barcode found
+
+<Molecules 123>
+Barcode 0:
+ position 0.44000000000000045
+ std 0.0034116608312940813
+ sem 0.0021564553743626245
+ weight 2.5029417831935654
+ weight (normalized) 1.0
+
+<Molecules 124>
+No barcode found
+
+<Molecules 125>
+No barcode found
+
+<Molecules 126>
+No barcode found
+
+<Molecules 127>
+No barcode found
+
+<Molecules 128>
+No barcode found
+
+<Molecules 129>
+Barcode 0:
+ position -0.049630681735158236
+ std 0.0014142135623977886
+ sem 0.0010000000000174598
+ weight 2.0000000000000044
+ weight (normalized) 0.25000000000000056
+Barcode 1:
+ position 0.4175187667236505
+ std 0.0030425353492518547
+ sem 0.0012421098550079413
+ weight 6.000000000000007
+ weight (normalized) 0.7500000000000009
+
+<Molecules 130>
+No barcode found
+
+<Molecules 131>
+No barcode found
+
+<Molecules 132>
+Barcode 0:
+ position 0.03803287287361856
+ std 0.031096809101998007
+ sem 0.015465266871991385
+ weight 4.043121735493592
+ weight (normalized) 1.0
+
+<Molecules 133>
+No barcode found
+
+<Molecules 134>
+No barcode found
+
+<Molecules 135>
+No barcode found
+
+<Molecules 136>
+Barcode 0:
+ position 0.6827793224743736
+ std 0.026284053230087215
+ sem 0.00843255709821776
+ weight 9.715521003560925
+ weight (normalized) 1.0
+
+<Molecules 137>
+No barcode found
+
+<Molecules 138>
+Barcode 0:
+ position 0.013712122816641538
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 139>
+No barcode found
+
+<Molecules 140>
+Barcode 0:
+ position -0.04259800620288622
+ std 0.00377980763088144
+ sem 0.0012599358769604793
+ weight 9.00000000000001
+ weight (normalized) 1.000000000000001
+
+<Molecules 141>
+No barcode found
+
+<Molecules 142>
+Barcode 0:
+ position 0.16417382638123879
+ std 0.028424669236007793
+ sem 0.008661800614075031
+ weight 10.76897762106528
+ weight (normalized) 1.0
+
+<Molecules 143>
+No barcode found
+
+<Molecules 144>
+Barcode 0:
+ position 0.9534227612340549
+ std 0.012958003698492553
+ sem 0.00450230843043046
+ weight 8.283344295955054
+ weight (normalized) 1.0
+
+<Molecules 145>
+Barcode 0:
+ position 0.03999999999999968
+ std 0.0034094281705974853
+ sem 0.0021542156623813695
+ weight 2.5048673513609394
+ weight (normalized) 0.43703769113616303
+Barcode 1:
+ position 0.28500000001465514
+ std 0.031797213999118466
+ sem 0.017701761725678205
+ weight 3.2266002134823992
+ weight (normalized) 0.562962308863837
+
+<Molecules 146>
+No barcode found
+
+<Molecules 147>
+No barcode found
+
+<Molecules 148>
+Barcode 0:
+ position -0.05066032498098446
+ std 0.001996355551995437
+ sem 0.0014116365484753853
+ weight 2.000000000000005
+ weight (normalized) 0.6666666666666683
+Barcode 1:
+ position 0.6764610634634493
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+
+<Molecules 149>
+No barcode found
+
+<Molecules 150>
+No barcode found
+
+<Molecules 151>
+No barcode found
+
+<Molecules 152>
+No barcode found
+
+<Molecules 153>
+No barcode found
+
+<Molecules 154>
+No barcode found
+
+<Molecules 155>
+No barcode found
+
+<Molecules 156>
+No barcode found
+
+<Molecules 157>
+No barcode found
+
+<Molecules 158>
+Barcode 0:
+ position 0.12000000000009842
+ std 0.014188719174436877
+ sem 0.006861829600838738
+ weight 4.2756931321415115
+ weight (normalized) 1.0
+
+<Molecules 159>
+Barcode 0:
+ position 0.3374007998002834
+ std 0.05190207770766593
+ sem 0.019914936105641528
+ weight 6.792218563202965
+ weight (normalized) 1.0
+
+<Molecules 160>
+Barcode 0:
+ position 0.5038060484790974
+ std 0.0017425077932424272
+ sem 0.001006037343493535
+ weight 3.0000000000000067
+ weight (normalized) 1.0000000000000022
+
+<Molecules 161>
+No barcode found
+
+<Molecules 162>
+No barcode found
+
+<Molecules 163>
+Barcode 0:
+ position -0.12743558972134583
+ std 0.0029765538107909416
+ sem 0.0013311553319229176
+ weight 5.000000000000007
+ weight (normalized) 0.6250000000000009
+Barcode 1:
+ position 0.013164152594391985
+ std 0.005436735780982545
+ sem 0.00313890086666314
+ weight 3.0000000000000044
+ weight (normalized) 0.37500000000000056
+
+<Molecules 164>
+No barcode found
+
+<Molecules 165>
+No barcode found
+
+<Molecules 166>
+No barcode found
+
+<Molecules 167>
+Barcode 0:
+ position -0.06474494253707709
+ std 0.004651889502345809
+ sem 0.0017582489642512889
+ weight 7.000000000000011
+ weight (normalized) 1.0000000000000016
+
+<Molecules 168>
+No barcode found
+
+<Molecules 169>
+Barcode 0:
+ position -0.04035901157952578
+ std 0.002929458214142636
+ sem 0.0014647291070713168
+ weight 4.000000000000007
+ weight (normalized) 0.6666666666666679
+Barcode 1:
+ position 0.32085065176779565
+ std 0.001414213562373106
+ sem 0.0010000000000000067
+ weight 2.000000000000005
+ weight (normalized) 0.33333333333333415
+
+<Molecules 170>
+No barcode found
+
+<Molecules 171>
+No barcode found
+
+<Molecules 172>
+No barcode found
+
+<Molecules 173>
+No barcode found
+
+<Molecules 174>
+No barcode found
+
+<Molecules 175>
+No barcode found
+
+<Molecules 176>
+No barcode found
+
+<Molecules 177>
+No barcode found
+
+<Molecules 178>
+No barcode found
+
+<Molecules 179>
+No barcode found
+
+<Molecules 180>
+No barcode found
+
+<Molecules 181>
+No barcode found
+
+<Molecules 182>
+No barcode found
+
+<Molecules 183>
+No barcode found
+
+<Molecules 184>
+Barcode 0:
+ position -0.037122906534902904
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.6666666666666682
+Barcode 1:
+ position 0.11013136167594992
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+
+<Molecules 185>
+Barcode 0:
+ position 0.3549999999391642
+ std 0.0016756990897657661
+ sem 0.002585550649438988
+ weight 0.4200354718534186
+ weight (normalized) 1.0
+
+<Molecules 186>
+No barcode found
+
+<Molecules 187>
+No barcode found
+
+<Molecules 188>
+No barcode found
+
+<Molecules 189>
+Barcode 0:
+ position -0.07775779442059486
+ std 0.002968419551428893
+ sem 0.0011219571314261072
+ weight 7.000000000000012
+ weight (normalized) 1.0000000000000018
+
+<Molecules 190>
+No barcode found
+
+<Molecules 191>
+Barcode 0:
+ position 0.15152572189077815
+ std 0.01436971425144645
+ sem 0.005319408251939485
+ weight 7.297424640782977
+ weight (normalized) 1.0
+
+<Molecules 192>
+Barcode 0:
+ position 0.42499999999876664
+ std 0.014141863172904884
+ sem 0.009528467052970507
+ weight 2.2027600365372457
+ weight (normalized) 1.0
+
+<Molecules 193>
+No barcode found
+
+<Molecules 194>
+Barcode 0:
+ position 0.6243653619053438
+ std 0.0262464299445599
+ sem 0.014650627588346992
+ weight 3.209430826078181
+ weight (normalized) 1.0
+
+<Molecules 195>
+Barcode 0:
+ position 0.04329418714409421
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+Barcode 1:
+ position 0.23829074466722402
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+
+<Molecules 196>
+No barcode found
+
+<Molecules 197>
+No barcode found
+
+<Molecules 198>
+Barcode 0:
+ position 0.44234039594973357
+ std 0.04728751657721685
+ sem 0.022960217641733928
+ weight 4.241710382027419
+ weight (normalized) 1.0
+
+<Molecules 199>
+No barcode found
+
+<Molecules 200>
+Barcode 0:
+ position 1.1847292886480453e-07
+ std 0.047986755487599876
+ sem 0.029076473159244255
+ weight 2.723700303858243
+ weight (normalized) 0.18929713255579003
+Barcode 1:
+ position 0.1427206437639007
+ std 0.0586248444757833
+ sem 0.01991868661770969
+ weight 8.66247530329834
+ weight (normalized) 0.6020419109352447
+Barcode 2:
+ position 0.2601325308306661
+ std 0.02348068249982227
+ sem 0.013551347348657372
+ weight 3.0023165326042167
+ weight (normalized) 0.20866095650896527
+
+<Molecules 201>
+Barcode 0:
+ position 0.7268305029010412
+ std 0.0022487208613568032
+ sem 0.0012982995946366758
+ weight 3.000000000000007
+ weight (normalized) 1.0000000000000024
+
+<Molecules 202>
+No barcode found
+
+<Molecules 203>
+Barcode 0:
+ position -0.014597243036718104
+ std 0.0022790357133748037
+ sem 0.0011395178566874008
+ weight 4.000000000000008
+ weight (normalized) 1.000000000000002
+
+<Molecules 204>
+No barcode found
+
+<Molecules 205>
+Barcode 0:
+ position 0.44500000001022544
+ std 0.0317933269190198
+ sem 0.01770013875413843
+ weight 3.226402977305561
+ weight (normalized) 1.0
+
+<Molecules 206>
+Barcode 0:
+ position -0.21142632132999006
+ std 0.0014318959444569457
+ sem 0.001012503332279021
+ weight 2.000000000000005
+ weight (normalized) 0.33333333333333415
+Barcode 1:
+ position -0.02065679206678316
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.16666666666666705
+Barcode 2:
+ position 0.7417323536838587
+ std 0.0015916263424478683
+ sem 0.0009189258972615756
+ weight 3.0000000000000044
+ weight (normalized) 0.5000000000000008
+
+<Molecules 207>
+No barcode found
+
+<Molecules 208>
+No barcode found
+
+<Molecules 209>
+No barcode found
+
+<Molecules 210>
+No barcode found
+
+<Molecules 211>
+Barcode 0:
+ position 0.3599993554748826
+ std 0.021217911852726267
+ sem 0.014295265716556873
+ weight 2.203032058629034
+ weight (normalized) 0.7720027109373702
+Barcode 1:
+ position 0.47500085959137245
+ std 0.0025956060095337855
+ sem 0.003217902888262522
+ weight 0.6506263902565917
+ weight (normalized) 0.22799728906262978
+
+<Molecules 212>
+Barcode 0:
+ position 0.5410985339645256
+ std 0.003162165574105388
+ sem 0.0014015588550889597
+ weight 5.0903369769525035
+ weight (normalized) 1.0
+
+<Molecules 213>
+Barcode 0:
+ position 0.24500008183900682
+ std 0.00600347854094202
+ sem 0.0024468561346030968
+ weight 6.01989691712568
+ weight (normalized) 1.0
+
+<Molecules 214>
+No barcode found
+
+<Molecules 215>
+No barcode found
+
+<Molecules 216>
+No barcode found
+
+<Molecules 217>
+No barcode found
+
+<Molecules 218>
+No barcode found
+
+<Molecules 219>
+No barcode found
+
+<Molecules 220>
+No barcode found
+
+<Molecules 221>
+No barcode found
+
+<Molecules 222>
+No barcode found
+
+<Molecules 223>
+No barcode found
+
+<Molecules 224>
+No barcode found
+
+<Molecules 225>
+Barcode 0:
+ position -0.03885045143240268
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+Barcode 1:
+ position 0.21191587610316936
+ std 0.0014401309375721193
+ sem 0.001018326351753785
+ weight 2.0000000000000044
+ weight (normalized) 0.6666666666666682
+
+<Molecules 226>
+No barcode found
+
+<Molecules 227>
+No barcode found
+
+<Molecules 228>
+No barcode found
+
+<Molecules 229>
+No barcode found
+
+<Molecules 230>
+Barcode 0:
+ position 0.07924942654812325
+ std 0.0032906726880303832
+ sem 0.0016886094916386343
+ weight 3.797614886230548
+ weight (normalized) 1.0
+
+<Molecules 231>
+Barcode 0:
+ position 0.024999999939793176
+ std 0.0016594783380017666
+ sem 0.002573006164749398
+ weight 0.4159695323520749
+ weight (normalized) 1.0
+
+<Molecules 232>
+No barcode found
+
+<Molecules 233>
+No barcode found
+
+<Molecules 234>
+No barcode found
+
+<Molecules 235>
+No barcode found
+
+<Molecules 236>
+No barcode found
+
+<Molecules 237>
+Barcode 0:
+ position -0.07009733302247377
+ std 0.003337087751478223
+ sem 0.0012613006133730127
+ weight 7.000000000000011
+ weight (normalized) 1.0000000000000016
+
+<Molecules 238>
+No barcode found
+
+<Molecules 239>
+Barcode 0:
+ position -0.06376312932113141
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.16666666666666705
+Barcode 1:
+ position 0.2493283372271684
+ std 0.0024664319188284936
+ sem 0.0011030218864751498
+ weight 5.00000000000001
+ weight (normalized) 0.8333333333333349
+
+<Molecules 240>
+No barcode found
+
+<Molecules 241>
+No barcode found
+
+<Molecules 242>
+No barcode found
+
+<Molecules 243>
+No barcode found
+
+<Molecules 244>
+No barcode found
+
+<Molecules 245>
+No barcode found
+
+<Molecules 246>
+Barcode 0:
+ position 0.468605851498869
+ std 0.0016890552494492359
+ sem 0.0011943424206842888
+ weight 2.000000000000005
+ weight (normalized) 1.0000000000000024
+
+<Molecules 247>
+No barcode found
+
+<Molecules 248>
+Barcode 0:
+ position 0.25000000000001427
+ std 0.003379700194803484
+ sem 0.0015022643871068545
+ weight 5.061317825166596
+ weight (normalized) 1.0
+
+<Molecules 249>
+No barcode found
+
+<Molecules 250>
+Barcode 0:
+ position 0.1337656723074198
+ std 0.03236423537243518
+ sem 0.010440335477289335
+ weight 9.609522189454067
+ weight (normalized) 1.0
+
+<Molecules 251>
+No barcode found
+
+<Molecules 252>
+No barcode found
+
+<Molecules 253>
+No barcode found
+
+<Molecules 254>
+No barcode found
+
+<Molecules 255>
+No barcode found
+
+<Molecules 256>
+No barcode found
+
+<Molecules 257>
+No barcode found
+
+<Molecules 258>
+No barcode found
+
+<Molecules 259>
+No barcode found
+
+<Molecules 260>
+No barcode found
+
+<Molecules 261>
+No barcode found
+
+<Molecules 262>
+No barcode found
+
+<Molecules 263>
+No barcode found
+
+<Molecules 264>
+No barcode found
+
+<Molecules 265>
+Barcode 0:
+ position 0.022019839296174334
+ std 0.0029613437642587318
+ sem 0.0013243531923255258
+ weight 5.000000000000011
+ weight (normalized) 1.0000000000000022
+
+<Molecules 266>
+No barcode found
+
+<Molecules 267>
+No barcode found
+
+<Molecules 268>
+No barcode found
+
+<Molecules 269>
+No barcode found
+
+<Molecules 270>
+Barcode 0:
+ position 0.5751352862358687
+ std 0.014374755753296602
+ sem 0.006254410899872523
+ weight 5.28236161512761
+ weight (normalized) 1.0
+
+<Molecules 271>
+No barcode found
+
+<Molecules 272>
+No barcode found
+
+<Molecules 273>
+No barcode found
+
+<Molecules 274>
+No barcode found
+
+<Molecules 275>
+No barcode found
+
+<Molecules 276>
+No barcode found
+
+<Molecules 277>
+No barcode found
+
+<Molecules 278>
+No barcode found
+
+<Molecules 279>
+No barcode found
+
+<Molecules 280>
+Barcode 0:
+ position 0.7749999999998697
+ std 0.017776131093051834
+ sem 0.007699195599989875
+ weight 5.330694359103957
+ weight (normalized) 1.0
+
+<Molecules 281>
+No barcode found
+
+<Molecules 282>
+No barcode found
+
+<Molecules 283>
+No barcode found
+
+<Molecules 284>
+No barcode found
+
+<Molecules 285>
+Barcode 0:
+ position 0.18616944011756761
+ std 0.011534959302509952
+ sem 0.003952865588973033
+ weight 8.515458543989663
+ weight (normalized) 1.0
+
+<Molecules 286>
+No barcode found
+
+<Molecules 287>
+No barcode found
+
+<Molecules 288>
+No barcode found
+
+<Molecules 289>
+No barcode found
+
+<Molecules 290>
+No barcode found
+
+<Molecules 291>
+Barcode 0:
+ position 0.2030963917798043
+ std 0.033544157589445886
+ sem 0.010892038595247318
+ weight 9.48452173855322
+ weight (normalized) 1.0
+
+<Molecules 292>
+No barcode found
+
+<Molecules 293>
+No barcode found
+
+<Molecules 294>
+Barcode 0:
+ position 0.21999999999163247
+ std 0.021214072322327505
+ sem 0.01429329919861973
+ weight 2.20284084521726
+ weight (normalized) 1.0
+
+<Molecules 295>
+No barcode found
+
+<Molecules 296>
+Barcode 0:
+ position 0.44000000000000056
+ std 0.003264160182812597
+ sem 0.0020071902392113194
+ weight 2.64463567998692
+ weight (normalized) 0.2796697151586755
+Barcode 1:
+ position 0.9697471718918025
+ std 0.0145543427260257
+ sem 0.005576562243223828
+ weight 6.811646272052255
+ weight (normalized) 0.7203302848413244
+
+<Molecules 297>
+Barcode 0:
+ position 0.4549999999996697
+ std 0.014143145883856161
+ sem 0.00952904749066806
+ weight 2.202891257463864
+ weight (normalized) 1.0
+
+<Molecules 298>
+No barcode found
+
+<Molecules 299>
+No barcode found
+
+<Molecules 300>
+No barcode found
+
+<Molecules 301>
+No barcode found
+
+<Molecules 302>
+No barcode found
+
+<Molecules 303>
+No barcode found
+
+<Molecules 304>
+Barcode 0:
+ position 0.09864533000729761
+ std 0.005260908056366217
+ sem 0.001822339769120095
+ weight 8.334176962412583
+ weight (normalized) 1.0
+
+<Molecules 305>
+Barcode 0:
+ position 0.39499999955686493
+ std 0.0018482284935074924
+ sem 0.002715393703586317
+ weight 0.46328230146911714
+ weight (normalized) 0.1297010740771704
+Barcode 1:
+ position 0.5149324634183402
+ std 0.014812574512636987
+ sem 0.008401276065451291
+ weight 3.1086410982821473
+ weight (normalized) 0.8702989259228295
+
+<Molecules 306>
+Barcode 0:
+ position 0.7689763369220124
+ std 0.0014147226002892508
+ sem 0.0010003599441623938
+ weight 2.000000000000004
+ weight (normalized) 1.000000000000002
+
+<Molecules 307>
+No barcode found
+
+<Molecules 308>
+No barcode found
+
+<Molecules 309>
+Barcode 0:
+ position -0.03746342018853793
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.0000000000000067
+ weight (normalized) 0.7500000000000017
+Barcode 1:
+ position 0.898687444350969
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.25000000000000056
+
+<Molecules 310>
+No barcode found
+
+<Molecules 311>
+Barcode 0:
+ position 0.20327779182492595
+ std 0.01503340610000894
+ sem 0.005163190266326138
+ weight 8.477709287699856
+ weight (normalized) 1.0
+
+<Molecules 312>
+No barcode found
+
+<Molecules 313>
+No barcode found
+
+<Molecules 314>
+No barcode found
+
+<Molecules 315>
+No barcode found
+
+<Molecules 316>
+No barcode found
+
+<Molecules 317>
+Barcode 0:
+ position 0.14499999999678037
+ std 0.02122588738632705
+ sem 0.010181928291424365
+ weight 4.345819089997308
+ weight (normalized) 1.0
+
+<Molecules 318>
+No barcode found
+
+<Molecules 319>
+Barcode 0:
+ position -0.036179834167985585
+ std 0.005589412013850962
+ sem 0.0018631373379503196
+ weight 9.00000000000001
+ weight (normalized) 1.000000000000001
+
+<Molecules 320>
+Barcode 0:
+ position 0.4029918715145636
+ std 0.04685509764920504
+ sem 0.016312786297758182
+ weight 8.250065583194173
+ weight (normalized) 0.938975393415793
+Barcode 1:
+ position 0.5452919980468871
+ std 0.002134469642563622
+ sem 0.0029149821086583254
+ weight 0.5361769967973943
+ weight (normalized) 0.06102460658420711
+
+<Molecules 321>
+No barcode found
+
+<Molecules 322>
+Barcode 0:
+ position -0.005285343993872113
+ std 0.0035842445709953984
+ sem 0.001792122285497698
+ weight 4.000000000000006
+ weight (normalized) 0.6666666666666677
+Barcode 1:
+ position 0.9548681482544664
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.3333333333333341
+
+<Molecules 323>
+No barcode found
+
+<Molecules 324>
+No barcode found
+
+<Molecules 325>
+Barcode 0:
+ position -0.28889057869997714
+ std 0.001414213562373095
+ sem 0.0010000000284243692
+ weight 1.9999998863025283
+ weight (normalized) 0.24999998578781604
+Barcode 1:
+ position -0.027159284543128753
+ std 0.010763024733160188
+ sem 0.006214035307241072
+ weight 2.999999922507904
+ weight (normalized) 0.374999990313488
+Barcode 2:
+ position 0.13279393111375665
+ std 0.027578764007753113
+ sem 0.01950076732571786
+ weight 2.0000746071769933
+ weight (normalized) 0.25000932589712416
+Barcode 3:
+ position 0.2351105117450296
+ std 0.001
+ sem 0.0010000372100704884
+ weight 0.9999255840125852
+ weight (normalized) 0.12499069800157316
+
+<Molecules 326>
+No barcode found
+
+<Molecules 327>
+Barcode 0:
+ position 0.43000000000227256
+ std 0.016567017510034053
+ sem 0.00578962870267907
+ weight 8.188177285121109
+ weight (normalized) 1.0
+
+<Molecules 328>
+No barcode found
+
+<Molecules 329>
+No barcode found
+
+<Molecules 330>
+Barcode 0:
+ position -0.022809670066132152
+ std 0.002929880394734287
+ sem 0.0011961186624138596
+ weight 6.000000000000012
+ weight (normalized) 1.000000000000002
+
+<Molecules 331>
+No barcode found
+
+<Molecules 332>
+No barcode found
+
+<Molecules 333>
+Barcode 0:
+ position 0.4129920188918936
+ std 0.03739679910021934
+ sem 0.014959837511191948
+ weight 6.249065974699742
+ weight (normalized) 1.0
+
+<Molecules 334>
+No barcode found
+
+<Molecules 335>
+Barcode 0:
+ position 0.4249945689163112
+ std 0.014336653305630914
+ sem 0.004177858684872332
+ weight 11.775736367829039
+ weight (normalized) 1.0
+
+<Molecules 336>
+Barcode 0:
+ position 0.40075658853795415
+ std 0.0033038268336783596
+ sem 0.0016995729658867299
+ weight 3.778808848030383
+ weight (normalized) 1.0
+
+<Molecules 337>
+No barcode found
+
+<Molecules 338>
+No barcode found
+
+<Molecules 339>
+No barcode found
+
+<Molecules 340>
+No barcode found
+
+<Molecules 341>
+No barcode found
+
+<Molecules 342>
+Barcode 0:
+ position -0.04535091230994528
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.20000000000000046
+Barcode 1:
+ position 0.19646066217554803
+ std 0.0021703933996231662
+ sem 0.0010851966998115818
+ weight 4.000000000000009
+ weight (normalized) 0.8000000000000018
+
+<Molecules 343>
+Barcode 0:
+ position 0.07077793247662344
+ std 0.0033501056058976987
+ sem 0.0017378957184580768
+ weight 3.7159474922280347
+ weight (normalized) 0.6278286583627645
+Barcode 1:
+ position 0.3199999999864294
+ std 0.035355337465656236
+ sem 0.023821511067647263
+ weight 2.2027811970904603
+ weight (normalized) 0.3721713416372354
+
+<Molecules 344>
+Barcode 0:
+ position 0.3099999999933164
+ std 0.021210843743099863
+ sem 0.014291714526220835
+ weight 2.20265877612393
+ weight (normalized) 1.0
+
+<Molecules 345>
+Barcode 0:
+ position -0.09611424595848088
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.000000000000007
+ weight (normalized) 0.6000000000000014
+Barcode 1:
+ position 0.04327427600525656
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.4000000000000009
+
+<Molecules 346>
+No barcode found
+
+<Molecules 347>
+No barcode found
+
+<Molecules 348>
+Barcode 0:
+ position 0.7400000000000806
+ std 0.016567018185194158
+ sem 0.005789628879770441
+ weight 8.188177451596204
+ weight (normalized) 1.0
+
+<Molecules 349>
+No barcode found
+
+<Molecules 350>
+No barcode found
+
+<Molecules 351>
+No barcode found
+
+<Molecules 352>
+No barcode found
+
+<Molecules 353>
+No barcode found
+
+<Molecules 354>
+No barcode found
+
+<Molecules 355>
+No barcode found
+
+<Molecules 356>
+No barcode found
+
+<Molecules 357>
+No barcode found
+
+<Molecules 358>
+Barcode 0:
+ position -0.055188548067160934
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.0000000000000067
+ weight (normalized) 0.7500000000000017
+Barcode 1:
+ position 0.1382304139080098
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.25000000000000056
+
+<Molecules 359>
+No barcode found
+
+<Molecules 360>
+Barcode 0:
+ position 0.6392843863814508
+ std 0.021561899570480398
+ sem 0.007160146348952911
+ weight 9.068391048030692
+ weight (normalized) 1.0
+
+<Molecules 361>
+No barcode found
+
+<Molecules 362>
+Barcode 0:
+ position 0.1150000000010731
+ std 0.014143248060481034
+ sem 0.009529092297419607
+ weight 2.202902370305052
+ weight (normalized) 1.0
+
+<Molecules 363>
+Barcode 0:
+ position -0.671160176258049
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.2222222222222227
+Barcode 1:
+ position -0.07829113916583579
+ std 0.01156567696472229
+ sem 0.00578283780466184
+ weight 4.000000937531874
+ weight (normalized) 0.44444454861465266
+Barcode 2:
+ position 0.068711657207795
+ std 0.007320502178594214
+ sem 0.004226494563826886
+ weight 2.999999062468133
+ weight (normalized) 0.3333332291631259
+
+<Molecules 364>
+No barcode found
+
+<Molecules 365>
+Barcode 0:
+ position -0.025321694864362393
+ std 0.0022563376034888736
+ sem 0.0010090648523180163
+ weight 5.000000000000012
+ weight (normalized) 1.0000000000000024
+
+<Molecules 366>
+No barcode found
+
+<Molecules 367>
+No barcode found
+
+<Molecules 368>
+No barcode found
+
+<Molecules 369>
+No barcode found
+
+<Molecules 370>
+No barcode found
+
+<Molecules 371>
+Barcode 0:
+ position -0.016323778121639033
+ std 0.0022374548313166195
+ sem 0.001000620219881856
+ weight 5.000000000000012
+ weight (normalized) 1.0000000000000024
+
+<Molecules 372>
+No barcode found
+
+<Molecules 373>
+No barcode found
+
+<Molecules 374>
+No barcode found
+
+<Molecules 375>
+No barcode found
+
+<Molecules 376>
+Barcode 0:
+ position 0.1580395374994558
+ std 0.01726676169732287
+ sem 0.00702054233845238
+ weight 6.048956549975398
+ weight (normalized) 1.0
+
+<Molecules 377>
+No barcode found
+
+<Molecules 378>
+Barcode 0:
+ position -0.0437363976235753
+ std 0.002002605205887223
+ sem 0.0010013026029436103
+ weight 4.00000000000001
+ weight (normalized) 0.8000000000000019
+Barcode 1:
+ position 0.08734417252009909
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.20000000000000046
+
+<Molecules 379>
+No barcode found
+
+<Molecules 380>
+Barcode 0:
+ position 0.13499999993942569
+ std 0.0016704263165571466
+ sem 0.0025814795833277587
+ weight 0.4187137836122142
+ weight (normalized) 1.0
+
+<Molecules 381>
+Barcode 0:
+ position -0.06308839645350006
+ std 0.002
+ sem 0.000999999999999999
+ weight 4.000000000000009
+ weight (normalized) 1.0000000000000022
+
+<Molecules 382>
+No barcode found
+
+<Molecules 383>
+No barcode found
+
+<Molecules 384>
+No barcode found
+
+<Molecules 385>
+No barcode found
+
+<Molecules 386>
+No barcode found
+
+<Molecules 387>
+No barcode found
+
+<Molecules 388>
+No barcode found
+
+<Molecules 389>
+No barcode found
+
+<Molecules 390>
+No barcode found
+
+<Molecules 391>
+No barcode found
+
+<Molecules 392>
+Barcode 0:
+ position 0.1846579106576762
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 393>
+No barcode found
+
+<Molecules 394>
+No barcode found
+
+<Molecules 395>
+No barcode found
+
+<Molecules 396>
+Barcode 0:
+ position -0.0998180037584484
+ std 0.002663106022120302
+ sem 0.0011909771977479686
+ weight 5.000000181380823
+ weight (normalized) 0.8333333635634705
+Barcode 1:
+ position 0.010734360763415239
+ std 0.001
+ sem 0.0010000000906904187
+ weight 0.9999998186191874
+ weight (normalized) 0.16666663643653123
+
+<Molecules 397>
+No barcode found
+
+<Molecules 398>
+No barcode found
+
+<Molecules 399>
+No barcode found
+
+<Molecules 400>
+Barcode 0:
+ position 0.8507489239123559
+ std 0.003287049357534101
+ sem 0.0016855699905870504
+ weight 3.802934711648562
+ weight (normalized) 1.0
+
+<Molecules 401>
+Barcode 0:
+ position 0.8988017158036863
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 402>
+No barcode found
+
+<Molecules 403>
+No barcode found
+
+<Molecules 404>
+No barcode found
+
+<Molecules 405>
+Barcode 0:
+ position -0.08868087319694279
+ std 0.0027791992773096783
+ sem 0.0009263997591032254
+ weight 9.000000000000012
+ weight (normalized) 1.0000000000000013
+
+<Molecules 406>
+No barcode found
+
+<Molecules 407>
+No barcode found
+
+<Molecules 408>
+No barcode found
+
+<Molecules 409>
+No barcode found
+
+<Molecules 410>
+No barcode found
+
+<Molecules 411>
+Barcode 0:
+ position 0.018960949628619803
+ std 0.0016066712875199012
+ sem 0.0011360881625430421
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 412>
+No barcode found
+
+<Molecules 413>
+No barcode found
+
+<Molecules 414>
+No barcode found
+
+<Molecules 415>
+No barcode found
+
+<Molecules 416>
+No barcode found
+
+<Molecules 417>
+No barcode found
+
+<Molecules 418>
+No barcode found
+
+<Molecules 419>
+Barcode 0:
+ position 0.2795590830924112
+ std 0.0032976320243020426
+ sem 0.0012985862210971996
+ weight 6.4485608643172485
+ weight (normalized) 1.0
+
+<Molecules 420>
+No barcode found
+
+<Molecules 421>
+Barcode 0:
+ position 0.7004168700460583
+ std 0.003206455641897604
+ sem 0.001239068949731589
+ weight 6.696679658549305
+ weight (normalized) 1.0
+
+<Molecules 422>
+No barcode found
+
+<Molecules 423>
+Barcode 0:
+ position 0.24794672424534603
+ std 0.0015424942625098569
+ sem 0.0010907081529620613
+ weight 2.000000000000004
+ weight (normalized) 1.000000000000002
+
+<Molecules 424>
+Barcode 0:
+ position 0.8817527301571341
+ std 0.015186456222068828
+ sem 0.005537639005585916
+ weight 7.520792439101756
+ weight (normalized) 1.0
+
+<Molecules 425>
+Barcode 0:
+ position 0.00642659503671438
+ std 0.017777701413884316
+ sem 0.003883748510931993
+ weight 20.95313523112744
+ weight (normalized) 0.8381761853398261
+Barcode 1:
+ position 0.13021317360745938
+ std 0.009238001030462448
+ sem 0.004593036955548198
+ weight 4.045350287322718
+ weight (normalized) 0.16182381466017381
+
+<Molecules 426>
+No barcode found
+
+<Molecules 427>
+No barcode found
+
+<Molecules 428>
+No barcode found
+
+<Molecules 429>
+Barcode 0:
+ position 0.8417693973809457
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 430>
+No barcode found
+
+<Molecules 431>
+No barcode found
+
+<Molecules 432>
+No barcode found
+
+<Molecules 433>
+No barcode found
+
+<Molecules 434>
+No barcode found
+
+<Molecules 435>
+Barcode 0:
+ position 0.03500045317225248
+ std 0.0022005711999212147
+ sem 0.002962949891311794
+ weight 0.5515974323591206
+ weight (normalized) 1.0
+
+<Molecules 436>
+No barcode found
+
+<Molecules 437>
+No barcode found
+
+<Molecules 438>
+No barcode found
+
+<Molecules 439>
+No barcode found
+
+<Molecules 440>
+No barcode found
+
+<Molecules 441>
+No barcode found
+
+<Molecules 442>
+Barcode 0:
+ position 0.06224495991016391
+ std 0.018957992587863084
+ sem 0.00752921669548334
+ weight 6.3399393763577345
+ weight (normalized) 0.7421304395648082
+Barcode 1:
+ position 0.4850000000015682
+ std 0.028287950175966164
+ sem 0.01905895165667254
+ weight 2.20295152039019
+ weight (normalized) 0.257869560435192
+
+<Molecules 443>
+Barcode 0:
+ position 0.7449306675693905
+ std 0.014810715662856465
+ sem 0.008400485334531612
+ weight 3.1084460406118968
+ weight (normalized) 1.0
+
+<Molecules 444>
+Barcode 0:
+ position -0.029587478733902176
+ std 0.003762940995806077
+ sem 0.0014222580104446597
+ weight 7.000000000000011
+ weight (normalized) 1.0000000000000016
+
+<Molecules 445>
+Barcode 0:
+ position 0.4431136653572129
+ std 0.007507290806714867
+ sem 0.002738103041006589
+ weight 7.517386909665353
+ weight (normalized) 1.0
+
+<Molecules 446>
+No barcode found
+
+<Molecules 447>
+No barcode found
+
+<Molecules 448>
+No barcode found
+
+<Molecules 449>
+No barcode found
+
+<Molecules 450>
+No barcode found
+
+<Molecules 451>
+No barcode found
+
+<Molecules 452>
+Barcode 0:
+ position -0.03552855961074618
+ std 0.003085688728303315
+ sem 0.002181911424414167
+ weight 2.000000000000002
+ weight (normalized) 0.3333333333333337
+Barcode 1:
+ position 0.981990511483776
+ std 0.0020000000000000005
+ sem 0.0009999999999999992
+ weight 4.000000000000009
+ weight (normalized) 0.6666666666666682
+
+<Molecules 453>
+Barcode 0:
+ position -0.093956233030578
+ std 0.0018641073475617212
+ sem 0.0010762428789131177
+ weight 3.000000000000007
+ weight (normalized) 1.0000000000000024
+
+<Molecules 454>
+Barcode 0:
+ position 0.020000000002785328
+ std 0.021210885067299314
+ sem 0.014291735414556802
+ weight 2.2026609201388347
+ weight (normalized) 1.0
+
+<Molecules 455>
+No barcode found
+
+<Molecules 456>
+Barcode 0:
+ position -0.05682583426935764
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.20000000000000046
+Barcode 1:
+ position 0.10639861808001749
+ std 0.002147687436602616
+ sem 0.0012399679196576962
+ weight 3.000000000000007
+ weight (normalized) 0.6000000000000014
+Barcode 2:
+ position 0.3291354206572443
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.20000000000000046
+
+<Molecules 457>
+Barcode 0:
+ position -0.04557729871061988
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.20000000000000046
+Barcode 1:
+ position 0.19648194443984332
+ std 0.002131181365287692
+ sem 0.0010655906826438448
+ weight 4.000000000000009
+ weight (normalized) 0.8000000000000018
+
+<Molecules 458>
+No barcode found
+
+<Molecules 459>
+No barcode found
+
+<Molecules 460>
+No barcode found
+
+<Molecules 461>
+No barcode found
+
+<Molecules 462>
+Barcode 0:
+ position -0.02920772974889156
+ std 0.003364134976682791
+ sem 0.0013734023531204358
+ weight 6.000000000000012
+ weight (normalized) 1.000000000000002
+
+<Molecules 463>
+No barcode found
+
+<Molecules 464>
+Barcode 0:
+ position 0.20088467705923863
+ std 0.03174654698337946
+ sem 0.009135562982620315
+ weight 12.075979228219548
+ weight (normalized) 1.0
+
+<Molecules 465>
+No barcode found
+
+<Molecules 466>
+No barcode found
+
+<Molecules 467>
+No barcode found
+
+<Molecules 468>
+No barcode found
+
+<Molecules 469>
+Barcode 0:
+ position 0.3508807111692167
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+Barcode 1:
+ position 0.8288309236779711
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+
+<Molecules 470>
+No barcode found
+
+<Molecules 471>
+No barcode found
+
+<Molecules 472>
+Barcode 0:
+ position 0.3571490295692162
+ std 0.024752725878214248
+ sem 0.009118787642771253
+ weight 7.368377378347897
+ weight (normalized) 1.0
+
+<Molecules 473>
+No barcode found
+
+<Molecules 474>
+Barcode 0:
+ position 0.17000000000000465
+ std 0.003353215254205478
+ sem 0.0014834434472432599
+ weight 5.109529104136889
+ weight (normalized) 1.0
+
+<Molecules 475>
+No barcode found
+
+<Molecules 476>
+No barcode found
+
+<Molecules 477>
+Barcode 0:
+ position -0.004786507799346689
+ std 0.0022347785098422745
+ sem 0.0012902499742366265
+ weight 3.000000000000006
+ weight (normalized) 1.000000000000002
+
+<Molecules 478>
+No barcode found
+
+<Molecules 479>
+No barcode found
+
+<Molecules 480>
+No barcode found
+
+<Molecules 481>
+No barcode found
+
+<Molecules 482>
+No barcode found
+
+<Molecules 483>
+Barcode 0:
+ position -0.017692365219798452
+ std 0.0021605833654289096
+ sem 0.0010802916827144535
+ weight 4.000000000000009
+ weight (normalized) 1.0000000000000022
+
+<Molecules 484>
+No barcode found
+
+<Molecules 485>
+Barcode 0:
+ position -0.02598537520559409
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 486>
+No barcode found
+
+<Molecules 487>
+No barcode found
+
+<Molecules 488>
+No barcode found
+
+<Molecules 489>
+No barcode found
+
+<Molecules 490>
+No barcode found
+
+<Molecules 491>
+Barcode 0:
+ position 0.7350000000048749
+ std 0.014141926566127474
+ sem 0.009528499093848498
+ weight 2.2027649707781443
+ weight (normalized) 1.0
+
+<Molecules 492>
+No barcode found
+
+<Molecules 493>
+No barcode found
+
+<Molecules 494>
+Barcode 0:
+ position -0.11566703743844912
+ std 0.018474890906335577
+ sem 0.006531860320775781
+ weight 8.000000000000005
+ weight (normalized) 0.8000000000000006
+Barcode 1:
+ position 0.8348108865052029
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.20000000000000046
+
+<Molecules 495>
+No barcode found
+
+<Molecules 496>
+Barcode 0:
+ position -0.0015869107098953955
+ std 0.010992864484522106
+ sem 0.003886564474376703
+ weight 8.000000150090266
+ weight (normalized) 0.5000000093806416
+Barcode 1:
+ position 0.6977482321917302
+ std 0.013699652631359166
+ sem 0.005592859766701141
+ weight 6.000000000000002
+ weight (normalized) 0.3750000000000001
+
+<Molecules 497>
+No barcode found
+
+<Molecules 498>
+No barcode found
+
+<Molecules 499>
+No barcode found
+
+<Molecules 500>
+No barcode found
+
+<Molecules 501>
+No barcode found
+
+<Molecules 502>
+Barcode 0:
+ position 0.05000000000627096
+ std 0.021212386593625853
+ sem 0.01429249429242094
+ weight 2.2027388525431437
+ weight (normalized) 1.0
+
+<Molecules 503>
+No barcode found
+
+<Molecules 504>
+Barcode 0:
+ position 0.1297262801868586
+ std 0.014729643711048696
+ sem 0.0070479222179039205
+ weight 4.36779532433009
+ weight (normalized) 1.0
+
+<Molecules 505>
+No barcode found
+
+<Molecules 506>
+Barcode 0:
+ position -0.06508250066975335
+ std 0.0020000000007139064
+ sem 0.0010000000003569521
+ weight 4.000000000000009
+ weight (normalized) 1.0000000000000022
+
+<Molecules 507>
+No barcode found
+
+<Molecules 508>
+No barcode found
+
+<Molecules 509>
+Barcode 0:
+ position -0.03308718111657886
+ std 0.002416054172944907
+ sem 0.0010804922736053688
+ weight 5.000000000000003
+ weight (normalized) 0.6250000000000003
+Barcode 1:
+ position 0.742216922002645
+ std 0.0017320512199766253
+ sem 0.0010000002381037232
+ weight 3.0000000000000067
+ weight (normalized) 0.37500000000000083
+
+<Molecules 510>
+Barcode 0:
+ position 0.35499999999898546
+ std 0.014142943604635612
+ sem 0.009528958810223838
+ weight 2.202869246241034
+ weight (normalized) 1.0
+
+<Molecules 511>
+No barcode found
+
+<Molecules 512>
+No barcode found
+
+<Molecules 513>
+No barcode found
+
+<Molecules 514>
+No barcode found
+
+<Molecules 515>
+No barcode found
+
+<Molecules 516>
+Barcode 0:
+ position -0.007202755337284186
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+Barcode 1:
+ position 0.9566532798331353
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+
+<Molecules 517>
+No barcode found
+
+<Molecules 518>
+Barcode 0:
+ position 0.7326402295533081
+ std 0.017753558731862754
+ sem 0.007158547844327164
+ weight 6.1506494925913175
+ weight (normalized) 1.0
+
+<Molecules 519>
+No barcode found
+
+<Molecules 520>
+No barcode found
+
+<Molecules 521>
+No barcode found
+
+<Molecules 522>
+Barcode 0:
+ position 0.37493088506227296
+ std 0.014810746684186167
+ sem 0.008400498528689154
+ weight 3.1084492974944133
+ weight (normalized) 1.0
+
+<Molecules 523>
+No barcode found
+
+<Molecules 524>
+No barcode found
+
+<Molecules 525>
+No barcode found
+
+<Molecules 526>
+No barcode found
+
+<Molecules 527>
+No barcode found
+
+<Molecules 528>
+No barcode found
+
+<Molecules 529>
+No barcode found
+
+<Molecules 530>
+No barcode found
+
+<Molecules 531>
+No barcode found
+
+<Molecules 532>
+No barcode found
+
+<Molecules 533>
+No barcode found
+
+<Molecules 534>
+Barcode 0:
+ position -0.09256968393148539
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.14285714285714318
+Barcode 1:
+ position 0.4629304641211517
+ std 0.0033104507588281396
+ sem 0.0013514858629563849
+ weight 6.00000000000001
+ weight (normalized) 0.8571428571428585
+
+<Molecules 535>
+No barcode found
+
+<Molecules 536>
+No barcode found
+
+<Molecules 537>
+Barcode 0:
+ position 0.27465293106423017
+ std 0.011178658389243043
+ sem 0.004331635059832101
+ weight 6.660021772648496
+ weight (normalized) 1.0
+
+<Molecules 538>
+No barcode found
+
+<Molecules 539>
+No barcode found
+
+<Molecules 540>
+No barcode found
+
+<Molecules 541>
+Barcode 0:
+ position 0.29879072496585163
+ std 0.002953493330690352
+ sem 0.0011369640897487111
+ weight 6.748053125617208
+ weight (normalized) 0.9190201785715428
+Barcode 1:
+ position 0.43499999835930203
+ std 0.0023721388645453036
+ sem 0.003076273742826432
+ weight 0.5946073327264638
+ weight (normalized) 0.08097982142845714
+
+<Molecules 542>
+No barcode found
+
+<Molecules 543>
+No barcode found
+
+<Molecules 544>
+No barcode found
+
+<Molecules 545>
+No barcode found
+
+<Molecules 546>
+No barcode found
+
+<Molecules 547>
+No barcode found
+
+<Molecules 548>
+Barcode 0:
+ position 0.24999999983283333
+ std 0.0636458972693957
+ sem 0.04288189757933948
+ weight 2.202890127296969
+ weight (normalized) 1.0
+
+<Molecules 549>
+Barcode 0:
+ position 0.08499999412068601
+ std 0.010603076075458589
+ sem 0.0059023488523976715
+ weight 3.227111759527471
+ weight (normalized) 1.0
+
+<Molecules 550>
+No barcode found
+
+<Molecules 551>
+No barcode found
+
+<Molecules 552>
+No barcode found
+
+<Molecules 553>
+No barcode found
+
+<Molecules 554>
+No barcode found
+
+<Molecules 555>
+No barcode found
+
+<Molecules 556>
+No barcode found
+
+<Molecules 557>
+No barcode found
+
+<Molecules 558>
+Barcode 0:
+ position -0.008518392774433987
+ std 0.001751068688977224
+ sem 0.001238192544299231
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 559>
+No barcode found
+
+<Molecules 560>
+Barcode 0:
+ position 0.9449688102385154
+ std 0.010673355128644273
+ sem 0.0059305506290304524
+ weight 3.2390069789370584
+ weight (normalized) 1.0
+
+<Molecules 561>
+No barcode found
+
+<Molecules 562>
+No barcode found
+
+<Molecules 563>
+Barcode 0:
+ position 0.14948550406724584
+ std 0.04219468491355891
+ sem 0.016839063611261768
+ weight 6.278842962814444
+ weight (normalized) 1.0
+
+<Molecules 564>
+No barcode found
+
+<Molecules 565>
+No barcode found
+
+<Molecules 566>
+No barcode found
+
+<Molecules 567>
+No barcode found
+
+<Molecules 568>
+No barcode found
+
+<Molecules 569>
+No barcode found
+
+<Molecules 570>
+No barcode found
+
+<Molecules 571>
+No barcode found
+
+<Molecules 572>
+No barcode found
+
+<Molecules 573>
+No barcode found
+
+<Molecules 574>
+No barcode found
+
+<Molecules 575>
+Barcode 0:
+ position -0.0857859198861504
+ std 0.012499565866578185
+ sem 0.003770853839608946
+ weight 10.98779277801785
+ weight (normalized) 0.6463407516481088
+Barcode 1:
+ position 0.03224489957021892
+ std 0.015771170619132344
+ sem 0.007873580144368873
+ weight 4.012207221982159
+ weight (normalized) 0.23601218952836228
+Barcode 2:
+ position 0.9217986916353575
+ std 0.004190049597402467
+ sem 0.0029628124838312463
+ weight 2.000000000000002
+ weight (normalized) 0.11764705882352955
+
+<Molecules 576>
+No barcode found
+
+<Molecules 577>
+No barcode found
+
+<Molecules 578>
+Barcode 0:
+ position -0.008689206936972962
+ std 0.008189948110205729
+ sem 0.0036536639144191174
+ weight 5.024641819114459
+ weight (normalized) 0.4567856199194963
+Barcode 1:
+ position 0.1132026757220041
+ std 0.003331231889572271
+ sem 0.0014897763484797541
+ weight 4.999972091822894
+ weight (normalized) 0.4545429174384449
+
+<Molecules 579>
+No barcode found
+
+<Molecules 580>
+No barcode found
+
+<Molecules 581>
+No barcode found
+
+<Molecules 582>
+No barcode found
+
+<Molecules 583>
+No barcode found
+
+<Molecules 584>
+No barcode found
+
+<Molecules 585>
+No barcode found
+
+<Molecules 586>
+No barcode found
+
+<Molecules 587>
+No barcode found
+
+<Molecules 588>
+No barcode found
+
+<Molecules 589>
+No barcode found
+
+<Molecules 590>
+No barcode found
+
+<Molecules 591>
+Barcode 0:
+ position -0.010732109393370808
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.0000000000000067
+ weight (normalized) 1.0000000000000022
+
+<Molecules 592>
+No barcode found
+
+<Molecules 593>
+No barcode found
+
+<Molecules 594>
+No barcode found
+
+<Molecules 595>
+No barcode found
+
+<Molecules 596>
+No barcode found
+
+<Molecules 597>
+No barcode found
+
+<Molecules 598>
+No barcode found
+
+<Molecules 599>
+No barcode found
+
+<Molecules 600>
+No barcode found
+
+<Molecules 601>
+No barcode found
+
+<Molecules 602>
+Barcode 0:
+ position 0.15413739779857494
+ std 0.04339032032728263
+ sem 0.012850929773865597
+ weight 11.400308714590242
+ weight (normalized) 1.0
+
+<Molecules 603>
+No barcode found
+
+<Molecules 604>
+Barcode 0:
+ position 0.4100000000054468
+ std 0.035351008029519695
+ sem 0.02381932304583499
+ weight 2.2026463577079705
+ weight (normalized) 1.0
+
+<Molecules 605>
+No barcode found
+
+<Molecules 606>
+Barcode 0:
+ position 0.7101544504922921
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 607>
+No barcode found
+
+<Molecules 608>
+No barcode found
+
+<Molecules 609>
+No barcode found
+
+<Molecules 610>
+No barcode found
+
+<Molecules 611>
+No barcode found
+
+<Molecules 612>
+Barcode 0:
+ position 0.13499999907078603
+ std 0.05656786776668025
+ sem 0.03811434409645494
+ weight 2.2027373565441186
+ weight (normalized) 1.0
+
+<Molecules 613>
+No barcode found
+
+<Molecules 614>
+No barcode found
+
+<Molecules 615>
+No barcode found
+
+<Molecules 616>
+Barcode 0:
+ position -0.11480127979770915
+ std 0.002494227836228459
+ sem 0.0011154525986358083
+ weight 5.000000000000011
+ weight (normalized) 1.0000000000000022
+
+<Molecules 617>
+No barcode found
+
+<Molecules 618>
+No barcode found
+
+<Molecules 619>
+No barcode found
+
+<Molecules 620>
+No barcode found
+
+<Molecules 621>
+No barcode found
+
+<Molecules 622>
+No barcode found
+
+<Molecules 623>
+Barcode 0:
+ position -0.05449042869930287
+ std 0.0021989430196320122
+ sem 0.0009833972141091657
+ weight 5.00000000000001
+ weight (normalized) 0.8333333333333349
+Barcode 1:
+ position 0.34217839890683505
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.16666666666666705
+
+<Molecules 624>
+Barcode 0:
+ position 0.4199999999999997
+ std 0.0033449806044185443
+ sem 0.002089600741236277
+ weight 2.5624805667127952
+ weight (normalized) 1.0
+
+<Molecules 625>
+Barcode 0:
+ position -0.14851084142434787
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.25000000000000056
+Barcode 1:
+ position -0.033900987902032505
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.5000000000000011
+Barcode 2:
+ position 0.49348224296690846
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.25000000000000056
+
+<Molecules 626>
+No barcode found
+
+<Molecules 627>
+No barcode found
+
+<Molecules 628>
+No barcode found
+
+<Molecules 629>
+Barcode 0:
+ position 0.42924687833062214
+ std 0.0032962545144976435
+ sem 0.001693271470485037
+ weight 3.7895556837661224
+ weight (normalized) 1.0
+
+<Molecules 630>
+No barcode found
+
+<Molecules 631>
+Barcode 0:
+ position 0.15112158514857563
+ std 0.0031951868063020803
+ sem 0.0014262095223060668
+ weight 5.019099957619737
+ weight (normalized) 1.0
+
+<Molecules 632>
+No barcode found
+
+<Molecules 633>
+No barcode found
+
+<Molecules 634>
+Barcode 0:
+ position 0.18978532765063857
+ std 0.009235552924932954
+ sem 0.004592126876706218
+ weight 4.044809248630356
+ weight (normalized) 1.0
+
+<Molecules 635>
+No barcode found
+
+<Molecules 636>
+No barcode found
+
+<Molecules 637>
+Barcode 0:
+ position 0.09997799694612444
+ std 0.009470760633330284
+ sem 0.004679042507647242
+ weight 4.096903544521589
+ weight (normalized) 0.8961303089513707
+Barcode 1:
+ position 0.2249999999310401
+ std 0.001894451420886392
+ sem 0.002749139429926342
+ weight 0.4748685555825607
+ weight (normalized) 0.10386969104862918
+
+<Molecules 638>
+No barcode found
+
+<Molecules 639>
+No barcode found
+
+<Molecules 640>
+No barcode found
+
+<Molecules 641>
+No barcode found
+
+<Molecules 642>
+No barcode found
+
+<Molecules 643>
+No barcode found
+
+<Molecules 644>
+No barcode found
+
+<Molecules 645>
+No barcode found
+
+<Molecules 646>
+No barcode found
+
+<Molecules 647>
+Barcode 0:
+ position 0.8099999999999992
+ std 0.003341518833345686
+ sem 0.0014750865950320985
+ weight 5.131599968048233
+ weight (normalized) 1.0
+
+<Molecules 648>
+No barcode found
+
+<Molecules 649>
+Barcode 0:
+ position 0.4682327635301564
+ std 0.0024916647232090055
+ sem 0.0017618730222243879
+ weight 2.000000000000004
+ weight (normalized) 1.000000000000002
+
+<Molecules 650>
+No barcode found
+
+<Molecules 651>
+No barcode found
+
+<Molecules 652>
+No barcode found
+
+<Molecules 653>
+No barcode found
+
+<Molecules 654>
+No barcode found
+
+<Molecules 655>
+No barcode found
+
+<Molecules 656>
+No barcode found
+
+<Molecules 657>
+Barcode 0:
+ position -0.0762216445519955
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+Barcode 1:
+ position 0.7478888776997369
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.6666666666666682
+
+<Molecules 658>
+No barcode found
+
+<Molecules 659>
+No barcode found
+
+<Molecules 660>
+No barcode found
+
+<Molecules 661>
+Barcode 0:
+ position 0.11897681325277915
+ std 0.02431226598259931
+ sem 0.009579089832780257
+ weight 6.44172802489854
+ weight (normalized) 1.0
+
+<Molecules 662>
+No barcode found
+
+<Molecules 663>
+No barcode found
+
+<Molecules 664>
+No barcode found
+
+<Molecules 665>
+No barcode found
+
+<Molecules 666>
+No barcode found
+
+<Molecules 667>
+No barcode found
+
+<Molecules 668>
+No barcode found
+
+<Molecules 669>
+No barcode found
+
+<Molecules 670>
+No barcode found
+
+<Molecules 671>
+No barcode found
+
+<Molecules 672>
+Barcode 0:
+ position 0.1889434530986628
+ std 0.003101151225150285
+ sem 0.0013554937481258238
+ weight 5.234206493036611
+ weight (normalized) 1.0
+
+<Molecules 673>
+No barcode found
+
+<Molecules 674>
+Barcode 0:
+ position 0.35800202746530096
+ std 0.004273625326668909
+ sem 0.002107753076494475
+ weight 4.111056306907673
+ weight (normalized) 1.0
+
+<Molecules 675>
+No barcode found
+
+<Molecules 676>
+Barcode 0:
+ position 0.1309613417311597
+ std 0.0014142841838998904
+ sem 0.0010000499369604936
+ weight 2.000000000000004
+ weight (normalized) 1.000000000000002
+
+<Molecules 677>
+No barcode found
+
+<Molecules 678>
+No barcode found
+
+<Molecules 679>
+No barcode found
+
+<Molecules 680>
+No barcode found
+
+<Molecules 681>
+No barcode found
+
+<Molecules 682>
+Barcode 0:
+ position -0.025147300187139943
+ std 0.0020000008223577197
+ sem 0.0010000004111788588
+ weight 4.00000000000001
+ weight (normalized) 1.0000000000000024
+
+<Molecules 683>
+No barcode found
+
+<Molecules 684>
+No barcode found
+
+<Molecules 685>
+Barcode 0:
+ position 0.43449446312642825
+ std 0.016534880483449713
+ sem 0.006213990204508612
+ weight 7.080452141094025
+ weight (normalized) 1.0
+
+<Molecules 686>
+No barcode found
+
+<Molecules 687>
+Barcode 0:
+ position 0.16812666458735237
+ std 0.023904353824587436
+ sem 0.008766051049929908
+ weight 7.436113774667944
+ weight (normalized) 1.0
+
+<Molecules 688>
+Barcode 0:
+ position -0.05429658173753411
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.4000000000000009
+Barcode 1:
+ position 0.4350232593223093
+ std 0.0023713713630965747
+ sem 0.0013691118948323754
+ weight 3.0000000000000075
+ weight (normalized) 0.6000000000000015
+
+<Molecules 689>
+No barcode found
+
+<Molecules 690>
+No barcode found
+
+<Molecules 691>
+No barcode found
+
+<Molecules 692>
+No barcode found
+
+<Molecules 693>
+Barcode 0:
+ position -0.03973374083594998
+ std 0.0022360681379741815
+ sem 0.0010000000717663288
+ weight 5.000000000000011
+ weight (normalized) 1.0000000000000022
+
+<Molecules 694>
+No barcode found
+
+<Molecules 695>
+Barcode 0:
+ position 0.29999999999999954
+ std 0.0034199176520535793
+ sem 0.002164646330358166
+ weight 2.496073667413321
+ weight (normalized) 1.0
+
+<Molecules 696>
+No barcode found
+
+<Molecules 697>
+No barcode found
+
+<Molecules 698>
+No barcode found
+
+<Molecules 699>
+No barcode found
+
+<Molecules 700>
+No barcode found
+
+<Molecules 701>
+Barcode 0:
+ position 0.9448648046838434
+ std 0.014374607008052293
+ sem 0.006254362362133726
+ weight 5.2823342828514654
+ weight (normalized) 1.0
+
+<Molecules 702>
+No barcode found
+
+<Molecules 703>
+No barcode found
+
+<Molecules 704>
+Barcode 0:
+ position 0.6249999999397716
+ std 0.0016589635071671276
+ sem 0.0025726070135111403
+ weight 0.41584048339938523
+ weight (normalized) 1.0
+
+<Molecules 705>
+Barcode 0:
+ position -0.027850972852694642
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.0000000000000067
+ weight (normalized) 1.0000000000000022
+
+<Molecules 706>
+No barcode found
+
+<Molecules 707>
+No barcode found
+
+<Molecules 708>
+No barcode found
+
+<Molecules 709>
+No barcode found
+
+<Molecules 710>
+No barcode found
+
+<Molecules 711>
+No barcode found
+
+<Molecules 712>
+No barcode found
+
+<Molecules 713>
+No barcode found
+
+<Molecules 714>
+No barcode found
+
+<Molecules 715>
+No barcode found
+
+<Molecules 716>
+Barcode 0:
+ position 0.15751336677550404
+ std 0.03974779970725827
+ sem 0.01712076014315616
+ weight 5.389892451364347
+ weight (normalized) 1.0
+
+<Molecules 717>
+No barcode found
+
+<Molecules 718>
+No barcode found
+
+<Molecules 719>
+Barcode 0:
+ position 0.5350031171456346
+ std 0.0020917395930295716
+ sem 0.0020426489621042858
+ weight 1.0486432325756823
+ weight (normalized) 1.0
+
+<Molecules 720>
+Barcode 0:
+ position -0.05983332452470278
+ std 0.007550247127406407
+ sem 0.0030823757273084123
+ weight 5.999999046326342
+ weight (normalized) 0.6666665607029268
+Barcode 1:
+ position 0.10720533268604715
+ std 0.017863248831331086
+ sem 0.010313349882108695
+ weight 3.00000095367367
+ weight (normalized) 0.33333343929707443
+
+<Molecules 721>
+No barcode found
+
+<Molecules 722>
+Barcode 0:
+ position 0.08886010433561801
+ std 0.017818080569053457
+ sem 0.007785677106046018
+ weight 5.237560589956359
+ weight (normalized) 0.38242596936452283
+Barcode 1:
+ position 0.5027289001713097
+ std 0.01748460431814214
+ sem 0.0060120205156678624
+ weight 8.458058979655014
+ weight (normalized) 0.6175740306354771
+
+<Molecules 723>
+No barcode found
+
+<Molecules 724>
+No barcode found
+
+<Molecules 725>
+No barcode found
+
+<Molecules 726>
+No barcode found
+
+<Molecules 727>
+Barcode 0:
+ position 0.18978532168633241
+ std 0.009235566008698229
+ sem 0.004592131767649141
+ weight 4.044812092956734
+ weight (normalized) 1.0
+
+<Molecules 728>
+Barcode 0:
+ position -0.05069426448275048
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.28571428571428636
+Barcode 1:
+ position 0.21095036401886452
+ std 0.0031308866685065507
+ sem 0.0014001750841256986
+ weight 5.000000000000007
+ weight (normalized) 0.7142857142857153
+
+<Molecules 729>
+Barcode 0:
+ position 0.42808271476313536
+ std 0.00892760727008121
+ sem 0.003897842845020971
+ weight 5.2459180784117585
+ weight (normalized) 1.0
+
+<Molecules 730>
+Barcode 0:
+ position 0.5925744760457562
+ std 0.018258697277152822
+ sem 0.00783884565862595
+ weight 5.425444801236106
+ weight (normalized) 1.0
+
+<Molecules 731>
+No barcode found
+
+<Molecules 732>
+No barcode found
+
+<Molecules 733>
+No barcode found
+
+<Molecules 734>
+Barcode 0:
+ position 0.45469059554001645
+ std 0.025756117495661958
+ sem 0.010767373325503024
+ weight 5.721913036246914
+ weight (normalized) 1.0
+
+<Molecules 735>
+Barcode 0:
+ position 0.5797587477379166
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.0000000000000067
+ weight (normalized) 1.0000000000000022
+
+<Molecules 736>
+No barcode found
+
+<Molecules 737>
+No barcode found
+
+<Molecules 738>
+No barcode found
+
+<Molecules 739>
+Barcode 0:
+ position 0.659245020930493
+ std 0.0033003105245361696
+ sem 0.0016966425228236456
+ weight 3.7838064545967596
+ weight (normalized) 1.0
+
+<Molecules 740>
+Barcode 0:
+ position 0.06858649116947207
+ std 0.03191064924461581
+ sem 0.01260766420998209
+ weight 6.406222432199977
+ weight (normalized) 1.0
+
+<Molecules 741>
+No barcode found
+
+<Molecules 742>
+Barcode 0:
+ position 0.20500000000424443
+ std 0.01414183678589433
+ sem 0.00952845371573972
+ weight 2.2027579828812
+ weight (normalized) 1.0
+
+<Molecules 743>
+No barcode found
+
+<Molecules 744>
+No barcode found
+
+<Molecules 745>
+No barcode found
+
+<Molecules 746>
+No barcode found
+
+<Molecules 747>
+No barcode found
+
+<Molecules 748>
+No barcode found
+
+<Molecules 749>
+No barcode found
+
+<Molecules 750>
+No barcode found
+
+<Molecules 751>
+No barcode found
+
+<Molecules 752>
+No barcode found
+
+<Molecules 753>
+Barcode 0:
+ position 0.18164827624371205
+ std 0.03522733067952594
+ sem 0.013758395867520489
+ weight 6.555772436471739
+ weight (normalized) 1.0
+
+<Molecules 754>
+No barcode found
+
+<Molecules 755>
+No barcode found
+
+<Molecules 756>
+Barcode 0:
+ position -0.08082656838872912
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.20000000000000046
+Barcode 1:
+ position 0.7399981688839845
+ std 0.0020000000000000833
+ sem 0.0010000000000000408
+ weight 4.000000000000008
+ weight (normalized) 0.8000000000000016
+
+<Molecules 757>
+No barcode found
+
+<Molecules 758>
+No barcode found
+
+<Molecules 759>
+No barcode found
+
+<Molecules 760>
+No barcode found
+
+<Molecules 761>
+No barcode found
+
+<Molecules 762>
+No barcode found
+
+<Molecules 763>
+Barcode 0:
+ position 0.9404365808793244
+ std 0.003281374320463455
+ sem 0.0012880586528297663
+ weight 6.489933865506102
+ weight (normalized) 1.0
+
+<Molecules 764>
+Barcode 0:
+ position -0.11876258234967907
+ std 0.015196699699353862
+ sem 0.010742146017871698
+ weight 2.001319652739943
+ weight (normalized) 0.18193815024908574
+Barcode 1:
+ position 0.03660024355151759
+ std 0.015568246687435363
+ sem 0.006355710095661014
+ weight 6.000000000007875
+ weight (normalized) 0.5454545454552613
+
+<Molecules 765>
+No barcode found
+
+<Molecules 766>
+No barcode found
+
+<Molecules 767>
+No barcode found
+
+<Molecules 768>
+No barcode found
+
+<Molecules 769>
+No barcode found
+
+<Molecules 770>
+Barcode 0:
+ position -0.04780314664337307
+ std 0.002066749983786639
+ sem 0.0010333749918933187
+ weight 4.000000000000007
+ weight (normalized) 0.6666666666666679
+Barcode 1:
+ position 0.7574698192069638
+ std 0.0014142135623851193
+ sem 0.0010000000000085015
+ weight 2.000000000000004
+ weight (normalized) 0.333333333333334
+
+<Molecules 771>
+Barcode 0:
+ position 0.1741248602775363
+ std 0.01941065507123372
+ sem 0.00747776942794495
+ weight 6.738081268679415
+ weight (normalized) 1.0
+
+<Molecules 772>
+No barcode found
+
+<Molecules 773>
+No barcode found
+
+<Molecules 774>
+No barcode found
+
+<Molecules 775>
+No barcode found
+
+<Molecules 776>
+Barcode 0:
+ position -0.019040088939253703
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+Barcode 1:
+ position 0.16631427290888484
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+
+<Molecules 777>
+Barcode 0:
+ position 0.6999999999999995
+ std 0.0034442550809141792
+ sem 0.0021887433958931086
+ weight 2.4762866601438747
+ weight (normalized) 1.0
+
+<Molecules 778>
+No barcode found
+
+<Molecules 779>
+No barcode found
+
+<Molecules 780>
+Barcode 0:
+ position 0.9149999999997902
+ std 0.010603262671017504
+ sem 0.005902426881472755
+ weight 3.2271400173794635
+ weight (normalized) 1.0
+
+<Molecules 781>
+No barcode found
+
+<Molecules 782>
+Barcode 0:
+ position -0.0327411782726611
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+Barcode 1:
+ position 0.11786725324072314
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+
+<Molecules 783>
+No barcode found
+
+<Molecules 784>
+Barcode 0:
+ position -0.03870933103687799
+ std 0.0036985527984376987
+ sem 0.0015099278571525255
+ weight 6.000000000000012
+ weight (normalized) 1.000000000000002
+
+<Molecules 785>
+Barcode 0:
+ position 0.05999999999963607
+ std 0.014189241454862212
+ sem 0.006862019036073188
+ weight 4.275771824047257
+ weight (normalized) 1.0
+
+<Molecules 786>
+No barcode found
+
+<Molecules 787>
+Barcode 0:
+ position 0.817996859276082
+ std 0.0231629645195276
+ sem 0.011563942882536284
+ weight 4.0121430405903675
+ weight (normalized) 1.0
+
+<Molecules 788>
+No barcode found
+
+<Molecules 789>
+Barcode 0:
+ position -0.03732016974101176
+ std 0.002194415110489837
+ sem 0.0008958662174255442
+ weight 6.00000000000001
+ weight (normalized) 0.8571428571428585
+Barcode 1:
+ position 0.23776889526931155
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.14285714285714318
+
+<Molecules 790>
+No barcode found
+
+<Molecules 791>
+Barcode 0:
+ position 0.1698611231431163
+ std 0.021610929891176255
+ sem 0.00901939299426713
+ weight 5.741062672793122
+ weight (normalized) 1.0
+
+<Molecules 792>
+No barcode found
+
+<Molecules 793>
+Barcode 0:
+ position 0.11500000018262563
+ std 0.014141425733532076
+ sem 0.009528237419934821
+ weight 2.2027299349891396
+ weight (normalized) 0.7791027535050743
+Barcode 1:
+ position 0.32499999955104747
+ std 0.0024915290616752085
+ sem 0.0031527355853076
+ weight 0.6245350503794342
+ weight (normalized) 0.22089724649492565
+
+<Molecules 794>
+No barcode found
+
+<Molecules 795>
+No barcode found
+
+<Molecules 796>
+Barcode 0:
+ position -0.045922727891507135
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+Barcode 1:
+ position 0.2363222481588252
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.6666666666666682
+
+<Molecules 797>
+No barcode found
+
+<Molecules 798>
+No barcode found
+
+<Molecules 799>
+No barcode found
+
+<Molecules 800>
+No barcode found
+
+<Molecules 801>
+Barcode 0:
+ position -0.028606681199962715
+ std 0.004248607517327324
+ sem 0.0019000350063484292
+ weight 5.000000196542029
+ weight (normalized) 0.5000000196542029
+Barcode 1:
+ position 0.4227215228838313
+ std 0.007001708251253189
+ sem 0.004042438143648251
+ weight 3.000000000000002
+ weight (normalized) 0.3000000000000002
+
+<Molecules 802>
+No barcode found
+
+<Molecules 803>
+Barcode 0:
+ position 0.26919852435482383
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+Barcode 1:
+ position 0.40172409417270305
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+
+<Molecules 804>
+No barcode found
+
+<Molecules 805>
+No barcode found
+
+<Molecules 806>
+No barcode found
+
+<Molecules 807>
+Barcode 0:
+ position -0.03569265833016335
+ std 0.0014142135632791185
+ sem 0.0010000000006406544
+ weight 2.000000000000004
+ weight (normalized) 0.4000000000000008
+Barcode 1:
+ position 0.6991014610603492
+ std 0.001762017868549379
+ sem 0.0010173014907239135
+ weight 3.000000000000006
+ weight (normalized) 0.6000000000000012
+
+<Molecules 808>
+No barcode found
+
+<Molecules 809>
+No barcode found
+
+<Molecules 810>
+No barcode found
+
+<Molecules 811>
+No barcode found
+
+<Molecules 812>
+No barcode found
+
+<Molecules 813>
+Barcode 0:
+ position 0.2747497693249548
+ std 0.02600532060845034
+ sem 0.009029786582024038
+ weight 8.29410354523196
+ weight (normalized) 1.0
+
+<Molecules 814>
+No barcode found
+
+<Molecules 815>
+No barcode found
+
+<Molecules 816>
+No barcode found
+
+<Molecules 817>
+No barcode found
+
+<Molecules 818>
+No barcode found
+
+<Molecules 819>
+Barcode 0:
+ position 0.010547577021701551
+ std 0.001414213562457812
+ sem 0.0010000000000599028
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 820>
+No barcode found
+
+<Molecules 821>
+Barcode 0:
+ position 0.7452486812797748
+ std 0.01872578328639626
+ sem 0.009280980817188906
+ weight 4.070916888098814
+ weight (normalized) 1.0
+
+<Molecules 822>
+Barcode 0:
+ position 0.22000000000582115
+ std 0.02121413490799333
+ sem 0.014293327450736953
+ weight 2.2028451345693414
+ weight (normalized) 1.0
+
+<Molecules 823>
+No barcode found
+
+<Molecules 824>
+No barcode found
+
+<Molecules 825>
+Barcode 0:
+ position 0.42012515357423114
+ std 0.009394266853370612
+ sem 0.00465057055583501
+ weight 4.080499320796042
+ weight (normalized) 1.0
+
+<Molecules 826>
+Barcode 0:
+ position 0.13247860569175585
+ std 0.021764132840906475
+ sem 0.005787443055501059
+ weight 14.141949246473263
+ weight (normalized) 1.0
+
+<Molecules 827>
+No barcode found
+
+<Molecules 828>
+No barcode found
+
+<Molecules 829>
+No barcode found
+
+<Molecules 830>
+No barcode found
+
+<Molecules 831>
+Barcode 0:
+ position 0.14926029514283762
+ std 0.003266759447357658
+ sem 0.0016685655465338018
+ weight 3.8330789798817535
+ weight (normalized) 0.6350510843299338
+Barcode 1:
+ position 0.2899999999982683
+ std 0.021213184915683747
+ sem 0.014292897720455304
+ weight 2.2027802989448912
+ weight (normalized) 0.3649489156700661
+
+<Molecules 832>
+No barcode found
+
+<Molecules 833>
+No barcode found
+
+<Molecules 834>
+No barcode found
+
+<Molecules 835>
+Barcode 0:
+ position 0.8160319831341043
+ std 0.056195355895559136
+ sem 0.03159631431451708
+ weight 3.1632098267102813
+ weight (normalized) 1.0
+
+<Molecules 836>
+No barcode found
+
+<Molecules 837>
+Barcode 0:
+ position 0.04499999992979745
+ std 0.0019131146535804912
+ sem 0.00276264783269675
+ weight 0.47954673952320187
+ weight (normalized) 0.13364687127267674
+Barcode 1:
+ position 0.17493234042734615
+ std 0.0148123364109164
+ sem 0.008401174775825844
+ weight 3.108616117988017
+ weight (normalized) 0.8663531287273233
+
+<Molecules 838>
+No barcode found
+
+<Molecules 839>
+No barcode found
+
+<Molecules 840>
+No barcode found
+
+<Molecules 841>
+No barcode found
+
+<Molecules 842>
+No barcode found
+
+<Molecules 843>
+No barcode found
+
+<Molecules 844>
+No barcode found
+
+<Molecules 845>
+Barcode 0:
+ position -0.016060798637659277
+ std 0.0024825355967668587
+ sem 0.0017554177550108362
+ weight 2.000000000000005
+ weight (normalized) 1.0000000000000024
+
+<Molecules 846>
+No barcode found
+
+<Molecules 847>
+Barcode 0:
+ position 0.4139299816644317
+ std 0.06288794872530386
+ sem 0.03511929557960831
+ weight 3.206588759179199
+ weight (normalized) 1.0
+
+<Molecules 848>
+Barcode 0:
+ position -0.05475312420493063
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.20000000000000046
+Barcode 1:
+ position 0.4717121498751712
+ std 0.002
+ sem 0.000999999999999999
+ weight 4.000000000000009
+ weight (normalized) 0.8000000000000018
+
+<Molecules 849>
+No barcode found
+
+<Molecules 850>
+No barcode found
+
+<Molecules 851>
+No barcode found
+
+<Molecules 852>
+Barcode 0:
+ position 0.1549902568022908
+ std 0.014162545289187615
+ sem 0.009538533667125997
+ weight 2.204547138332931
+ weight (normalized) 0.7896204960105965
+Barcode 1:
+ position 0.23500542682988573
+ std 0.002343220749551078
+ sem 0.0030574615392218525
+ weight 0.5873600493236404
+ weight (normalized) 0.21037950398940367
+
+<Molecules 853>
+No barcode found
+
+<Molecules 854>
+No barcode found
+
+<Molecules 855>
+Barcode 0:
+ position 0.1750227402006437
+ std 0.0017320576951435963
+ sem 0.001000003976543117
+ weight 3.000000000000006
+ weight (normalized) 1.000000000000002
+
+<Molecules 856>
+No barcode found
+
+<Molecules 857>
+No barcode found
+
+<Molecules 858>
+Barcode 0:
+ position -0.030004411338321775
+ std 0.004875349892376257
+ sem 0.0018427090528075835
+ weight 7.000000000000011
+ weight (normalized) 1.0000000000000016
+
+<Molecules 859>
+No barcode found
+
+<Molecules 860>
+No barcode found
+
+<Molecules 861>
+No barcode found
+
+<Molecules 862>
+Barcode 0:
+ position 0.16000000000000178
+ std 0.0032179169245862395
+ sem 0.0011312548995956447
+ weight 8.09149387052981
+ weight (normalized) 1.0
+
+<Molecules 863>
+No barcode found
+
+<Molecules 864>
+Barcode 0:
+ position 0.37231504154912576
+ std 0.012012738116865094
+ sem 0.0052401634627411
+ weight 5.2552617195294085
+ weight (normalized) 1.0
+
+<Molecules 865>
+No barcode found
+
+<Molecules 866>
+No barcode found
+
+<Molecules 867>
+No barcode found
+
+<Molecules 868>
+Barcode 0:
+ position 0.018867303729281963
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 869>
+No barcode found
+
+<Molecules 870>
+No barcode found
+
+<Molecules 871>
+No barcode found
+
+<Molecules 872>
+No barcode found
+
+<Molecules 873>
+No barcode found
+
+<Molecules 874>
+Barcode 0:
+ position 0.43499999993986593
+ std 0.0016577379300131137
+ sem 0.0025716565673749737
+ weight 0.4155332767645335
+ weight (normalized) 1.0
+
+<Molecules 875>
+No barcode found
+
+<Molecules 876>
+Barcode 0:
+ position 0.33133055763777913
+ std 0.0030980651483355657
+ sem 0.001237835472908784
+ weight 6.264050408449296
+ weight (normalized) 1.0
+
+<Molecules 877>
+Barcode 0:
+ position 0.6949335611685475
+ std 0.014813874398194857
+ sem 0.008401829061157101
+ weight 3.1087774527290546
+ weight (normalized) 1.0
+
+<Molecules 878>
+No barcode found
+
+<Molecules 879>
+No barcode found
+
+<Molecules 880>
+Barcode 0:
+ position -0.03848498520700426
+ std 0.008521864568564071
+ sem 0.0020667951429555725
+ weight 17.00099702988326
+ weight (normalized) 0.8947893173622767
+
+<Molecules 881>
+No barcode found
+
+<Molecules 882>
+No barcode found
+
+<Molecules 883>
+No barcode found
+
+<Molecules 884>
+Barcode 0:
+ position 0.766533565626212
+ std 0.0014235155550252048
+ sem 0.001006577502082853
+ weight 2.000000000000005
+ weight (normalized) 1.0000000000000024
+
+<Molecules 885>
+No barcode found
+
+<Molecules 886>
+No barcode found
+
+<Molecules 887>
+No barcode found
+
+<Molecules 888>
+No barcode found
+
+<Molecules 889>
+No barcode found
+
+<Molecules 890>
+No barcode found
+
+<Molecules 891>
+Barcode 0:
+ position -0.07260331162040762
+ std 0.0012947657989329654
+ sem 0.0009155376764739173
+ weight 2.000000000000002
+ weight (normalized) 0.22222222222222246
+Barcode 1:
+ position 0.11728464428410222
+ std 0.0033891908152937473
+ sem 0.0012809937204302136
+ weight 7.000000000000009
+ weight (normalized) 0.7777777777777788
+
+<Molecules 892>
+No barcode found
+
+<Molecules 893>
+Barcode 0:
+ position -0.0010880565956004101
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 894>
+No barcode found
+
+<Molecules 895>
+No barcode found
+
+<Molecules 896>
+No barcode found
+
+<Molecules 897>
+No barcode found
+
+<Molecules 898>
+No barcode found
+
+<Molecules 899>
+No barcode found
+
+<Molecules 900>
+No barcode found
+
+<Molecules 901>
+No barcode found
+
+<Molecules 902>
+No barcode found
+
+<Molecules 903>
+No barcode found
+
+<Molecules 904>
+Barcode 0:
+ position 0.13721019705236087
+ std 0.002018343784898307
+ sem 0.0011652913275282445
+ weight 3.0000000000000067
+ weight (normalized) 1.0000000000000022
+
+<Molecules 905>
+No barcode found
+
+<Molecules 906>
+Barcode 0:
+ position 0.29999999995941296
+ std 0.04949574544414476
+ sem 0.033349242625467415
+ weight 2.2027427888791133
+ weight (normalized) 1.0
+
+<Molecules 907>
+No barcode found
+
+<Molecules 908>
+No barcode found
+
+<Molecules 909>
+No barcode found
+
+<Molecules 910>
+No barcode found
+
+<Molecules 911>
+No barcode found
+
+<Molecules 912>
+No barcode found
+
+<Molecules 913>
+Barcode 0:
+ position -0.039724103957433254
+ std 0.0015961462600382025
+ sem 0.00092153547289907
+ weight 3.0000000000000044
+ weight (normalized) 0.3333333333333338
+Barcode 1:
+ position 0.14575336656536905
+ std 0.006653100050413255
+ sem 0.004704452161559771
+ weight 2.000000000000002
+ weight (normalized) 0.22222222222222246
+Barcode 2:
+ position 0.44414168556813
+ std 0.02511987480609658
+ sem 0.014502966481309554
+ weight 3.000000000000002
+ weight (normalized) 0.3333333333333336
+Barcode 3:
+ position 0.684163017228814
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.11111111111111135
+
+<Molecules 914>
+Barcode 0:
+ position -0.040999502582298356
+ std 0.010875587411989539
+ sem 0.004436610921059875
+ weight 6.00900767741045
+ weight (normalized) 0.600900767741045
+Barcode 1:
+ position 0.39278908442060484
+ std 0.004286304336710643
+ sem 0.002474698962628548
+ weight 3.000000000000005
+ weight (normalized) 0.3000000000000005
+
+<Molecules 915>
+No barcode found
+
+<Molecules 916>
+Barcode 0:
+ position 0.4199999999999997
+ std 0.003473967054504826
+ sem 0.0022179797066882554
+ weight 2.4532186317802767
+ weight (normalized) 1.0
+
+<Molecules 917>
+Barcode 0:
+ position -0.10997550396009162
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.6666666666666682
+Barcode 1:
+ position 0.3541160964902489
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+
+<Molecules 918>
+No barcode found
+
+<Molecules 919>
+No barcode found
+
+<Molecules 920>
+No barcode found
+
+<Molecules 921>
+Barcode 0:
+ position 0.04499776879933105
+ std 0.0022016103352342476
+ sem 0.0029636427359580214
+ weight 0.5518603768700177
+ weight (normalized) 1.0
+
+<Molecules 922>
+Barcode 0:
+ position 0.15924674894473365
+ std 0.003296531828910874
+ sem 0.0016934917612272074
+ weight 3.7892073438885636
+ weight (normalized) 1.0
+
+<Molecules 923>
+No barcode found
+
+<Molecules 924>
+No barcode found
+
+<Molecules 925>
+No barcode found
+
+<Molecules 926>
+Barcode 0:
+ position 0.40556196887975127
+ std 0.036792126660836255
+ sem 0.020529599101392723
+ weight 3.2118026056746567
+ weight (normalized) 1.0
+
+<Molecules 927>
+No barcode found
+
+<Molecules 928>
+No barcode found
+
+<Molecules 929>
+Barcode 0:
+ position -0.02035719111331849
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.6666666666666682
+Barcode 1:
+ position 0.1768026536604948
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+
+<Molecules 930>
+Barcode 0:
+ position -0.06381611612221505
+ std 0.0023474463663518776
+ sem 0.0009583409660187602
+ weight 6.000000000000012
+ weight (normalized) 1.000000000000002
+
+<Molecules 931>
+No barcode found
+
+<Molecules 932>
+No barcode found
+
+<Molecules 933>
+Barcode 0:
+ position -0.11502337750835866
+ std 0.0020244233607225296
+ sem 0.0011688578638508588
+ weight 2.9997100234996017
+ weight (normalized) 0.3749637529374502
+Barcode 1:
+ position 0.026657171443227462
+ std 0.012727322406724105
+ sem 0.0056916665720357475
+ weight 5.00028997650041
+ weight (normalized) 0.6250362470625512
+
+<Molecules 934>
+No barcode found
+
+<Molecules 935>
+No barcode found
+
+<Molecules 936>
+No barcode found
+
+<Molecules 937>
+No barcode found
+
+<Molecules 938>
+No barcode found
+
+<Molecules 939>
+No barcode found
+
+<Molecules 940>
+No barcode found
+
+<Molecules 941>
+Barcode 0:
+ position -0.03856412087660526
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.5000000000000011
+Barcode 1:
+ position 0.12684989127075852
+ std 0.0015905075193486538
+ sem 0.0011246586524596258
+ weight 2.0000000000000044
+ weight (normalized) 0.5000000000000011
+
+<Molecules 942>
+No barcode found
+
+<Molecules 943>
+Barcode 0:
+ position 0.24205594117680884
+ std 0.015925235913601107
+ sem 0.00571120641189499
+ weight 7.775279974446301
+ weight (normalized) 1.0
+
+<Molecules 944>
+No barcode found
+
+<Molecules 945>
+No barcode found
+
+<Molecules 946>
+No barcode found
+
+<Molecules 947>
+No barcode found
+
+<Molecules 948>
+No barcode found
+
+<Molecules 949>
+Barcode 0:
+ position 0.2661241337837352
+ std 0.019595717665508466
+ sem 0.00859929666998066
+ weight 5.192738862284378
+ weight (normalized) 1.0
+
+<Molecules 950>
+No barcode found
+
+<Molecules 951>
+Barcode 0:
+ position 0.16247369382860213
+ std 0.01144752645066817
+ sem 0.004086202249238263
+ weight 7.848444550787583
+ weight (normalized) 1.0
+
+<Molecules 952>
+No barcode found
+
+<Molecules 953>
+No barcode found
+
+<Molecules 954>
+No barcode found
+
+<Molecules 955>
+No barcode found
+
+<Molecules 956>
+No barcode found
+
+<Molecules 957>
+No barcode found
+
+<Molecules 958>
+No barcode found
+
+<Molecules 959>
+No barcode found
+
+<Molecules 960>
+No barcode found
+
+<Molecules 961>
+No barcode found
+
+<Molecules 962>
+No barcode found
+
+<Molecules 963>
+No barcode found
+
+<Molecules 964>
+No barcode found
+
+<Molecules 965>
+Barcode 0:
+ position 0.19177291138638172
+ std 0.018310080390493356
+ sem 0.0070166304377257665
+ weight 6.809626562676885
+ weight (normalized) 1.0
+
+<Molecules 966>
+Barcode 0:
+ position 0.41500000000939824
+ std 0.028376523760100688
+ sem 0.013723327506202261
+ weight 4.275624208076513
+ weight (normalized) 1.0
+
+<Molecules 967>
+Barcode 0:
+ position -0.056986434595299285
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.12500000000000028
+Barcode 1:
+ position 0.1549542796942432
+ std 0.006474468918549775
+ sem 0.002447119232814286
+ weight 7.000000000000009
+ weight (normalized) 0.8750000000000011
+
+<Molecules 968>
+Barcode 0:
+ position 0.9551448277876305
+ std 0.006209435009791891
+ sem 0.0024993237913438593
+ weight 6.172471954118713
+ weight (normalized) 1.0
+
+<Molecules 969>
+No barcode found
+
+<Molecules 970>
+No barcode found
+
+<Molecules 971>
+No barcode found
+
+<Molecules 972>
+No barcode found
+
+<Molecules 973>
+No barcode found
+
+<Molecules 974>
+No barcode found
+
+<Molecules 975>
+Barcode 0:
+ position 0.7599999999999987
+ std 0.0031781167642283914
+ sem 0.0019178104858369857
+ weight 2.7461757047205597
+ weight (normalized) 1.0
+
+<Molecules 976>
+No barcode found
+
+<Molecules 977>
+Barcode 0:
+ position -0.024777308998222378
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.6666666666666682
+Barcode 1:
+ position 0.12453709532381477
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+
+<Molecules 978>
+Barcode 0:
+ position 0.1413546662102878
+ std 0.005260882688273112
+ sem 0.0018223319350972145
+ weight 8.334168242872103
+ weight (normalized) 1.0
+
+<Molecules 979>
+No barcode found
+
+<Molecules 980>
+No barcode found
+
+<Molecules 981>
+No barcode found
+
+<Molecules 982>
+No barcode found
+
+<Molecules 983>
+No barcode found
+
+<Molecules 984>
+No barcode found
+
+<Molecules 985>
+No barcode found
+
+<Molecules 986>
+No barcode found
+
+<Molecules 987>
+No barcode found
+
+<Molecules 988>
+No barcode found
+
+<Molecules 989>
+No barcode found
+
+<Molecules 990>
+Barcode 0:
+ position -0.0554933382914895
+ std 0.0029533254912936817
+ sem 0.0009844418304312268
+ weight 9.000000000000009
+ weight (normalized) 0.9000000000000009
+Barcode 1:
+ position 0.6269254070072452
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.10000000000000023
+
+<Molecules 991>
+No barcode found
+
+<Molecules 992>
+No barcode found
+
+<Molecules 993>
+Barcode 0:
+ position 0.557152246293485
+ std 0.04008569093958641
+ sem 0.015606416940576646
+ weight 6.597392718765649
+ weight (normalized) 1.0
+
+<Molecules 994>
+No barcode found
+
+<Molecules 995>
+No barcode found
+
+<Molecules 996>
+No barcode found
+
+<Molecules 997>
+Barcode 0:
+ position -0.0828031082488307
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+Barcode 1:
+ position 0.03523430084348874
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.5000000000000011
+
+<Molecules 998>
+No barcode found
+
+<Molecules 999>
+Barcode 0:
+ position 0.2549999999970889
+ std 0.014142002565764351
+ sem 0.009528459427953277
+ weight 2.2028069864038198
+ weight (normalized) 0.8053993059911115
+Barcode 1:
+ position 0.3849999999277965
+ std 0.002123340485576548
+ sem 0.0029104815530280976
+ weight 0.5322425350172105
+ weight (normalized) 0.19460069400888838
+
+<Molecules 1000>
+No barcode found
+
+<Molecules 1001>
+No barcode found
+
+<Molecules 1002>
+No barcode found
+
+<Molecules 1003>
+Barcode 0:
+ position 0.4100000000000004
+ std 0.003344597120458686
+ sem 0.002089209226381762
+ weight 2.5628533315175663
+ weight (normalized) 1.0
+
+<Molecules 1004>
+Barcode 0:
+ position 0.4132503657768968
+ std 0.03366049482639548
+ sem 0.008399180178540437
+ weight 16.06080083023545
+ weight (normalized) 0.9392893972871542
+Barcode 1:
+ position 0.7650012864256504
+ std 0.0020706766042641774
+ sem 0.002032338836085619
+ weight 1.0380835781503865
+ weight (normalized) 0.06071060271284584
+
+<Molecules 1005>
+No barcode found
+
+<Molecules 1006>
+No barcode found
+
+<Molecules 1007>
+Barcode 0:
+ position 0.05499999999570603
+ std 0.02828008870309515
+ sem 0.01905509567958876
+ weight 2.202618421323314
+ weight (normalized) 1.0
+
+<Molecules 1008>
+No barcode found
+
+<Molecules 1009>
+Barcode 0:
+ position 0.12259712246820541
+ std 0.04859260545364481
+ sem 0.017663066652265372
+ weight 7.56847108598387
+ weight (normalized) 1.0
+
+<Molecules 1010>
+Barcode 0:
+ position 0.879379661490062
+ std 0.023348402948449913
+ sem 0.007957609000217932
+ weight 8.60892981711456
+ weight (normalized) 1.0
+
+<Molecules 1011>
+No barcode found
+
+<Molecules 1012>
+No barcode found
+
+<Molecules 1013>
+No barcode found
+
+<Molecules 1014>
+No barcode found
+
+<Molecules 1015>
+No barcode found
+
+<Molecules 1016>
+No barcode found
+
+<Molecules 1017>
+No barcode found
+
+<Molecules 1018>
+Barcode 0:
+ position -0.04022720619148127
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.3333333333333341
+Barcode 1:
+ position 0.9596840843402633
+ std 0.001414213562414977
+ sem 0.001000000000029614
+ weight 2.0000000000000044
+ weight (normalized) 0.6666666666666682
+
+<Molecules 1019>
+No barcode found
+
+<Molecules 1020>
+Barcode 0:
+ position 0.9510614270963845
+ std 0.015779355466391944
+ sem 0.006314097399111208
+ weight 6.245338262248086
+ weight (normalized) 1.0
+
+<Molecules 1021>
+No barcode found
+
+<Molecules 1022>
+No barcode found
+
+<Molecules 1023>
+No barcode found
+
+<Molecules 1024>
+Barcode 0:
+ position 0.1299999990721513
+ std 0.01105844382009627
+ sem 0.004428869592021461
+ weight 6.234508861052164
+ weight (normalized) 1.0
+
+<Molecules 1025>
+No barcode found
+
+<Molecules 1026>
+No barcode found
+
+<Molecules 1027>
+No barcode found
+
+<Molecules 1028>
+No barcode found
+
+<Molecules 1029>
+No barcode found
+
+<Molecules 1030>
+No barcode found
+
+<Molecules 1031>
+No barcode found
+
+<Molecules 1032>
+Barcode 0:
+ position 0.09499999993915667
+ std 0.0016765296130322013
+ sem 0.002586191305622048
+ weight 0.4202436531635114
+ weight (normalized) 1.0
+
+<Molecules 1033>
+No barcode found
+
+<Molecules 1034>
+Barcode 0:
+ position -0.05112286601580163
+ std 0.0019380543912247902
+ sem 0.00086672427257412
+ weight 5.000000000000007
+ weight (normalized) 0.7142857142857153
+Barcode 1:
+ position 0.39529364430402336
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.28571428571428636
+
+<Molecules 1035>
+No barcode found
+
+<Molecules 1036>
+No barcode found
+
+<Molecules 1037>
+No barcode found
+
+<Molecules 1038>
+No barcode found
+
+<Molecules 1039>
+No barcode found
+
+<Molecules 1040>
+Barcode 0:
+ position 0.13499999994000061
+ std 0.0016542230264949603
+ sem 0.0025689287775794586
+ weight 0.4146522211102692
+ weight (normalized) 1.0
+
+<Molecules 1041>
+No barcode found
+
+<Molecules 1042>
+No barcode found
+
+<Molecules 1043>
+No barcode found
+
+<Molecules 1044>
+Barcode 0:
+ position -0.010143683886336722
+ std 0.003248068527195427
+ sem 0.0014525804044773181
+ weight 5.000000000000011
+ weight (normalized) 1.0000000000000022
+
+<Molecules 1045>
+No barcode found
+
+<Molecules 1046>
+No barcode found
+
+<Molecules 1047>
+No barcode found
+
+<Molecules 1048>
+Barcode 0:
+ position -0.02969951194609472
+ std 0.006388576046656288
+ sem 0.0017073291670740439
+ weight 14.001469487949073
+ weight (normalized) 0.933431299196605
+
+<Molecules 1049>
+No barcode found
+
+<Molecules 1050>
+Barcode 0:
+ position -0.029056756712862283
+ std 0.003889958806126922
+ sem 0.0017396424640347427
+ weight 5.000000000000011
+ weight (normalized) 1.0000000000000022
+
+<Molecules 1051>
+Barcode 0:
+ position 0.5649999983540818
+ std 0.0023852303870096608
+ sem 0.003084750755734113
+ weight 0.5978889243191735
+ weight (normalized) 0.126400675208693
+Barcode 1:
+ position 0.9606655367718459
+ std 0.0030986565068730795
+ sem 0.0015243396077715204
+ weight 4.132219703123148
+ weight (normalized) 0.873599324791307
+
+<Molecules 1052>
+No barcode found
+
+<Molecules 1053>
+No barcode found
+
+<Molecules 1054>
+Barcode 0:
+ position -0.07277511314366616
+ std 0.009683437243813497
+ sem 0.0032278124146044975
+ weight 9.000000000000007
+ weight (normalized) 0.8181818181818188
+
+<Molecules 1055>
+No barcode found
+
+<Molecules 1056>
+No barcode found
+
+<Molecules 1057>
+Barcode 0:
+ position 0.42492994552452146
+ std 0.01481365372069508
+ sem 0.008401734289405
+ weight 3.10875496497818
+ weight (normalized) 1.0
+
+<Molecules 1058>
+No barcode found
+
+<Molecules 1059>
+No barcode found
+
+<Molecules 1060>
+No barcode found
+
+<Molecules 1061>
+No barcode found
+
+<Molecules 1062>
+Barcode 0:
+ position 0.2778697429963925
+ std 0.035302599380443445
+ sem 0.01207245105548965
+ weight 8.551109384042906
+ weight (normalized) 1.0
+
+<Molecules 1063>
+No barcode found
+
+<Molecules 1064>
+No barcode found
+
+<Molecules 1065>
+No barcode found
+
+<Molecules 1066>
+Barcode 0:
+ position 0.42500000000685817
+ std 0.028280503938821117
+ sem 0.01905530554841479
+ weight 2.2026345847859656
+ weight (normalized) 1.0
+
+<Molecules 1067>
+No barcode found
+
+<Molecules 1068>
+Barcode 0:
+ position 0.30606143546090603
+ std 0.0017398509511629692
+ sem 0.0010045034150037656
+ weight 3.0000000000000067
+ weight (normalized) 1.0000000000000022
+
+<Molecules 1069>
+No barcode found
+
+<Molecules 1070>
+Barcode 0:
+ position 0.6626453260770853
+ std 0.011470336500512239
+ sem 0.005065819776511926
+ weight 5.1268763989154245
+ weight (normalized) 1.0
+
+<Molecules 1071>
+Barcode 0:
+ position 0.1710603027026004
+ std 0.0031066589220991895
+ sem 0.001359684855515646
+ weight 5.22048232086373
+ weight (normalized) 1.0
+
+<Molecules 1072>
+No barcode found
+
+<Molecules 1073>
+No barcode found
+
+<Molecules 1074>
+Barcode 0:
+ position 0.2007071854157773
+ std 0.0031941653494943077
+ sem 0.00160704168140999
+ weight 3.9505767733556234
+ weight (normalized) 1.0
+
+<Molecules 1075>
+Barcode 0:
+ position 0.7796939233047753
+ std 0.030245424200967173
+ sem 0.013040140002377236
+ weight 5.379660285729144
+ weight (normalized) 1.0
+
+<Molecules 1076>
+No barcode found
+
+<Molecules 1077>
+No barcode found
+
+<Molecules 1078>
+No barcode found
+
+<Molecules 1079>
+No barcode found
+
+<Molecules 1080>
+Barcode 0:
+ position -0.03753360167046836
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 1081>
+No barcode found
+
+<Molecules 1082>
+Barcode 0:
+ position 0.27500000844215244
+ std 0.002016023582012897
+ sem 0.002835977792962089
+ weight 0.5053421970191551
+ weight (normalized) 0.11966466439846228
+Barcode 1:
+ position 0.4349811962712072
+ std 0.002080106921521635
+ sem 0.00288064793629462
+ weight 0.5214239213242982
+ weight (normalized) 0.12347280500748924
+Barcode 2:
+ position 0.5745029374263148
+ std 0.026047429098518364
+ sem 0.014569563589986859
+ weight 3.1962198362776575
+ weight (normalized) 0.7568625305940485
+
+<Molecules 1083>
+No barcode found
+
+<Molecules 1084>
+No barcode found
+
+<Molecules 1085>
+No barcode found
+
+<Molecules 1086>
+No barcode found
+
+<Molecules 1087>
+No barcode found
+
+<Molecules 1088>
+Barcode 0:
+ position -0.05811040433238907
+ std 0.003001031412889182
+ sem 0.0017326462940780909
+ weight 3.0000000000000044
+ weight (normalized) 0.5000000000000008
+Barcode 1:
+ position 0.53919660880489
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.0000000000000067
+ weight (normalized) 0.5000000000000011
+
+<Molecules 1089>
+No barcode found
+
+<Molecules 1090>
+Barcode 0:
+ position -0.021565700476635932
+ std 0.0027262333566123
+ sem 0.0010304193539321439
+ weight 7.000000000000011
+ weight (normalized) 1.0000000000000016
+
+<Molecules 1091>
+No barcode found
+
+<Molecules 1092>
+No barcode found
+
+<Molecules 1093>
+No barcode found
+
+<Molecules 1094>
+No barcode found
+
+<Molecules 1095>
+Barcode 0:
+ position 0.020000000004765494
+ std 0.021213905114909924
+ sem 0.014293443856186278
+ weight 2.2027615331559374
+ weight (normalized) 1.0
+
+<Molecules 1096>
+No barcode found
+
+<Molecules 1097>
+No barcode found
+
+<Molecules 1098>
+No barcode found
+
+<Molecules 1099>
+Barcode 0:
+ position 0.4400334535186761
+ std 0.015837927375748014
+ sem 0.006815403297214678
+ weight 5.400246378213963
+ weight (normalized) 1.0
+
+<Molecules 1100>
+Barcode 0:
+ position -0.0307766408921979
+ std 0.0024338785982166225
+ sem 0.0009936267769185187
+ weight 6.000000000000011
+ weight (normalized) 1.0000000000000018
+
+<Molecules 1101>
+No barcode found
+
+<Molecules 1102>
+Barcode 0:
+ position 0.3194667897603784
+ std 0.012873547782906575
+ sem 0.005832637259244292
+ weight 4.871543254544604
+ weight (normalized) 1.0
+
+<Molecules 1103>
+Barcode 0:
+ position 0.2149316426817296
+ std 0.014258281678169053
+ sem 0.0067769793951304004
+ weight 4.426516117147487
+ weight (normalized) 1.0
+
+<Molecules 1104>
+No barcode found
+
+<Molecules 1105>
+No barcode found
+
+<Molecules 1106>
+No barcode found
+
+<Molecules 1107>
+No barcode found
+
+<Molecules 1108>
+No barcode found
+
+<Molecules 1109>
+No barcode found
+
+<Molecules 1110>
+No barcode found
+
+<Molecules 1111>
+No barcode found
+
+<Molecules 1112>
+No barcode found
+
+<Molecules 1113>
+No barcode found
+
+<Molecules 1114>
+No barcode found
+
+<Molecules 1115>
+No barcode found
+
+<Molecules 1116>
+No barcode found
+
+<Molecules 1117>
+No barcode found
+
+<Molecules 1118>
+No barcode found
+
+<Molecules 1119>
+No barcode found
+
+<Molecules 1120>
+No barcode found
+
+<Molecules 1121>
+No barcode found
+
+<Molecules 1122>
+No barcode found
+
+<Molecules 1123>
+Barcode 0:
+ position 0.04506761804523303
+ std 0.014812419783301917
+ sem 0.008401210242968674
+ weight 3.1086248649138355
+ weight (normalized) 1.0
+
+<Molecules 1124>
+No barcode found
+
+<Molecules 1125>
+No barcode found
+
+<Molecules 1126>
+No barcode found
+
+<Molecules 1127>
+No barcode found
+
+<Molecules 1128>
+Barcode 0:
+ position -0.03544549567486186
+ std 0.0017484178661723664
+ sem 0.0010094495256905657
+ weight 3.000000000000006
+ weight (normalized) 1.000000000000002
+
+<Molecules 1129>
+No barcode found
+
+<Molecules 1130>
+Barcode 0:
+ position -0.004295553687139308
+ std 0.00464630961125329
+ sem 0.0017561399636550558
+ weight 7.000000000000011
+ weight (normalized) 1.0000000000000016
+
+<Molecules 1131>
+No barcode found
+
+<Molecules 1132>
+No barcode found
+
+<Molecules 1133>
+Barcode 0:
+ position -0.06675971782513383
+ std 0.0027088018173990467
+ sem 0.0012114130002558472
+ weight 5.000000000000008
+ weight (normalized) 0.8333333333333347
+Barcode 1:
+ position 0.05826391560170555
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.16666666666666705
+
+<Molecules 1134>
+No barcode found
+
+<Molecules 1135>
+No barcode found
+
+<Molecules 1136>
+No barcode found
+
+<Molecules 1137>
+No barcode found
+
+<Molecules 1138>
+Barcode 0:
+ position -0.023361219671984863
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 1139>
+No barcode found
+
+<Molecules 1140>
+No barcode found
+
+<Molecules 1141>
+No barcode found
+
+<Molecules 1142>
+Barcode 0:
+ position 0.03499999434289972
+ std 0.028287176543222756
+ sem 0.019058704477188763
+ weight 2.202888166292823
+ weight (normalized) 0.779743071022889
+Barcode 1:
+ position 0.1650290035945286
+ std 0.0024822958225070237
+ sem 0.0031467937848189916
+ weight 0.6222580237246296
+ weight (normalized) 0.2202569289771109
+
+<Molecules 1143>
+No barcode found
+
+<Molecules 1144>
+No barcode found
+
+<Molecules 1145>
+Barcode 0:
+ position 0.6910366573289467
+ std 0.0030718213700520183
+ sem 0.0013330760349236212
+ weight 5.309847798206994
+ weight (normalized) 1.0
+
+<Molecules 1146>
+Barcode 0:
+ position -0.014499787054078374
+ std 0.0369663140673451
+ sem 0.012322104688097682
+ weight 9.000000001486137
+ weight (normalized) 0.6428571429632955
+Barcode 1:
+ position 0.42052536944693064
+ std 0.04225369626084904
+ sem 0.02112684813041654
+ weight 4.000000000003022
+ weight (normalized) 0.2857142857145015
+
+<Molecules 1147>
+Barcode 0:
+ position 0.17523670608008624
+ std 0.00712276644550549
+ sem 0.0031065305971927923
+ weight 5.257098778640013
+ weight (normalized) 1.0
+
+<Molecules 1148>
+No barcode found
+
+<Molecules 1149>
+No barcode found
+
+<Molecules 1150>
+No barcode found
+
+<Molecules 1151>
+No barcode found
+
+<Molecules 1152>
+No barcode found
+
+<Molecules 1153>
+Barcode 0:
+ position 0.4192180956865353
+ std 0.0033586488606412493
+ sem 0.0017449246797031164
+ weight 3.70489439188191
+ weight (normalized) 1.0
+
+<Molecules 1154>
+No barcode found
+
+<Molecules 1155>
+No barcode found
+
+<Molecules 1156>
+No barcode found
+
+<Molecules 1157>
+Barcode 0:
+ position 0.0750006491700141
+ std 0.010604656194458623
+ sem 0.005902989145321067
+ weight 3.227373413561826
+ weight (normalized) 1.0
+
+<Molecules 1158>
+No barcode found
+
+<Molecules 1159>
+No barcode found
+
+<Molecules 1160>
+No barcode found
+
+<Molecules 1161>
+No barcode found
+
+<Molecules 1162>
+No barcode found
+
+<Molecules 1163>
+Barcode 0:
+ position -0.10756896202317552
+ std 0.0017320508075688774
+ sem 0.000999999999999999
+ weight 3.0000000000000067
+ weight (normalized) 0.42857142857142955
+Barcode 1:
+ position 0.6017003662934238
+ std 0.007183536558829996
+ sem 0.0035917682794149963
+ weight 4.000000000000004
+ weight (normalized) 0.5714285714285721
+
+<Molecules 1164>
+No barcode found
+
+<Molecules 1165>
+Barcode 0:
+ position -0.05445587525770091
+ std 0.013344488427200695
+ sem 0.009435978258339013
+ weight 2.000000000000002
+ weight (normalized) 0.28571428571428603
+Barcode 1:
+ position 0.5809273324099297
+ std 0.0020791794125902137
+ sem 0.0009298373007939592
+ weight 5.000000000000009
+ weight (normalized) 0.7142857142857155
+
+<Molecules 1166>
+No barcode found
+
+<Molecules 1167>
+Barcode 0:
+ position 0.45499983756883533
+ std 0.0020225120270626696
+ sem 0.0028405379010871612
+ weight 0.5069685854584265
+ weight (normalized) 1.0
+
+<Molecules 1168>
+No barcode found
+
+<Molecules 1169>
+Barcode 0:
+ position 0.9567540601711435
+ std 0.008790478897332983
+ sem 0.002652804865583806
+ weight 10.980306437336328
+ weight (normalized) 1.0
+
+<Molecules 1170>
+No barcode found
+
+<Molecules 1171>
+No barcode found
+
+<Molecules 1172>
+No barcode found
+
+<Molecules 1173>
+Barcode 0:
+ position 0.1702553633906848
+ std 0.0014142135623898982
+ sem 0.0010000000000118805
+ weight 2.000000000000005
+ weight (normalized) 1.0000000000000024
+
+<Molecules 1174>
+No barcode found
+
+<Molecules 1175>
+Barcode 0:
+ position 0.8817718863147843
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 1176>
+No barcode found
+
+<Molecules 1177>
+No barcode found
+
+<Molecules 1178>
+No barcode found
+
+<Molecules 1179>
+No barcode found
+
+<Molecules 1180>
+Barcode 0:
+ position 0.12499771649430659
+ std 0.002099273105652593
+ sem 0.0020463239777225354
+ weight 1.052420011944102
+ weight (normalized) 1.0
+
+<Molecules 1181>
+No barcode found
+
+<Molecules 1182>
+No barcode found
+
+<Molecules 1183>
+No barcode found
+
+<Molecules 1184>
+No barcode found
+
+<Molecules 1185>
+No barcode found
+
+<Molecules 1186>
+No barcode found
+
+<Molecules 1187>
+Barcode 0:
+ position 0.0468557671168036
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 1.0000000000000022
+
+<Molecules 1188>
+No barcode found
+
+<Molecules 1189>
+No barcode found
+
+<Molecules 1190>
+No barcode found
+
+<Molecules 1191>
+No barcode found
+
+<Molecules 1192>
+No barcode found
+
+<Molecules 1193>
+No barcode found
+
+<Molecules 1194>
+No barcode found
+
+<Molecules 1195>
+Barcode 0:
+ position -0.10631964600062078
+ std 0.015680537016639406
+ sem 0.007012549338581484
+ weight 5.000000000000012
+ weight (normalized) 0.6250000000000016
+Barcode 1:
+ position 0.02758562659173433
+ std 0.001
+ sem 0.0010000000000000018
+ weight 0.9999999999999964
+ weight (normalized) 0.12499999999999956
+Barcode 2:
+ position 0.7389214299455614
+ std 0.0020102119485292144
+ sem 0.0014214345004272299
+ weight 2.000000000000002
+ weight (normalized) 0.2500000000000003
+
+<Molecules 1196>
+No barcode found
+
+<Molecules 1197>
+No barcode found
+
+<Molecules 1198>
+No barcode found
+
+<Molecules 1199>
+No barcode found
+
+<Molecules 1200>
+No barcode found
+
+<Molecules 1201>
+No barcode found
+
+<Molecules 1202>
+Barcode 0:
+ position 0.23999999999999974
+ std 0.0034291083238294625
+ sem 0.0021737858067794624
+ weight 2.488449956371816
+ weight (normalized) 0.32254294582481463
+Barcode 1:
+ position 0.4381197066448067
+ std 0.008866415165923262
+ sem 0.003878256212004906
+ weight 5.226646555840818
+ weight (normalized) 0.6774570541751854
+
+<Molecules 1203>
+No barcode found
+
+<Molecules 1204>
+No barcode found
+
+<Molecules 1205>
+No barcode found
+
+<Molecules 1206>
+No barcode found
+
+<Molecules 1207>
+No barcode found
+
+<Molecules 1208>
+Barcode 0:
+ position -0.06580117682716452
+ std 0.003932171318963247
+ sem 0.0016053022187777774
+ weight 6.000000000000012
+ weight (normalized) 1.000000000000002
+
+<Molecules 1209>
+No barcode found
+
+<Molecules 1210>
+Barcode 0:
+ position -0.037450150525825246
+ std 0.002238411965792028
+ sem 0.0010010482634319807
+ weight 5.00000000000001
+ weight (normalized) 1.000000000000002
+
+<Molecules 1211>
+No barcode found
+
+<Molecules 1212>
+No barcode found
+
+<Molecules 1213>
+No barcode found
+
+<Molecules 1214>
+Barcode 0:
+ position -0.03420157164504116
+ std 0.002485143362328498
+ sem 0.0012425716811642479
+ weight 4.000000000000007
+ weight (normalized) 0.6666666666666679
+Barcode 1:
+ position 0.22793460546927974
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.16666666666666705
+Barcode 2:
+ position 0.8679551173651988
+ std 0.001
+ sem 0.000999999999999999
+ weight 1.0000000000000022
+ weight (normalized) 0.16666666666666705
+
+<Molecules 1215>
+No barcode found
+
+<Molecules 1216>
+No barcode found
+
+<Molecules 1217>
+No barcode found
+
+<Molecules 1218>
+Barcode 0:
+ position -0.02530987238707661
+ std 0.011065392639588844
+ sem 0.004517427628423556
+ weight 6.000000000000005
+ weight (normalized) 0.42857142857142894
+Barcode 1:
+ position 0.4394371301360391
+ std 0.014374567446739242
+ sem 0.005868304780088063
+ weight 6.000179554800097
+ weight (normalized) 0.4285842539142926
+
+<Molecules 1219>
+No barcode found
+
+<Molecules 1220>
+No barcode found
+
+<Molecules 1221>
+Barcode 0:
+ position 0.25104727268678045
+ std 0.01473776912281355
+ sem 0.005142334274936035
+ weight 8.213776640553224
+ weight (normalized) 1.0
+
+<Molecules 1222>
+No barcode found
+
+<Molecules 1223>
+No barcode found
+
+<Molecules 1224>
+No barcode found
+
+<Molecules 1225>
+No barcode found
+
+<Molecules 1226>
+Barcode 0:
+ position 0.49462306235168757
+ std 0.027646118535546396
+ sem 0.007612559471678562
+ weight 13.18885016996443
+ weight (normalized) 1.0
+
+<Molecules 1227>
+No barcode found
+
+<Molecules 1228>
+Barcode 0:
+ position -0.052672924523287604
+ std 0.0030471583088836113
+ sem 0.0013627306233734103
+ weight 5.000000000000007
+ weight (normalized) 0.7142857142857153
+Barcode 1:
+ position 0.2585160155484252
+ std 0.001414213562373095
+ sem 0.0009999999999999987
+ weight 2.0000000000000044
+ weight (normalized) 0.28571428571428636
+
+<Molecules 1229>
+No barcode found

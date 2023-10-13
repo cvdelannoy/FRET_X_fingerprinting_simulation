@@ -9,7 +9,7 @@ from time import sleep
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 sys.path.append(f'{__location__}/..')
-from helpers import get_neighbors, inNd, parse_input_dir, parse_output_dir, aa_dict, aa_dict_31, generate_pdb, get_cm, rotmats, get_pairs_mat
+from helpers import get_neighbors, inNd, parse_input_dir, parse_output_dir, aa_dict, aa_dict_31, generate_pdb, get_cm, rotmats, get_pairs_mat, get_reactive_aa
 from LatticeModelComparison import LatticeModelComparison
 
 # --- Relevant lattice distances ---
@@ -214,6 +214,7 @@ if args.cm_type == 'ca':
 pdb_list = parse_input_dir(args.in_dir, pattern='*.pdb')
 out_dir = parse_output_dir(args.out_dir, clean=False)
 npz_dir = parse_output_dir(out_dir + 'npz')
+propka_dir = parse_output_dir(out_dir + 'propka')
 cm_dir = parse_output_dir(out_dir + 'cm')
 pdb_lat_dir = parse_output_dir(out_dir + 'pdb_lat')
 
@@ -421,12 +422,20 @@ for pdb_fn in pdb_list:
                 mut_idx, new_resn = int(mutation[:-1]), mutation[-1]
                 resname_list[mut_idx] = aa_dict[new_resn]
 
+        # Generate propka reactivity information
+        propka_df = get_reactive_aa(pdb_fn, save=False)
+        print(propka_df)
+        propka_df.residue_id = propka_df.residue_id.apply(lambda x: resi2idx_dict[x])  # model resis and pdb resis do not always align
+        propka_df.to_csv(f'{propka_dir}{pdb_id}_propka.csv')
+
+
         # Save
         atr = args.acc_tagged_resi if args.acc_tagged_resi != -1 else len(ca_array_lat) - 1
         np.savez(f'{npz_dir}{pdb_id}_lat.npz',
                  coords=ca_array_lat[:, :3],
                  sequence=np.array([aa_dict_31[aa] for aa in resname_list]),
                  secondary_structure=ss_df,
+                 propka=propka_df.loc[:, ('residue_id', 'reactivity', 'pKa', 'buried')].copy(),
                  acc_tagged_resi=atr
                  )
 
@@ -449,6 +458,8 @@ for pdb_fn in pdb_list:
         # Save
         with open(f'{pdb_lat_dir}{pdb_id}_lat.pdb', 'w') as fh:
             fh.write(pdb_txt)
+
+
     except Exception as e:
         print(f'Conversion failed for {pdb_id}: line {e.__traceback__.tb_lineno}, {e}')
         traceback.print_exc()

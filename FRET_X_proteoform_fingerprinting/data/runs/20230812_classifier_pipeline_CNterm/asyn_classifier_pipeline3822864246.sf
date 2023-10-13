@@ -1,0 +1,34 @@
+import sys
+sys.path.append("/home/carlos/PycharmProjects/FRET_X_fingerprinting_simulation/asyn_classifier")
+from asyn_classifier_train import main as asyn_classifier_train
+import pandas as pd
+import re
+
+work_dir = '/home/carlos/local_data/FRET_X_fingerprinting_simulation/20230803_asyn_classifier/runs/20230812_classifier_pipeline_CNterm/'
+folds_dir = '/home/carlos/local_data/FRET_X_fingerprinting_simulation/20230803_asyn_classifier/runs/20230812_classifier_pipeline_CNterm/folds/'
+nb_folds = int('10')
+regex = "[A-Z][0-9]+[A-Z](?=.txt)"
+
+rule target:
+    input:
+        pred_csv=expand('/home/carlos/local_data/FRET_X_fingerprinting_simulation/20230803_asyn_classifier/runs/20230812_classifier_pipeline_CNterm/folds/{fold}/asyn_test_predicted_{fold}.csv', fold=range(nb_folds))
+    output:
+        out_csv='/home/carlos/local_data/FRET_X_fingerprinting_simulation/20230803_asyn_classifier/runs/20230812_classifier_pipeline_CNterm/asyn_test_predicted_all.csv'
+    run:
+        df_list = []
+        for fn in input.pred_csv:
+            sdf = pd.read_csv(fn)
+            sdf.loc[:, 'fold'] = int(re.search('[0-9]+(?=.csv)', fn).group(0))
+            df_list.append(sdf)
+        concat_df = pd.concat(df_list)
+        concat_df.reset_index(inplace=True, drop=True)
+        concat_df.to_csv(output.out_csv)
+
+
+rule train:
+    input:
+        fold_dir='/home/carlos/local_data/FRET_X_fingerprinting_simulation/20230803_asyn_classifier/runs/20230812_classifier_pipeline_CNterm/folds/{fold}'
+    output:
+        pred_csv='/home/carlos/local_data/FRET_X_fingerprinting_simulation/20230803_asyn_classifier/runs/20230812_classifier_pipeline_CNterm/folds/{fold}/asyn_test_predicted_{fold}.csv'
+    run:
+        asyn_classifier_train(input.fold_dir + '/train', input.fold_dir + '/test', output.pred_csv, regex)
